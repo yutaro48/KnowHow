@@ -26,6 +26,15 @@ gem 'binding_of_caller'
 gem 'annotate'
 gem 'hamlit'
 
+gem 'devise'
+
+# Deviseの日本語化をするため
+gem 'rails-i18n', '~> 6.0'
+gem 'devise-i18n'
+
+# Bootstrapを導入するため
+gem 'devise-bootstrap-views', '~> 1.0'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
