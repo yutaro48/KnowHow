@@ -1,5 +1,6 @@
 .container-fluid.py-4.mw-md
   %h1= t('.sign_in')
+  = render 'layouts/flash_messages'
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-group
       = f.label :email
