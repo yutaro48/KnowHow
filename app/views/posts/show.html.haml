@@ -22,7 +22,7 @@
       .content
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"}
-            タイトルを表示
+            = @post.title
         .sub.header
           %font{:style => "vertical-align: inherit;"}
             %font{:style => "vertical-align: inherit;"} yutaroが2021年1月3日にアウトプット
@@ -38,6 +38,7 @@
             %font{:style => "vertical-align: inherit;"}
               14
     %br/
-    %p 内容を表示
+    %p 
+      = @post.content
 
 
