@@ -26,15 +26,18 @@
 
 
   .ui.segment
-    .ui.relaxed.divided.list
-      = link_to posts_path, class: 'item' do
-        %i.large.book.middle.aligned.icon
-        .content
-          .header
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} 特価申請で良い特価を引き出す方法
-          .description
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} 10分前に更新
+    - @posts.each do |post|
+      .ui.relaxed.divided.list
+        = link_to posts_path, class: 'item' do
+          %i.large.book.middle.aligned.icon
+          .content
+            .header
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"} 
+                  = post.title
+            .description
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"} 10分前に更新
+      %hr/
 
   = render 'layouts/flash_messages'
