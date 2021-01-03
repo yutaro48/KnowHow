@@ -26,6 +26,7 @@ gem 'binding_of_caller'
 gem 'annotate'
 gem 'hamlit'
 gem 'semantic-ui-sass'
+gem 'faker'
 
 gem 'devise'
 

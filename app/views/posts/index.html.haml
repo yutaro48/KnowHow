@@ -1,1 +1,66 @@
-= render 'layouts/flash_messages'
+= render 'commons/leftsidebar'
+= render 'commons/rightsidebar'
+
+.wide
+  .ui.pointing.menu
+    .item
+      ノウハウ一覧
+    .item
+      = render 'layouts/header'
+    -#   %font{:style => "vertical-align: inherit;"}
+    -#     %font{:style => "vertical-align: inherit;"}
+    -#       ホーム
+    -# %a.item
+    -#   %font{:style => "vertical-align: inherit;"}
+    -#     %font{:style => "vertical-align: inherit;"}
+    -#       メッセージ
+    -# %a.item
+    -#   %font{:style => "vertical-align: inherit;"}
+    -#     %font{:style => "vertical-align: inherit;"}
+    -#       友達
+    .right.menu
+      .item
+        .ui.transparent.icon.input
+          %input{:placeholder => "検索", :type => "text"}/
+          %i.search.link.icon
+
+  = render 'layouts/flash_messages'
+
+
+  .ui.segment
+    - @posts.each do |post|
+      .ui.relaxed.divided.list
+        = link_to posts_path, class: 'item' do
+          %i.large.book.middle.aligned.icon
+          .content
+            .header
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"} 
+                  = post.title
+            .description
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"} 10分前に更新
+      %hr/
+
+    .pagenation_block  
+      .ui.pagination.menu
+        %a.active.item
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"}
+              1
+        .disabled.item
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"}
+              \..。
+        %a.item
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"}
+              10
+        %a.item
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"}
+              11
+        %a.item
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"}
+              12
