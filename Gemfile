@@ -25,6 +25,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'annotate'
 gem 'hamlit'
+gem 'semantic-ui-sass'
 
 gem 'devise'
 
