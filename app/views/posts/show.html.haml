@@ -1,0 +1,43 @@
+= render 'commons/leftsidebar'
+
+.wide_show
+  .ui.menu
+    %a.item
+      %i.angle.left.icon
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"} もどる
+    .right.menu
+      %a.item
+        %i.edit.icon
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} 編集
+      %a.item
+        %i.eraser.icon
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} 削除
+
+  .ui.raised.segment
+    %h2.ui.header
+      %i.book.icon
+      .content
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"}
+            タイトルを表示
+        .sub.header
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"} yutaroが2021年1月3日にアウトプット
+    .div
+      .ui.labeled.button{:tabindex => "0"}
+        .ui.primary.button
+          %i.bookmark.icon
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"}
+              ブックマーク
+        %p.ui.basic.label
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"}
+              14
+    %br/
+    %p 内容を表示
+
+
