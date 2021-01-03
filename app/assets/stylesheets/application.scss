@@ -16,6 +16,8 @@
 
 @import "bootstrap/scss/bootstrap";
 @import "semantic-ui";
+@import "posts";
+@import "sidebar";
 
 .mw-md {
     max-width: 576px;
@@ -28,3 +30,9 @@
 .alert-alert {
     @extend .alert-danger;
   }
+
+
+body {
+    font-family: Tsukushi A Round Gothic !important;
+    height: 100vh;
+}
