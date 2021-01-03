@@ -24,6 +24,8 @@
           %input{:placeholder => "検索", :type => "text"}/
           %i.search.link.icon
 
+  = render 'layouts/flash_messages'
+
 
   .ui.segment
     - @posts.each do |post|
@@ -62,6 +64,3 @@
           %font{:style => "vertical-align: inherit;"}
             %font{:style => "vertical-align: inherit;"}
               12
-
-
-  = render 'layouts/flash_messages'
