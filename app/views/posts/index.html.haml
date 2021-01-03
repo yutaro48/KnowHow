@@ -1,1 +1,40 @@
-= render 'layouts/flash_messages'
+= render 'commons/leftsidebar'
+= render 'commons/rightsidebar'
+
+.wide
+  .ui.pointing.menu
+    .item
+      ノウハウ一覧
+    .item
+      = render 'layouts/header'
+    -#   %font{:style => "vertical-align: inherit;"}
+    -#     %font{:style => "vertical-align: inherit;"}
+    -#       ホーム
+    -# %a.item
+    -#   %font{:style => "vertical-align: inherit;"}
+    -#     %font{:style => "vertical-align: inherit;"}
+    -#       メッセージ
+    -# %a.item
+    -#   %font{:style => "vertical-align: inherit;"}
+    -#     %font{:style => "vertical-align: inherit;"}
+    -#       友達
+    .right.menu
+      .item
+        .ui.transparent.icon.input
+          %input{:placeholder => "検索", :type => "text"}/
+          %i.search.link.icon
+
+
+  .ui.segment
+    .ui.relaxed.divided.list
+      = link_to posts_path, class: 'item' do
+        %i.large.book.middle.aligned.icon
+        .content
+          .header
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"} 特価申請で良い特価を引き出す方法
+          .description
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"} 10分前に更新
+
+  = render 'layouts/flash_messages'
