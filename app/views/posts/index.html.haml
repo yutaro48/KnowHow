@@ -30,7 +30,7 @@
   .ui.segment
     - @posts.each do |post|
       .ui.relaxed.divided.list
-        = link_to posts_path, class: 'item' do
+        = link_to post_path(id: post.id), class: 'item' do
           %i.large.book.middle.aligned.icon
           .content
             .header
