@@ -15,4 +15,6 @@
           = resource.class.human_attribute_name('remember_me')
     .form-group
       = f.submit  t('.sign_in'), class: 'btn btn-primary btn-block'
+      %br/
+      = link_to 'アカウントを登録せずに機能を試したい方はこちら', users_guest_sign_in_path, class: 'btn btn-primary btn-block', method: :post
   = render 'devise/shared/links'
