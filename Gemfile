@@ -28,6 +28,10 @@ gem 'hamlit'
 gem 'semantic-ui-sass'
 gem 'faker'
 
+#MarkDown記法を実装するため
+gem 'redcarpet'
+gem 'coderay' 
+
 gem 'devise'
 
 # Deviseの日本語化をするため
