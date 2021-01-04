@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show, :edit]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -20,6 +20,9 @@ class PostsController < ApplicationController
         flash.now[:error] = 'アウトプットできませんでした'
         render :new
     end
+  end
+
+  def edit
   end
 
   private
