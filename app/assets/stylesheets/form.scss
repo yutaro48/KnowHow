@@ -1,0 +1,29 @@
+.padding_tb {
+    padding: 10px 0 !important;
+}
+
+.right {
+    text-align: right;
+}
+
+.form {
+    &_height {
+        height: 90vh !important;
+    }
+}
+
+.text {
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    padding: 5px 5px;
+}
+
+.height {
+    height: 550px;
+}
+
+.padding_setting {
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+}
