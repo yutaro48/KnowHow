@@ -1,4 +1,4 @@
-.container
+.form_container
   %ul
     - @post.errors.full_messages.each do |message|
       %li= message
@@ -19,7 +19,7 @@
             = f.text_field :title, placeholder: 'タイトルを入力', class: 'text'
           %hr/
           %div
-            = f.text_area :content, placeholder: '内容を入力', class: 'text text_height'
+            = f.rich_text_area :content, placeholder: '内容を入力', class: 'text text_height'
           %div.right
             = f.submit '更新する', class: 'ui primary button'
       .ui.raised.segment.column
