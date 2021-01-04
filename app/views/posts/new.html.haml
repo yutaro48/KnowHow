@@ -1,4 +1,8 @@
 .container
+  %ul
+    - @post.errors.full_messages.each do |message|
+      %li= message
+
   .padding_tb
     = link_to :back do
       %button.ui.basic.button
@@ -15,7 +19,7 @@
             = f.text_field :title, placeholder: 'タイトルを入力', class: 'text'
           %hr/
           %div
-            = f.text_area :content, placeholder: '内容を入力', class: 'text height'
+            = f.text_area :content, placeholder: '内容を入力', class: 'text text_height'
           %div.right
             = f.submit 'アウトプットする', class: 'ui primary button'
       .ui.raised.segment.column
