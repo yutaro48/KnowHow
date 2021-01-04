@@ -10,6 +10,10 @@
     &_height {
         height: 90vh !important;
     }
+
+    &_container {
+        margin: 0 40px;
+    }
 }
 
 .text {
@@ -19,7 +23,8 @@
     padding: 5px 5px;
 
     &_height {
-        height: 550px;
+        height: 500px;
+        text-align: left;
     }
 }
 
