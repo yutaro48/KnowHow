@@ -1,9 +1,10 @@
 .ui.left.fixed.vertical.menu
   %p.height
-  .button_01
-    %button.ui.blue.button
-      %i.icon.pencil.alternate
-      アウトプットする
+  = link_to new_post_path do
+    .button_01
+      %button.ui.blue.button
+        %i.icon.pencil.alternate
+        アウトプットする
   = link_to posts_path, class: 'item' do
     %p.small ノウハウ一覧
   %a.item
