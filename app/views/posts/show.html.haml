@@ -11,7 +11,7 @@
         %i.edit.icon
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} 編集
-      %a.item
+      = link_to post_path(@post), data: { method: 'delete', confirm: '本当に削除してもいいですか？' }, class: 'item' do
         %i.eraser.icon
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} 削除

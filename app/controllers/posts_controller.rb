@@ -34,6 +34,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy!
+    redirect_to root_path, notice: 'ノウハウを削除しました。'
+  end
+
   private
   def set_post
     @post = Post.find(params[:id])
