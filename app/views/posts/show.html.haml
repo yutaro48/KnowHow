@@ -96,10 +96,10 @@
       %form.ui.reply.form
         .field
           %textarea
-        .ui.blue.labeled.submit.icon.button
-          %i.icon.edit
-          %font{:style => "vertical-align: inherit;"}
+        = link_to new_post_comment_path(@post) do
+          .ui.blue.labeled.submit.icon.button
+            %i.icon.edit
             %font{:style => "vertical-align: inherit;"}
-              コメントを追加
-
-
+              %font{:style => "vertical-align: inherit;"}
+                コメントを追加
+                
