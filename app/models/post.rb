@@ -14,6 +14,8 @@
 #
 class Post < ApplicationRecord
   has_rich_text :content
+  
+  belongs_to :user
 
   validates :title, presence: true
   validates :title, length: { minimum: 2, maximum: 30 }
