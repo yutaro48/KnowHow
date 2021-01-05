@@ -16,6 +16,7 @@ class Post < ApplicationRecord
   has_rich_text :content
   
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true
   validates :title, length: { minimum: 2, maximum: 30 }
