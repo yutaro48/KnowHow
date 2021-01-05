@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -23,9 +23,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = current_user.posts.find(params[:id])
   end
 
   def update
+    @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
         redirect_to post_path(@post), notice: '更新しました。'
     else
