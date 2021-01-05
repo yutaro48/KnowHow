@@ -29,4 +29,8 @@ class User < ApplicationRecord
   end
 
   has_many :posts, dependent: :destroy
+
+  def has_outputted?(post)
+    posts.exists?(id: post.id)
+  end
 end
