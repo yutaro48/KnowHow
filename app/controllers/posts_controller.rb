@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -9,11 +10,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
         redirect_to post_path(@post), notice: 'アウトプットしました。'
     else
@@ -23,9 +24,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = current_user.posts.find(params[:id])
   end
 
   def update
+    @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
         redirect_to post_path(@post), notice: '更新しました。'
     else
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
+    post = current_user.posts.find(params[:id])
     post.destroy!
     redirect_to root_path, notice: 'ノウハウを削除しました。'
   end

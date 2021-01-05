@@ -27,4 +27,14 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
+
+  has_many :posts, dependent: :destroy
+
+  def has_outputted?(post)
+    posts.exists?(id: post.id)
+  end
+
+  def display_name
+    self.email.split('@').first
+  end
 end

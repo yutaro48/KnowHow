@@ -15,7 +15,8 @@
   %p.middle
   %a.item
     = image_tag 'default-avatar.png', class: 'ui avatar image'
-    %span Username
+    - if user.present?
+      %span= user.display_name
   %a.item
     .ui.small.blue.label 1
     %p.small アウトプット一覧

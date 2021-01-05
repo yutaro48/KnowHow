@@ -1,4 +1,4 @@
-= render 'commons/leftsidebar'
+= render 'commons/leftsidebar', user: current_user
 
 .wide_show
   .ui.menu
@@ -6,15 +6,16 @@
       %i.angle.left.icon
       %font{:style => "vertical-align: inherit;"}
         %font{:style => "vertical-align: inherit;"} もどる
-    .right.menu
-      = link_to edit_post_path(@post), class: 'item' do
-        %i.edit.icon
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} 編集
-      = link_to post_path(@post), data: { method: 'delete', confirm: '本当に削除してもいいですか？' }, class: 'item' do
-        %i.eraser.icon
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} 削除
+    - if user_signed_in? && current_user.has_outputted?(@post)
+      .right.menu
+        = link_to edit_post_path(@post), class: 'item' do
+          %i.edit.icon
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"} 編集
+        = link_to post_path(@post), data: { method: 'delete', confirm: '本当に削除してもいいですか？' }, class: 'item' do
+          %i.eraser.icon
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"} 削除
 
   .ui.raised.segment
     %h2.ui.header
@@ -25,7 +26,7 @@
             = @post.title
         .sub.header
           %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"} yutaroが2021年1月3日にアウトプット
+            %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が2021年1月3日にアウトプット
     .div
       .ui.labeled.button{:tabindex => "0"}
         .ui.primary.button
