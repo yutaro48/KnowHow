@@ -33,4 +33,8 @@ class User < ApplicationRecord
   def has_outputted?(post)
     posts.exists?(id: post.id)
   end
+
+  def display_name
+    self.email.split('@').first
+  end
 end
