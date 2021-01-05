@@ -1,4 +1,4 @@
-= render 'commons/leftsidebar'
+= render 'commons/leftsidebar', user: current_user
 
 .wide_show
   .ui.menu
@@ -26,7 +26,7 @@
             = @post.title
         .sub.header
           %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"} yutaroが2021年1月3日にアウトプット
+            %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が2021年1月3日にアウトプット
     .div
       .ui.labeled.button{:tabindex => "0"}
         .ui.primary.button
