@@ -12,7 +12,7 @@
 
   = form_with(model: @comment, url: post_comments_path(@comment.post), local: true) do |f|
     %div
-      = f.label :comment, 'コメント（仮）'
+      = f.label :content, 'コメント（仮）'
     %div
-      = f.text_area :comment
+      = f.text_area :content
     = f.submit '保存', class: 'ui primary button'
