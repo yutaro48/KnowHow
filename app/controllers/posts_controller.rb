@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = @post.comments.order(created_at: :desc)
   end
 
   def new
@@ -16,10 +17,10 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-        redirect_to post_path(@post), notice: 'アウトプットしました。'
+      redirect_to post_path(@post), notice: 'アウトプットしました。'
     else
-        flash.now[:error] = 'アウトプットできませんでした。'
-        render :new
+      flash.now[:error] = 'アウトプットできませんでした。'
+      render :new
     end
   end
 
@@ -30,10 +31,10 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-        redirect_to post_path(@post), notice: '更新しました。'
+      redirect_to post_path(@post), notice: '更新しました。'
     else
-        flash.now[:error] = '更新できませんでした。'
-        render :edit
+      flash.now[:error] = '更新できませんでした。'
+      render :edit
     end
   end
 

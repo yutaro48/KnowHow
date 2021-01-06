@@ -48,58 +48,58 @@
       %h3.ui.dividing.header
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} コメント
-      .comment
-        %a.ui.avatar.image
-          = image_tag 'default-avatar.png'
-        .content
-          %a.author
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} ユーザ１
-          .metadata
-            %span.date
+      - @comments.each do |comment|
+        .comment
+          %a.ui.avatar.image
+            = image_tag 'default-avatar.png'
+          .content
+            %a.author
               %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"} 今日の午後5時42分
-          .text
-            %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"} ユーザ１
+            .metadata
+              %span.date
+                %font{:style => "vertical-align: inherit;"}
+                  %font{:style => "vertical-align: inherit;"} 今日の午後5時42分
+            .text
               %font{:style => "vertical-align: inherit;"}
-                作成過程を撮影
-      .comment
-        %a.ui.avatar.image
-          = image_tag 'default-avatar.png'
-        .content
-          %a.author
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} ユーザ２
-          .metadata
-            %span.date
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"} 昨日の午前12時30分
-          .text
-            %p
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"} コメントテスト１
-      .comment
-        %a.ui.avatar.image
-          = image_tag 'default-avatar.png'
-        .content
-          %a.author
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} ユーザ３
-          .metadata
-            %span.date
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"} 5日前
-          .text
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} コメントテスト２
+                %font{:style => "vertical-align: inherit;"}
+                  = comment.content
+      -# .comment
+      -#   %a.ui.avatar.image
+      -#     = image_tag 'default-avatar.png'
+      -#   .content
+      -#     %a.author
+      -#       %font{:style => "vertical-align: inherit;"}
+      -#         %font{:style => "vertical-align: inherit;"} ユーザ２
+      -#     .metadata
+      -#       %span.date
+      -#         %font{:style => "vertical-align: inherit;"}
+      -#           %font{:style => "vertical-align: inherit;"} 昨日の午前12時30分
+      -#     .text
+      -#       %p
+      -#         %font{:style => "vertical-align: inherit;"}
+      -#           %font{:style => "vertical-align: inherit;"} コメントテスト１
+      -# .comment
+      -#   %a.ui.avatar.image
+      -#     = image_tag 'default-avatar.png'
+      -#   .content
+      -#     %a.author
+      -#       %font{:style => "vertical-align: inherit;"}
+      -#         %font{:style => "vertical-align: inherit;"} ユーザ３
+      -#     .metadata
+      -#       %span.date
+      -#         %font{:style => "vertical-align: inherit;"}
+      -#           %font{:style => "vertical-align: inherit;"} 5日前
+      -#     .text
+      -#       %font{:style => "vertical-align: inherit;"}
+      -#         %font{:style => "vertical-align: inherit;"} コメントテスト２
       %br/
       %form.ui.reply.form
         .field
           %textarea
-        .ui.blue.labeled.submit.icon.button
-          %i.icon.edit
-          %font{:style => "vertical-align: inherit;"}
+        = link_to new_post_comment_path(@post) do
+          .ui.blue.labeled.submit.icon.button
+            %i.icon.edit
             %font{:style => "vertical-align: inherit;"}
-              コメントを追加
-
-
+              %font{:style => "vertical-align: inherit;"}
+                コメントを追加
