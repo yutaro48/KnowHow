@@ -13,7 +13,7 @@
     %p.small ユーザ一覧
 
   %p.middle
-  %a.item
+  = link_to profile_path, class: 'item' do
     = image_tag 'default-avatar.png', class: 'ui avatar image'
     - if user.present?
       %span= user.display_name
