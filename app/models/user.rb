@@ -31,6 +31,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_one :profile, dependent: :destroy
 
+  delegate :birthday, :gender, :phone, :email, :join, to: :profile, allow_nil: true
+
   def has_outputted?(post)
     posts.exists?(id: post.id)
   end
