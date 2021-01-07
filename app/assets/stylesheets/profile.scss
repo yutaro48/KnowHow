@@ -1,0 +1,15 @@
+.profile {
+    &_content {
+        margin: 30px 150px;
+    }
+
+    &_description {
+        margin-top: 30px !important;
+        padding: 90px !important;
+
+        &_right {
+            margin-left: 50px !important;
+            padding: 20px !important;
+        }
+    }
+}
