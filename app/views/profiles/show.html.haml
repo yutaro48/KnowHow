@@ -57,8 +57,9 @@
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} guest@email.com
         
-    .ui.blue.labeled.submit.icon.button.right.floated
-      %i.icon.edit
-      %font{:style => "vertical-align: inherit;"}
+    = link_to edit_profile_path do
+      .ui.blue.labeled.submit.icon.button.right.floated
+        %i.icon.edit
         %font{:style => "vertical-align: inherit;"}
-          編集する
+          %font{:style => "vertical-align: inherit;"}
+            編集する
