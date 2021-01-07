@@ -30,32 +30,32 @@
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【名前】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} 田中 太郎
+              %font{:style => "vertical-align: inherit;"}= current_user.display_name
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【年齢】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} 24歳
+              %font{:style => "vertical-align: inherit;"}= current_user.birthday
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【性別】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} 男
+              %font{:style => "vertical-align: inherit;"}= current_user.gender
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【在籍年数】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} 1年目
+              %font{:style => "vertical-align: inherit;"}= current_user.join
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【電話番号】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} 080-0000-0000
+              %font{:style => "vertical-align: inherit;"}= current_user.phone
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【メールアドレス】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} guest@email.com
+              %font{:style => "vertical-align: inherit;"}= current_user.email
         
     = link_to edit_profile_path do
       .ui.blue.labeled.submit.icon.button.right.floated
