@@ -24,7 +24,7 @@
       %div
         = f.label :gender, '性別'
       %div
-        = f.select :gender, Profile.genders.keys, {}, { class: '' }
+        = f.select :gender, Profile.genders.map { |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, {}, { class: '' }
       %div
         = f.label :join, '入社年月日'
       %div
