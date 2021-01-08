@@ -1,4 +1,4 @@
-class Bookmarked_postsController < ApplicationController
+class BookmarkedPostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
