@@ -39,8 +39,7 @@
                   ブックマーク済
             %p.ui.basic.label.opacity
               %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  14
+                %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
           - else
             = link_to post_bookmark_path(@post), data: { method: 'post' }, class: 'ui primary button' do
               %i.bookmark.icon
@@ -49,8 +48,7 @@
                   ブックマーク
             %p.ui.basic.label
               %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  14
+                %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
       %br/
       %p 
         = @post.content
