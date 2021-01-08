@@ -52,4 +52,8 @@ class User < ApplicationRecord
       'default-avatar.png'
     end
   end
+
+  def posts_count
+    posts.count
+  end
 end
