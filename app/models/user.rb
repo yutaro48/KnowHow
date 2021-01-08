@@ -57,4 +57,8 @@ class User < ApplicationRecord
   def posts_count
     posts.count
   end
+
+  def has_bookmarked?(post)
+    bookmarks.exists?(post_id: post.id)
+  end
 end
