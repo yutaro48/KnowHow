@@ -12,7 +12,7 @@
   = link_to outputs_path, class: 'item' do
     .ui.small.blue.label= current_user.posts_count
     %p.small マイアウトプット
-  %a.item
+  = link_to bookmarked_posts_path, class: 'item' do
     .ui.small.blue.label 51
     %p.small ブックマーク
   %a.item
