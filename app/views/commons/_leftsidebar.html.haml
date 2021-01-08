@@ -10,7 +10,7 @@
     - if user.present?
       %span= user.display_name
   = link_to outputs_path, class: 'item' do
-    .ui.small.blue.label 1
+    .ui.small.blue.label= current_user.posts_count
     %p.small マイアウトプット
   %a.item
     .ui.small.blue.label 51
