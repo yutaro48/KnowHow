@@ -31,6 +31,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_posts, through: :bookmarks, source: :post
 
   delegate :birthday, :age, :join_age, :gender, :phone, :mail, :join, to: :profile, allow_nil: true
 
