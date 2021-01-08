@@ -29,12 +29,27 @@ class User < ApplicationRecord
   end
 
   has_many :posts, dependent: :destroy
+  has_one :profile, dependent: :destroy
+
+  delegate :birthday, :age, :join_age, :gender, :phone, :email, :join, to: :profile, allow_nil: true
 
   def has_outputted?(post)
     posts.exists?(id: post.id)
   end
 
   def display_name
-    self.email.split('@').first
+    profile&.name || self.email.split('@').first
+  end
+
+  def prepare_profile
+    profile || build_profile
+  end
+
+  def avatar_image
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      'default-avatar.png'
+    end
   end
 end
