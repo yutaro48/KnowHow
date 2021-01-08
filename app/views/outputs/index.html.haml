@@ -12,6 +12,10 @@
           %input{:placeholder => "検索", :type => "text"}/
           %i.search.link.icon
   .wide_show_content
+    .ui.one.item.menu
+      %p.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} マイアウトプット
     - @posts.each do |post|
       .ui.segment
         %p.ui.ribbon.blue.label username 
