@@ -8,10 +8,11 @@ a {
 }
 
 .wide {
-    margin: 0 209px !important;
-
     &_show {
         margin-left: 209px !important;
+        &_content {
+            margin: 0 200px;
+        }
     }
 }
 
