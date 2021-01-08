@@ -20,8 +20,8 @@
 
     - @posts.each do |post|
       .ui.segment
-        %a.ui.ribbon.label username
-        .ui.relaxed.divided.list
+        %p.ui.ribbon.blue.label username 
+        .ui.relaxed.divided.list        
           = link_to post_path(id: post.id), class: 'item' do
             %i.large.book.middle.aligned.icon
             .content
