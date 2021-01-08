@@ -31,7 +31,7 @@
               %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が2021年1月3日にアウトプット
       .div
         .ui.labeled.button{:tabindex => "0"}
-          .ui.primary.button
+          = link_to post_bookmark_path(@post), data: { method: 'post' }, class: 'ui primary button' do
             %i.bookmark.icon
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
