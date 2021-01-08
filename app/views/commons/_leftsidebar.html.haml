@@ -5,24 +5,26 @@
       %button.ui.blue.button
         %i.icon.pencil.alternate
         アウトプットする
-  = link_to posts_path, class: 'item' do
-    %p.small ノウハウ一覧
-  %a.item
-    %p.small タイムライン
-  %a.item
-    %p.small ユーザ一覧
-
-  %p.middle
   = link_to profile_path, class: 'item' do
     = image_tag 'default-avatar.png', class: 'ui avatar image'
     - if user.present?
       %span= user.display_name
   %a.item
     .ui.small.blue.label 1
-    %p.small アウトプット一覧
+    %p.small マイアウトプット
   %a.item
     .ui.small.blue.label 51
     %p.small ブックマーク
   %a.item
     .ui.small.blue.label 1
     %p.small 下書き
+  - if user_signed_in?
+    = link_to edit_user_registration_path, class: 'item' do
+      %p.small アカウント編集
+    = link_to destroy_user_session_path, method: :delete, class: 'item' do
+      %p.small ログアウト
+  - else
+    = link_to new_user_registration_path, class: 'item' do
+      %p.small 新規登録
+    = link_to new_user_session_path, class: 'item' do
+      %p.small ログイン

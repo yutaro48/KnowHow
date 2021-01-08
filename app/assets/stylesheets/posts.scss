@@ -1,17 +1,13 @@
-.contents {
-    margin-left: 144px;
-    height: 100vh;
-}
-
 a {
     text-decoration: none  !important; 
 }
 
 .wide {
-    margin: 0 209px !important;
-
     &_show {
         margin-left: 209px !important;
+        &_content {
+            margin: 0 200px;
+        }
     }
 }
 

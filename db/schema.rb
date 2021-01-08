@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_055824) do
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
-    t.string "email"
+    t.string "mail"
     t.string "phone"
     t.integer "gender"
     t.date "birthday"

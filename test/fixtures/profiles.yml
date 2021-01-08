@@ -4,9 +4,9 @@
 #
 #  id         :bigint           not null, primary key
 #  birthday   :date
-#  email      :string
 #  gender     :integer
 #  join       :date
+#  mail       :string
 #  name       :string
 #  phone      :string
 #  created_at :datetime         not null
