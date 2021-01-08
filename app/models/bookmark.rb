@@ -14,4 +14,6 @@
 #  index_bookmarks_on_user_id  (user_id)
 #
 class Bookmark < ApplicationRecord
+  belongs_to :user
+  belongs_to :post
 end
