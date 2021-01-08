@@ -1,0 +1,28 @@
+= render 'commons/leftsidebar', user: current_user
+
+.wide_show
+  .ui.pointing.menu
+    = link_to posts_path, class: 'item' do
+      %i.angle.left.icon
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"} 一覧へ戻る
+    .right.menu
+      .item
+        .ui.transparent.icon.input
+          %input{:placeholder => "検索", :type => "text"}/
+          %i.search.link.icon
+  .wide_show_content
+    - @posts.each do |post|
+      .ui.segment
+        %p.ui.ribbon.blue.label username 
+        .ui.relaxed.divided.list        
+          = link_to post_path(id: post.id), class: 'item' do
+            %i.large.book.middle.aligned.icon
+            .content
+              .header
+                %font{:style => "vertical-align: inherit;"}
+                  %font{:style => "vertical-align: inherit;"} 
+                    = post.title
+              .description
+                %font{:style => "vertical-align: inherit;"}
+                  %font{:style => "vertical-align: inherit;"} 10分前に更新
