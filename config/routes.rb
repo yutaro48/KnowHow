@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:show, :edit, :update]
+  resources :outputs, only: [:index]
 
 end

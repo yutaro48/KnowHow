@@ -9,8 +9,8 @@
     = image_tag 'default-avatar.png', class: 'ui avatar image'
     - if user.present?
       %span= user.display_name
-  %a.item
-    .ui.small.blue.label 1
+  = link_to outputs_path, class: 'item' do
+    .ui.small.blue.label= current_user.posts_count
     %p.small マイアウトプット
   %a.item
     .ui.small.blue.label 51
