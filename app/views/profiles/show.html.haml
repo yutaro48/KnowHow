@@ -40,7 +40,7 @@
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【性別】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= current_user.gender
+              %font{:style => "vertical-align: inherit;"}= I18n.t("enum.genders.#{current_user.gender}")
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【在籍年数】
