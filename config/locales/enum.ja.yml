@@ -3,4 +3,4 @@ ja:
     genders:
       male: '男性'
       female: '女性'
-      others: 'その他'
+      other: 'その他'
