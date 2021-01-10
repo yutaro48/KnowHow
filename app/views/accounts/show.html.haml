@@ -26,11 +26,12 @@
         .profile_description_left
           = image_tag @user.avatar_image, class: 'ui small image'
           -if @user != current_user
-            %button.ui.primary.button.tac
-              %i.ui.user.plus.icon
-              %font{:style => "vertical-align: inherit;"}
+            = link_to account_follows_path(user), data: { method: 'post' } do
+              %button.ui.primary.button.tac
+                %i.ui.user.plus.icon
                 %font{:style => "vertical-align: inherit;"}
-                  フォローする
+                  %font{:style => "vertical-align: inherit;"}
+                    フォローする
 
         .profile_description_right.ui.segment
           .div
