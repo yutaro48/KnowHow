@@ -31,7 +31,7 @@
                     = post.title
               .description
                 %font{:style => "vertical-align: inherit;"}
-                  %font{:style => "vertical-align: inherit;"} 10分前に更新
+                  %font{:style => "vertical-align: inherit;"} #{post.display_created_at}に更新
 
     .pagenation_block  
       .ui.pagination.menu
