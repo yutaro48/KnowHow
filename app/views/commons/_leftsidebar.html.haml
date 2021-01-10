@@ -1,5 +1,6 @@
 .ui.left.fixed.vertical.menu
-  %p.height
+  = link_to posts_path do
+    %p.height KnowHow
   = link_to new_post_path do
     .button_01
       %button.ui.blue.button
@@ -12,8 +13,8 @@
   = link_to outputs_path, class: 'item' do
     .ui.small.blue.label= current_user.posts_count
     %p.small マイアウトプット
-  %a.item
-    .ui.small.blue.label 51
+  = link_to bookmarked_posts_path, class: 'item' do
+    .ui.small.blue.label= current_user.has_bookmarked_posts_count
     %p.small ブックマーク
   %a.item
     .ui.small.blue.label 1

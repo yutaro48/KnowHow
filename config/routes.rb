@@ -12,9 +12,12 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: [:new, :create]
+
+    resource :bookmark, only: [:create, :destroy]
   end
 
   resource :profile, only: [:show, :edit, :update]
   resources :outputs, only: [:index]
+  resources :bookmarked_posts, only: [:index]
 
 end

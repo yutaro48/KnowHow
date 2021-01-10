@@ -30,6 +30,8 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_posts, through: :bookmarks, source: :post
 
   delegate :birthday, :age, :join_age, :gender, :phone, :mail, :join, to: :profile, allow_nil: true
 
@@ -55,5 +57,13 @@ class User < ApplicationRecord
 
   def posts_count
     posts.count
+  end
+
+  def has_bookmarked?(post)
+    bookmarks.exists?(post_id: post.id)
+  end
+
+  def has_bookmarked_posts_count
+    bookmarked_posts.count
   end
 end
