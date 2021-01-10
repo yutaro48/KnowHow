@@ -35,12 +35,12 @@
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【年齢】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= @user.age
+              %font{:style => "vertical-align: inherit;"}= @user.age || '?歳'
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【性別】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= I18n.t("enum.genders.#{@user.gender}")
+              %font{:style => "vertical-align: inherit;"}= I18n.t("enum.genders.#{@user.gender || 'unknown'}")
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【在籍年数】
