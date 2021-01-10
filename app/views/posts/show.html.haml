@@ -19,7 +19,7 @@
   .wide_show_content
     = render 'layouts/flash_messages'
     .ui.raised.segment
-      %p.ui.ribbon.blue.label username 
+      %p.ui.ribbon.blue.label= @post.user.display_name
       %h2.ui.header
         %i.book.icon
         .content
