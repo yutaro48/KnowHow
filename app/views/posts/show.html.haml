@@ -28,7 +28,7 @@
               = @post.title
           .sub.header
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が2021年1月3日にアウトプット
+              %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
       .div
         .ui.labeled.button{:tabindex => "0"}
           - if current_user.has_bookmarked?(@post)
@@ -71,7 +71,7 @@
                 .metadata
                   %span.date
                     %font{:style => "vertical-align: inherit;"}
-                      %font{:style => "vertical-align: inherit;"} 今日の午後5時42分
+                      %font{:style => "vertical-align: inherit;"}  #{comment.display_created_at}に更新
                 .text
                   %font{:style => "vertical-align: inherit;"}
                     %font{:style => "vertical-align: inherit;"}
