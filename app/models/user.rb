@@ -73,4 +73,18 @@ class User < ApplicationRecord
   def has_bookmarked_posts_count
     bookmarked_posts.count
   end
+
+  def follow!(user)
+    user_id = get_user_id(user)
+    following_relationships.create!(following_id: user_id)
+  end
+
+  private
+  def get_user_id(user)
+    if user.is_a?(User)
+      user.id
+    else
+      user
+    end
+  end
 end
