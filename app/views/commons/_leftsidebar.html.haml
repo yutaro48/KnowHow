@@ -7,7 +7,8 @@
         %i.icon.pencil.alternate
         アウトプットする
   = link_to profile_path, class: 'item' do
-    = image_tag 'default-avatar.png', class: 'ui avatar image'
+    = image_tag current_user.avatar_image, class: 'ui avatar image'
+    -# = image_tag 'default-avatar.png', class: 'ui avatar image'
     - if user.present?
       %span= user.display_name
   = link_to outputs_path, class: 'item' do
