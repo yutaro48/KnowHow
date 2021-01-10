@@ -26,12 +26,19 @@
         .profile_description_left
           = image_tag @user.avatar_image, class: 'ui small image'
           -if @user != current_user
-            = link_to account_follows_path(@user), data: { method: 'post' } do
-              %button.ui.primary.button.tac
-                %i.ui.user.plus.icon
+            -if current_user&.has_followed?(@user)
+              %button.ui.primary.button.opacity
+                %i.ui.user.icon
                 %font{:style => "vertical-align: inherit;"}
                   %font{:style => "vertical-align: inherit;"}
-                    フォローする
+                    フォローを外す
+            -else
+              = link_to account_follows_path(@user), data: { method: 'post' } do
+                %button.ui.primary.button
+                  %i.ui.user.plus.icon
+                  %font{:style => "vertical-align: inherit;"}
+                    %font{:style => "vertical-align: inherit;"}
+                      フォローする
 
         .profile_description_right.ui.segment
           .div
