@@ -79,6 +79,10 @@ class User < ApplicationRecord
     following_relationships.create!(following_id: user_id)
   end
 
+  def has_followed?(user)
+    following_relationships.exists?(following_id: user.id)
+  end
+
   private
   def get_user_id(user)
     if user.is_a?(User)
