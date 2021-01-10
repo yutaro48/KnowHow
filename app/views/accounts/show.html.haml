@@ -56,3 +56,11 @@
               %font{:style => "vertical-align: inherit;"} 【メール】
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}= @user.mail
+
+    -if @user == current_user       
+      = link_to edit_profile_path do
+        .ui.blue.labeled.submit.icon.button.right.floated
+          %i.icon.edit
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"}
+              編集する
