@@ -18,7 +18,7 @@
           %font{:style => "vertical-align: inherit;"} ブックマーク
     - @posts.each do |post|
       .ui.segment
-        %p.ui.ribbon.blue.label username 
+        %p.ui.ribbon.blue.label= post.user.display_name 
         .ui.relaxed.divided.list        
           = link_to post_path(id: post.id), class: 'item' do
             %i.large.book.middle.aligned.icon
