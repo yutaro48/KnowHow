@@ -19,7 +19,7 @@
   .wide_show_content
     = render 'layouts/flash_messages'
     .ui.raised.segment
-      %p.ui.ribbon.blue.label username 
+      %p.ui.ribbon.blue.label= @post.user.display_name
       %h2.ui.header
         %i.book.icon
         .content
@@ -28,7 +28,7 @@
               = @post.title
           .sub.header
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が2021年1月3日にアウトプット
+              %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
       .div
         .ui.labeled.button{:tabindex => "0"}
           - if current_user.has_bookmarked?(@post)
@@ -63,15 +63,15 @@
           .ui.segment
             .comment
               %a.ui.avatar.image
-                = image_tag 'default-avatar.png'
+                = image_tag comment.user.avatar_image
               .content
                 %a.author
                   %font{:style => "vertical-align: inherit;"}
-                    %font{:style => "vertical-align: inherit;"} ユーザ１
+                    %font{:style => "vertical-align: inherit;"}= comment.user.display_name
                 .metadata
                   %span.date
                     %font{:style => "vertical-align: inherit;"}
-                      %font{:style => "vertical-align: inherit;"} 今日の午後5時42分
+                      %font{:style => "vertical-align: inherit;"}  #{comment.display_created_at}に更新
                 .text
                   %font{:style => "vertical-align: inherit;"}
                     %font{:style => "vertical-align: inherit;"}

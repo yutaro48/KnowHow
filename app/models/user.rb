@@ -29,6 +29,7 @@ class User < ApplicationRecord
   end
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmarked_posts, through: :bookmarks, source: :post
