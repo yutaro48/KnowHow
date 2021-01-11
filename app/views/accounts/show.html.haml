@@ -9,7 +9,7 @@
 
   .profile_content
     .ui.three.item.menu
-      %a.active.item
+      = link_to account_path(@user), class: 'item active' do
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} プロフィール 
       = link_to account_follows_path(@user), class: 'item' do
