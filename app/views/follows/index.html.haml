@@ -1,0 +1,22 @@
+= render 'commons/leftsidebar', user: current_user
+
+.wide_show
+  .ui.pointing.menu
+    = link_to :back, class: 'item' do
+      %i.angle.left.icon
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"} もどる
+
+  .profile_content
+    .ui.three.item.menu
+      %a.active.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} プロフィール 
+      %a.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} フォロー
+        .ui.small.blue.label 100
+      %a.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} フォロワー
+        .ui.small.blue.label 20
