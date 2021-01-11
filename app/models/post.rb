@@ -22,12 +22,4 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :title, length: { minimum: 2, maximum: 30 }
   validates :content, presence: true
-
-  def bookmark_count
-    bookmarks.count
-  end
-
-  def display_created_at
-    I18n.l(self.created_at, format: :long)
-  end
 end
