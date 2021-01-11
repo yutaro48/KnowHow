@@ -27,6 +27,7 @@ gem 'annotate'
 gem 'hamlit'
 gem 'semantic-ui-sass'
 gem 'faker'
+gem 'active_decorator'
 
 #MarkDown記法を実装するため
 gem 'redcarpet'

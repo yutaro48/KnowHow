@@ -11,10 +11,10 @@
   .wide_show_content
     = render 'layouts/flash_messages'
     .ui.two.item.menu
-      = link_to posts_path, class: 'item active' do
+      = link_to posts_path, class: 'item' do
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} ノウハウ一覧
-      = link_to timeline_path, class: 'item' do
+      = link_to timeline_path, class: 'item active' do
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} タイムライン
 

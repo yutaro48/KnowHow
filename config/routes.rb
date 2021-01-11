@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resource :profile, only: [:show, :edit, :update]
   resources :outputs, only: [:index]
   resources :bookmarked_posts, only: [:index]
+  resource :timeline, only: [:show]
 
   resources :accounts, only: [:show] do
     resources :follows, only: [:create, :index]
