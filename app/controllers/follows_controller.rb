@@ -3,10 +3,11 @@ class FollowsController < ApplicationController
 
   def index
     @user = User.find(params[:account_id])
-
     if @user == current_user
       redirect_to profile_path
     end
+
+    @follows = @user.following_relationships
   end
   
   def create
