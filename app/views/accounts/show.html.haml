@@ -27,11 +27,12 @@
           = image_tag @user.avatar_image, class: 'ui small image'
           -if @user != current_user
             -if current_user&.has_followed?(@user)
-              %button.ui.primary.button.opacity
-                %i.ui.user.icon
-                %font{:style => "vertical-align: inherit;"}
+              = link_to account_unfollows_path(@user), data: { method: 'post' } do
+                %button.ui.primary.button.opacity
+                  %i.ui.user.icon
                   %font{:style => "vertical-align: inherit;"}
-                    フォローを外す
+                    %font{:style => "vertical-align: inherit;"}
+                      フォローを外す
             -else
               = link_to account_follows_path(@user), data: { method: 'post' } do
                 %button.ui.primary.button
