@@ -1,0 +1,37 @@
+= render 'commons/leftsidebar', user: current_user
+
+.wide_show
+  .ui.pointing.menu
+    = link_to :back, class: 'item' do
+      %i.angle.left.icon
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"} もどる
+
+  .profile_content
+    .ui.three.item.menu
+      = link_to account_path(@user), class: 'item' do
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} プロフィール 
+      %a.item.active
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} フォロー
+        .ui.small.blue.label 100
+      %a.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} フォロワー
+        .ui.small.blue.label 20
+
+    .account_wide
+      .ui.segment
+        .ui.middle.aligned.list
+          .item
+            = image_tag 'default-avatar.png', class: 'ui avatar image'
+            .content
+              .header
+                %font{:style => "vertical-align: inherit;"}
+                  %font{:style => "vertical-align: inherit;"} 佐々木ゆか
+            %button.ui.right.labeled.icon.button.right.floated
+              %i.right.arrow.icon
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"}
+                  詳細

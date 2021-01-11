@@ -9,10 +9,10 @@
 
   .profile_content
     .ui.three.item.menu
-      %a.active.item
+      %a.item.active
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} プロフィール 
-      %a.item
+      = link_to account_follows_path(@user), class: 'item' do
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} フォロー
         .ui.small.blue.label 100
@@ -24,42 +24,59 @@
     .ui.raised.segment.profile_description
       .ui.grid
         .profile_description_left
-          = image_tag current_user.avatar_image, class: 'ui small image'
+          = image_tag @user.avatar_image, class: 'ui small image'
+          -if @user != current_user
+            -if current_user&.has_followed?(@user)
+              = link_to account_unfollows_path(@user), data: { method: 'post' } do
+                %button.ui.primary.button.opacity
+                  %i.ui.user.icon
+                  %font{:style => "vertical-align: inherit;"}
+                    %font{:style => "vertical-align: inherit;"}
+                      フォローを外す
+            -else
+              = link_to account_follows_path(@user), data: { method: 'post' } do
+                %button.ui.primary.button
+                  %i.ui.user.plus.icon
+                  %font{:style => "vertical-align: inherit;"}
+                    %font{:style => "vertical-align: inherit;"}
+                      フォローする
+
         .profile_description_right.ui.segment
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【名前】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= current_user.display_name
+              %font{:style => "vertical-align: inherit;"}= @user.display_name
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【年齢】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= current_user.age || '?歳'
+              %font{:style => "vertical-align: inherit;"}= @user.age || '?歳'
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【性別】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= I18n.t("enum.genders.#{current_user.gender || 'nuknown'}")
+              %font{:style => "vertical-align: inherit;"}= I18n.t("enum.genders.#{@user.gender || 'unknown'}")
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【在籍年数】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= current_user.join_age
+              %font{:style => "vertical-align: inherit;"}= @user.join_age
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【電話番号】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= current_user.phone
+              %font{:style => "vertical-align: inherit;"}= @user.phone
           .div
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} 【メール】
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= current_user.mail
-        
-    = link_to edit_profile_path do
-      .ui.blue.labeled.submit.icon.button.right.floated
-        %i.icon.edit
-        %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}= @user.mail
+
+    -if @user == current_user       
+      = link_to edit_profile_path do
+        .ui.blue.labeled.submit.icon.button.right.floated
+          %i.icon.edit
           %font{:style => "vertical-align: inherit;"}
-            編集する
+            %font{:style => "vertical-align: inherit;"}
+              編集する
