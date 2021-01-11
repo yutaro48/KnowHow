@@ -3,6 +3,6 @@ class TimelinesController < ApplicationController
 
   def show
     user_ids = current_user.followings.pluck(:id)
-    @posts = Post.where(user_id: user_ids)
+    @posts = Post.where(user_id: user_ids).order(created_at: :desc)
   end
 end
