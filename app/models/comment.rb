@@ -19,8 +19,4 @@ class Comment < ApplicationRecord
   belongs_to :user
 
   validates :content, presence: true
-
-  def display_created_at
-    I18n.l(self.created_at, format: :long)
-  end
 end
