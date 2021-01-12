@@ -27,6 +27,11 @@ document.addEventListener('turbolinks:load', () => {
     const postId = dataset.postId
     axios.get(`/posts/${postId}/bookmark`)
       .then((response) => {
-          console.log(response)
+        const hasBookmarked = response.data.hasBookmarked
+        if (hasBookmarked) {
+          $('.active-book').removeClass('hidden')
+        } else {
+          $('.inactive-book').removeClass('hidden')
+        }
     })
 })
