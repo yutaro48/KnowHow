@@ -4,7 +4,7 @@ class BookmarksController < ApplicationController
   def show
     post = Post.find(params[:post_id])
     bookmark_status = current_user.has_bookmarked?(post)
-    render json: { hasBookmarmed: bookmark_status }
+    render json: { hasBookmarked: bookmark_status }
   end
 
   def create
