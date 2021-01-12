@@ -47,27 +47,28 @@
 
     %br/
     .container
-      .ui.minimal.comments
-        %h3.ui.dividing.header.tac
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"} コメント
-        - @comments.each do |comment|
-          .ui.segment
-            .comment
-              %a.ui.avatar.image
-                = image_tag comment.user.avatar_image
-              .content
-                %a.author
-                  %font{:style => "vertical-align: inherit;"}
-                    %font{:style => "vertical-align: inherit;"}= comment.user.display_name
-                .metadata
-                  %span.date
+      - if @comments.present?
+        .ui.minimal.comments
+          %h3.ui.dividing.header.tac
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"} コメント
+          - @comments.each do |comment|
+            .ui.segment
+              .comment
+                %a.ui.avatar.image
+                  = image_tag comment.user.avatar_image
+                .content
+                  %a.author
                     %font{:style => "vertical-align: inherit;"}
-                      %font{:style => "vertical-align: inherit;"}  #{comment.display_created_at}に更新
-                .text
-                  %font{:style => "vertical-align: inherit;"}
+                      %font{:style => "vertical-align: inherit;"}= comment.user.display_name
+                  .metadata
+                    %span.date
+                      %font{:style => "vertical-align: inherit;"}
+                        %font{:style => "vertical-align: inherit;"}  #{comment.display_created_at}に更新
+                  .text
                     %font{:style => "vertical-align: inherit;"}
-                      = comment.content
+                      %font{:style => "vertical-align: inherit;"}
+                        = comment.content
       %br/
       %form.ui.reply.form
         = link_to new_post_comment_path(@post) do
