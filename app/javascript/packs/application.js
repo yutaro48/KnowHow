@@ -23,10 +23,8 @@ import $ from 'jquery'
 import axios from 'axios'
 
 document.addEventListener('turbolinks:load', () => {
-    $('.book').on('click', () => {
-        axios.get('/')
-          .then((response) => {
-              console.log(response)
-          })
+    axios.get('/posts/38/bookmark')
+      .then((response) => {
+          console.log(response)
     })
-  })
+})
