@@ -22,16 +22,20 @@ require("@rails/actiontext")
 import $ from 'jquery'
 import axios from 'axios'
 
+const handleBookmarkDisplay = (hasBookmarked) => {
+    if (hasBookmarked) {
+        $('.active-book').removeClass('hidden')
+    } else {
+        $('.inactive-book').removeClass('hidden')
+    }
+}
+
 document.addEventListener('turbolinks:load', () => {
     const dataset = $('#post-show').data()
     const postId = dataset.postId
     axios.get(`/posts/${postId}/bookmark`)
       .then((response) => {
         const hasBookmarked = response.data.hasBookmarked
-        if (hasBookmarked) {
-          $('.active-book').removeClass('hidden')
-        } else {
-          $('.inactive-book').removeClass('hidden')
-        }
+        handleBookmarkDisplay(hasBookmarked)
     })
 })
