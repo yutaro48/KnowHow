@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap/dist/js/bootstrap")
@@ -34,7 +34,7 @@ const handleBookmarkDisplay = (hasBookmarked) => {
     }
 }
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const dataset = $('#post-show').data()
     const postId = dataset.postId
     axios.get(`/posts/${postId}/bookmark`)
