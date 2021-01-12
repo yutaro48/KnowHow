@@ -65,19 +65,6 @@ ja:
     - :day
   datetime:
     distance_in_words:
-      half_a_minute: "30秒前後"
-      less_than_x_seconds:
-        one:   "1秒"
-        other: "%{count}秒"
-      x_seconds:
-        one:   "1秒"
-        other: "%{count}秒"
-      less_than_x_minutes:
-        one:   "1分"
-        other: "%{count}分"
-      x_minutes:
-        one:   "約1分"
-        other: "%{count}分"
       about_x_hours:
         one: 約1時間
         other: 約%{count}時間
@@ -93,10 +80,10 @@ ja:
       half_a_minute: 30秒前後
       less_than_x_seconds:
         one: 1秒以内
-        other: "%{count}秒未満"
+        other: "約%{count}秒"
       less_than_x_minutes:
         one: 1分以内
-        other: "%{count}分未満"
+        other: "約%{count}分"
       over_x_years:
         one: 1年以上
         other: "%{count}年以上"
