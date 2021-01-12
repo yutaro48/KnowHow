@@ -1,4 +1,4 @@
-.container
+.form_container
   .padding_tb
     = link_to :back do
       %button.ui.basic.button
@@ -10,9 +10,15 @@
     - @comment.errors.full_messages.each do |message|
       %li= message
 
-  = form_with(model: @comment, url: post_comments_path(@comment.post), local: true) do |f|
-    %div
-      = f.label :content, 'コメント（仮）'
-    %div
-      = f.text_area :content
-    = f.submit '保存', class: 'ui primary button'
+  .ui.equal.width.center.aligned.padded.grid
+    .row.form_height
+      .ui.raised.segment.column.padding_setting
+        = form_with(model: @comment, url: post_comments_path(@comment.post), local: 'true') do |f|
+          %div
+            = f.rich_text_area :content, placeholder: '内容を入力', class: 'text text_height_comment'
+          %div.right
+            = f.submit 'アウトプットする', class: 'ui primary button'
+      .ui.raised.segment.column
+        %p
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"} MarkDownを適用してここにリアルタイムプレビュー機能を実装したい

@@ -31,25 +31,16 @@
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
       .div
-        .ui.labeled.button{:tabindex => "0"}
-          -# - if current_user.has_bookmarked?(@post)
-          .ui.primary.button.opacity.hidden.active-book
-            %i.bookmark.icon
+        .ui.primary.button.opacity.hidden.active-book
+          %i.bookmark.icon
+          %font{:style => "vertical-align: inherit;"}
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}
-                ブックマーク済
-          %p.ui.basic.label.opacity.hidden.active-book
+              ブックマーク済
+        .ui.primary.button.hidden.inactive-book
+          %i.bookmark.icon
+          %font{:style => "vertical-align: inherit;"}
             %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
-          -# - else
-          .ui.primary.button.hidden.inactive-book
-            %i.bookmark.icon
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}
-                ブックマーク
-          %p.ui.basic.label.hidden.inactive-book
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
+              ブックマーク
       %br/
       %p 
         = @post.content
@@ -79,11 +70,9 @@
                       = comment.content
       %br/
       %form.ui.reply.form
-        .field
-          %textarea
         = link_to new_post_comment_path(@post) do
           .ui.blue.labeled.submit.icon.button.right.floated
             %i.icon.edit
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
-                コメントを追加
+                コメントする
