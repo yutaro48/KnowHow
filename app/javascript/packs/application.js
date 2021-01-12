@@ -23,7 +23,9 @@ import $ from 'jquery'
 import axios from 'axios'
 
 document.addEventListener('turbolinks:load', () => {
-    axios.get('/posts/38/bookmark')
+    const dataset = $('#post-show').data()
+    const postId = dataset.postId
+    axios.get(`/posts/${postId}/bookmark`)
       .then((response) => {
           console.log(response)
     })
