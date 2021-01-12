@@ -57,17 +57,17 @@ document.addEventListener('turbolinks:load', () => {
           })
     })
   
-      $('.active-book').on('click', () => {
-          axios.delete(`/posts/${postId}/bookmark`)
-            .then((response) => {
-                if (response.data.status === 'ok') {
-                    $('.active-book').addClass('hidden')
-                    $('.inactive-book').removeClass('hidden')
-                }
-            })
-            .catch((e) => {
-              window.alert('Error')
-              console.log(e)
-            })
+    $('.active-book').on('click', () => {
+        axios.delete(`/posts/${postId}/bookmark`)
+          .then((response) => {
+            if (response.data.status === 'ok') {
+                $('.active-book').addClass('hidden')
+                $('.inactive-book').removeClass('hidden')
+            }
+          })
+          .catch((e) => {
+            window.alert('Error')
+            console.log(e)
+          })
     })
 })
