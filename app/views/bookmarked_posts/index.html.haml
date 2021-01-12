@@ -29,4 +29,4 @@
                     = post.title
               .description
                 %font{:style => "vertical-align: inherit;"}
-                  %font{:style => "vertical-align: inherit;"} #{post.display_created_at}に更新
+                  %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
