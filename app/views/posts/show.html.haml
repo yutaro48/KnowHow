@@ -79,11 +79,9 @@
                       = comment.content
       %br/
       %form.ui.reply.form
-        .field
-          %textarea
         = link_to new_post_comment_path(@post) do
           .ui.blue.labeled.submit.icon.button.right.floated
             %i.icon.edit
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
-                コメントを追加
+                コメントする
