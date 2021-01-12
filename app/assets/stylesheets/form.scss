@@ -25,6 +25,11 @@
     &_height {
         height: 520px;
         text-align: left;
+
+        &_comment {
+            height: 580px;
+            text-align: left;
+        }
     }
 }
 
