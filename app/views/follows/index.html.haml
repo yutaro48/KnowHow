@@ -22,16 +22,17 @@
         .ui.small.blue.label 20
 
     .account_wide
-      .ui.segment
-        .ui.middle.aligned.list
-          .item
-            = image_tag 'default-avatar.png', class: 'ui avatar image'
-            .content
-              .header
+      - @followings.each do |following|
+        .ui.segment
+          .ui.middle.aligned.list
+            .item
+              = image_tag following.user.avatar_image, class: 'ui avatar image'
+              .content
+                .header
+                  %font{:style => "vertical-align: inherit;"}
+                    %font{:style => "vertical-align: inherit;"}= following.name
+              %button.ui.right.labeled.icon.button.right.floated
+                %i.right.arrow.icon
                 %font{:style => "vertical-align: inherit;"}
-                  %font{:style => "vertical-align: inherit;"} 佐々木ゆか
-            %button.ui.right.labeled.icon.button.right.floated
-              %i.right.arrow.icon
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  詳細
+                  %font{:style => "vertical-align: inherit;"}
+                    詳細
