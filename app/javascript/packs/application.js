@@ -18,3 +18,11 @@ require("bootstrap/dist/js/bootstrap")
 
 require("trix")
 require("@rails/actiontext")
+
+import $ from 'jquery'
+
+document.addEventListener('DOMContentLoaded', () => {
+    $('.book').on('click', () => {
+        window.alert('CLICKED')
+    })
+  })
