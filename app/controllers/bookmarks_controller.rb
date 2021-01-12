@@ -10,13 +10,13 @@ class BookmarksController < ApplicationController
   def create
     post = Post.find(params[:post_id])
     post.bookmarks.create!(user_id: current_user.id)
-    redirect_to post_path(post)
+    render json: { status: 'ok' }
   end
 
   def destroy
     post = Post.find(params[:post_id])
     bookmark = post.bookmarks.find_by!(user_id: current_user.id)
     bookmark.destroy!
-    redirect_to post_path(post)
+    render json: { status: 'ok' }
   end
 end
