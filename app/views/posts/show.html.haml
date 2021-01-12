@@ -33,7 +33,7 @@
       .div
         .ui.labeled.button{:tabindex => "0"}
           -# - if current_user.has_bookmarked?(@post)
-          = link_to post_bookmark_path(@post), data: { method: 'delete' }, class: 'ui primary button opacity hidden active-book' do
+          .ui.primary.button.opacity.hidden.active-book
             %i.bookmark.icon
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
@@ -42,7 +42,7 @@
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
           -# - else
-          = link_to post_bookmark_path(@post), data: { method: 'post' }, class: 'ui primary button hidden inactive-book' do
+          .ui.primary.button.hidden.inactive-book
             %i.bookmark.icon
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
