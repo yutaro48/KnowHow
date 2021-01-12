@@ -55,7 +55,7 @@ document.addEventListener('turbolinks:load', () => {
     })
   
       $('.active-book').on('click', () => {
-          axios.delete(`/postss/${postId}/bookmark`)
+          axios.delete(`/posts/${postId}/bookmark`)
             .then((response) => {
               console.log(response)
             })
