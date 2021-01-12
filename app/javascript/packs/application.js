@@ -38,4 +38,26 @@ document.addEventListener('turbolinks:load', () => {
         const hasBookmarked = response.data.hasBookmarked
         handleBookmarkDisplay(hasBookmarked)
     })
+
+    $('.inactive-book').on('click', () => {
+        axios.post(`/posts/${postId}/bookmark`)
+          .then((response) => {
+            console.log(response)
+          })
+          .catch((e) => {
+            window.alert('Error')
+            console.log(e)
+          })
+    })
+  
+      $('.active-book').on('click', () => {
+          axios.delete(`/postss/${postId}/bookmark`)
+            .then((response) => {
+              console.log(response)
+            })
+            .catch((e) => {
+              window.alert('Error')
+              console.log(e)
+            })
+    })
 })
