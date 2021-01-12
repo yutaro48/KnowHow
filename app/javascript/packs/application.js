@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap/dist/js/bootstrap")
@@ -18,3 +18,56 @@ require("bootstrap/dist/js/bootstrap")
 
 require("trix")
 require("@rails/actiontext")
+
+import $ from 'jquery'
+import axios from 'axios'
+import { csrfToken } from 'rails-ujs'
+
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
+
+
+const handleBookmarkDisplay = (hasBookmarked) => {
+    if (hasBookmarked) {
+        $('.active-book').removeClass('hidden')
+    } else {
+        $('.inactive-book').removeClass('hidden')
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dataset = $('#post-show').data()
+    const postId = dataset.postId
+    axios.get(`/posts/${postId}/bookmark`)
+      .then((response) => {
+        const hasBookmarked = response.data.hasBookmarked
+        handleBookmarkDisplay(hasBookmarked)
+    })
+
+    $('.inactive-book').on('click', () => {
+        axios.post(`/posts/${postId}/bookmark`)
+          .then((response) => {
+            if (response.data.status === 'ok') {
+                $('.active-book').removeClass('hidden')
+                $('.inactive-book').addClass('hidden')
+            }
+          })
+          .catch((e) => {
+            window.alert('Error')
+            console.log(e)
+          })
+    })
+  
+    $('.active-book').on('click', () => {
+        axios.delete(`/posts/${postId}/bookmark`)
+          .then((response) => {
+            if (response.data.status === 'ok') {
+                $('.active-book').addClass('hidden')
+                $('.inactive-book').removeClass('hidden')
+            }
+          })
+          .catch((e) => {
+            window.alert('Error')
+            console.log(e)
+          })
+    })
+})

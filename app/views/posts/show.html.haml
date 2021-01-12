@@ -18,7 +18,7 @@
             %font{:style => "vertical-align: inherit;"} 削除
   .wide_show_content
     = render 'layouts/flash_messages'
-    .ui.raised.segment
+    .ui.raised.segment#post-show{data: {post_id: @post.id}}
       = link_to account_path(@post.user) do
         %p.ui.ribbon.blue.label= @post.user.display_name
       %h2.ui.header
@@ -32,24 +32,24 @@
               %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
       .div
         .ui.labeled.button{:tabindex => "0"}
-          - if current_user.has_bookmarked?(@post)
-            = link_to post_bookmark_path(@post), data: { method: 'delete' }, class: 'ui primary button opacity' do
-              %i.bookmark.icon
+          -# - if current_user.has_bookmarked?(@post)
+          .ui.primary.button.opacity.hidden.active-book
+            %i.bookmark.icon
+            %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  ブックマーク済
-            %p.ui.basic.label.opacity
+                ブックマーク済
+          %p.ui.basic.label.opacity.hidden.active-book
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
+          -# - else
+          .ui.primary.button.hidden.inactive-book
+            %i.bookmark.icon
+            %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
-          - else
-            = link_to post_bookmark_path(@post), data: { method: 'post' }, class: 'ui primary button' do
-              %i.bookmark.icon
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  ブックマーク
-            %p.ui.basic.label
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
+                ブックマーク
+          %p.ui.basic.label.hidden.inactive-book
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
       %br/
       %p 
         = @post.content
