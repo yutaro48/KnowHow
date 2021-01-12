@@ -32,24 +32,24 @@
               %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
       .div
         .ui.labeled.button{:tabindex => "0"}
-          - if current_user.has_bookmarked?(@post)
-            = link_to post_bookmark_path(@post), data: { method: 'delete' }, class: 'ui primary button opacity' do
-              %i.bookmark.icon
+          -# - if current_user.has_bookmarked?(@post)
+          = link_to post_bookmark_path(@post), data: { method: 'delete' }, class: 'ui primary button opacity hidden' do
+            %i.bookmark.icon
+            %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  ブックマーク済
-            %p.ui.basic.label.opacity
+                ブックマーク済
+          %p.ui.basic.label.opacity.hidden
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
+          -# - else
+          = link_to post_bookmark_path(@post), data: { method: 'post' }, class: 'ui primary button hidden' do
+            %i.bookmark.icon
+            %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
-          - else
-            = link_to post_bookmark_path(@post), data: { method: 'post' }, class: 'ui primary button' do
-              %i.bookmark.icon
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  ブックマーク
-            %p.ui.basic.label
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
+                ブックマーク
+          %p.ui.basic.label.hidden
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}= @post.bookmark_count
       %br/
       %p 
         = @post.content
