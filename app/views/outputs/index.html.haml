@@ -30,3 +30,5 @@
               .description
                 %font{:style => "vertical-align: inherit;"}
                   %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
+    .pagination
+      = paginate @posts
