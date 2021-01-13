@@ -25,4 +25,8 @@ module UserDecorator
   def following_count
     followings.count
   end
+
+  def follower_count
+    followers.count
+  end
 end
