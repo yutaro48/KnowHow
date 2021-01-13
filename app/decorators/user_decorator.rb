@@ -21,4 +21,12 @@ module UserDecorator
   def has_bookmarked_posts_count
     bookmarked_posts.count
   end
+
+  def following_count
+    followings.count
+  end
+
+  def follower_count
+    followers.count
+  end
 end
