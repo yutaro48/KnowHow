@@ -3,10 +3,11 @@
 .wide_show
   .ui.pointing.menu
     .right.menu
-      .item
-        .ui.transparent.icon.input
-          %input{:placeholder => "検索", :type => "text"}/
-          %i.search.link.icon
+      .ui.transparent.icon.input
+        = form_tag posts_path, method: :get, class: 'ui action input' do
+          = text_field_tag :q
+          = button_tag :class => 'ui icon blue button' do
+            %i.search.icon
 
   .wide_show_content
     = render 'layouts/flash_messages'

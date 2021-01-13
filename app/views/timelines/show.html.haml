@@ -2,11 +2,15 @@
 
 .wide_show
   .ui.pointing.menu
-    .right.menu
-      .item
-        .ui.transparent.icon.input
-          %input{:placeholder => "検索", :type => "text"}/
-          %i.search.link.icon
+    = link_to :back, class: 'item' do
+      %i.angle.left.icon
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"} もどる
+    -# .right.menu
+    -#   .item
+    -#     .ui.transparent.icon.input
+    -#       %input{:placeholder => "検索", :type => "text"}/
+    -#       %i.search.link.icon
 
   .wide_show_content
     = render 'layouts/flash_messages'
