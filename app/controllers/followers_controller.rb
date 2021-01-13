@@ -8,6 +8,6 @@ class FollowersController < ApplicationController
       redirect_to profile_path
     end
 
-    @followes = @user.followers
+    @followers = @user.followers
   end
 end
