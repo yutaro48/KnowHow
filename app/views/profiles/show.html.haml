@@ -12,14 +12,14 @@
       %a.active.item
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} プロフィール 
-      = link_to account_follows_path(@user), class: 'item' do
+      = link_to account_follows_path(current_user), class: 'item' do
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} フォロー
-        .ui.small.blue.label= @user.followig_count
-      = link_to account_followers_path(@user), class: 'item' do
+        .ui.small.blue.label= current_user.following_count
+      = link_to account_followers_path(current_user), class: 'item' do
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} フォロワー
-        .ui.small.blue.label= @user.follower_count
+        .ui.small.blue.label= current_user.follower_count
 
     .ui.raised.segment.profile_description
       .ui.grid
