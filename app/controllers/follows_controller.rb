@@ -7,8 +7,7 @@ class FollowsController < ApplicationController
       redirect_to profile_path
     end
 
-    user_ids = @user.followings.pluck(:id)
-    @followings = Profile.where(user_id: user_ids)
+    @followings = @user.followings
   end
   
   def create
