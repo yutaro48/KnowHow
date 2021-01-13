@@ -16,7 +16,7 @@
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} フォロー
         .ui.small.blue.label= @user.following_count
-      %a.item
+      = link_to account_followers_path(@user), class: 'item' do
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} フォロワー
         .ui.small.blue.label 20
