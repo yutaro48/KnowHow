@@ -26,11 +26,11 @@
         .ui.segment
           .ui.middle.aligned.list
             .item
-              = image_tag following.user.avatar_image, class: 'ui avatar image'
+              = image_tag following.avatar_image, class: 'ui avatar image'
               .content
                 .header
                   %font{:style => "vertical-align: inherit;"}
-                    %font{:style => "vertical-align: inherit;"}= following.name
+                    %font{:style => "vertical-align: inherit;"}= following.display_name
               %button.ui.right.labeled.icon.button.right.floated
                 %i.right.arrow.icon
                 %font{:style => "vertical-align: inherit;"}
