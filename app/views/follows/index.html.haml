@@ -31,8 +31,9 @@
                 .header
                   %font{:style => "vertical-align: inherit;"}
                     %font{:style => "vertical-align: inherit;"}= following.display_name
-              %button.ui.right.labeled.icon.button.right.floated
-                %i.right.arrow.icon
-                %font{:style => "vertical-align: inherit;"}
+              = link_to account_path(following) do
+                %button.ui.right.labeled.icon.button.right.floated
+                  %i.right.arrow.icon
                   %font{:style => "vertical-align: inherit;"}
-                    詳細
+                    %font{:style => "vertical-align: inherit;"}
+                      詳細
