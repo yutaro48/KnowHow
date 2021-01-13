@@ -3,9 +3,9 @@ class FollowsController < ApplicationController
 
   def index
     @user = User.find(params[:account_id])
-    if @user == current_user
-      redirect_to profile_path
-    end
+    # if @user == current_user
+    #   redirect_to profile_path
+    # end
 
     @followings = @user.followings
   end
