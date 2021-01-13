@@ -19,7 +19,7 @@
       %a.item.active
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} フォロワー
-        .ui.small.blue.label 20
+        .ui.small.blue.label= @user.follower_count
 
     .account_wide
       - @followers.each do |follower|

@@ -19,7 +19,7 @@
       = link_to account_followers_path(@user), class: 'item' do
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"} フォロワー
-        .ui.small.blue.label 20
+        .ui.small.blue.label= @user.follower_count
 
     .account_wide
       - @followings.each do |following|
