@@ -33,26 +33,5 @@
               .description
                 %font{:style => "vertical-align: inherit;"}
                   %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
-
-    .pagenation_block  
-      .ui.pagination.menu
-        %a.active.item
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"}
-              1
-        .disabled.item
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"}
-              \..。
-        %a.item
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"}
-              10
-        %a.item
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"}
-              11
-        %a.item
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"}
-              12
+    .pagination
+      = paginate @posts
