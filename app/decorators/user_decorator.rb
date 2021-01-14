@@ -15,7 +15,7 @@ module UserDecorator
   end
 
   def posts_count
-    posts.count
+    posts.published.count
   end
 
   def has_bookmarked_posts_count
