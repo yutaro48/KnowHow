@@ -7,4 +7,8 @@ module PostDecorator
   def display_created_at
     I18n.l(self.created_at, format: :long)
   end
+
+  def has_published?
+    status == 'published'
+  end
 end

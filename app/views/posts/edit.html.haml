@@ -21,6 +21,8 @@
           %div
             = f.rich_text_area :content, placeholder: '内容を入力', class: 'text text_height'
           %div.right
+            %div
+              = f.select :status, Post.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: '' }
             = f.submit '更新する', class: 'ui primary button'
       .ui.raised.segment.column
         %p

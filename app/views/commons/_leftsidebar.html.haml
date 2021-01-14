@@ -16,8 +16,8 @@
   = link_to bookmarked_posts_path, class: 'item' do
     .ui.small.blue.label= current_user.has_bookmarked_posts_count
     %p.small ブックマーク
-  %a.item
-    .ui.small.blue.label 1
+  = link_to drafts_path, class: 'item' do
+    .ui.small.blue.label= current_user.draft_count
     %p.small 下書き
   - if user_signed_in?
     = link_to edit_user_registration_path, class: 'item' do

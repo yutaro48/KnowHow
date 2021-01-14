@@ -15,11 +15,11 @@ module UserDecorator
   end
 
   def posts_count
-    posts.count
+    posts.published.count
   end
 
   def has_bookmarked_posts_count
-    bookmarked_posts.count
+    bookmarked_posts.published.count
   end
 
   def following_count
@@ -28,5 +28,9 @@ module UserDecorator
 
   def follower_count
     followers.count
+  end
+
+  def draft_count
+    posts.draft.count
   end
 end

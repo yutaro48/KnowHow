@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   # , only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
-    @posts = Post.search(params["q"]).order(created_at: :desc)
+    @posts = Post.published.order(created_at: :desc)
+    @posts = Post.published.search(params["q"]).order(created_at: :desc)
     @posts = @posts.page(params[:page]).per(5).order(created_at: :desc)
   end
 
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :status)
   end
 
 end

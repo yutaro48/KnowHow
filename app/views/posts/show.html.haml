@@ -30,17 +30,18 @@
           .sub.header
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
-      .div
-        .ui.primary.button.opacity.hidden.active-book
-          %i.bookmark.icon
-          %font{:style => "vertical-align: inherit;"}
+      - if @post.has_published?
+        .div
+          .ui.primary.button.opacity.hidden.active-book
+            %i.bookmark.icon
             %font{:style => "vertical-align: inherit;"}
-              ブックマーク済
-        .ui.primary.button.hidden.inactive-book
-          %i.bookmark.icon
-          %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                ブックマーク済
+          .ui.primary.button.hidden.inactive-book
+            %i.bookmark.icon
             %font{:style => "vertical-align: inherit;"}
-              ブックマーク
+              %font{:style => "vertical-align: inherit;"}
+                ブックマーク
       %br/
       %p 
         = @post.content
@@ -69,11 +70,12 @@
                     %font{:style => "vertical-align: inherit;"}
                       %font{:style => "vertical-align: inherit;"}
                         = comment.content
-      %br/
-      %form.ui.reply.form
-        = link_to new_post_comment_path(@post) do
-          .ui.blue.labeled.submit.icon.button.right.floated
-            %i.icon.edit
-            %font{:style => "vertical-align: inherit;"}
+      - if @post.has_published?
+        %br/
+        %form.ui.reply.form
+          = link_to new_post_comment_path(@post) do
+            .ui.blue.labeled.submit.icon.button.right.floated
+              %i.icon.edit
               %font{:style => "vertical-align: inherit;"}
-                コメントする
+                %font{:style => "vertical-align: inherit;"}
+                  コメントする

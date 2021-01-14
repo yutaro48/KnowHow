@@ -1,0 +1,34 @@
+= render 'commons/leftsidebar', user: current_user
+
+.wide_show
+  .ui.pointing.menu
+    = link_to :back, class: 'item' do
+      %i.angle.left.icon
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"} もどる
+    -# .right.menu
+    -#   .item
+    -#     .ui.transparent.icon.input
+    -#       %input{:placeholder => "検索", :type => "text"}/
+    -#       %i.search.link.icon
+  .wide_show_content
+    .ui.one.item.menu
+      %p.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} 下書き
+    - @posts.each do |post|
+      .ui.segment
+        %p.ui.ribbon.blue.label= post.user.display_name
+        .ui.relaxed.divided.list        
+          = link_to post_path(id: post.id), class: 'item' do
+            %i.large.book.middle.aligned.icon
+            .content
+              .header
+                %font{:style => "vertical-align: inherit;"}
+                  %font{:style => "vertical-align: inherit;"} 
+                    = post.title
+              .description
+                %font{:style => "vertical-align: inherit;"}
+                  %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
+    .pagination
+      = paginate @posts
