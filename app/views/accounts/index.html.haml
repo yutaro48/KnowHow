@@ -1,0 +1,31 @@
+= render 'commons/leftsidebar', user: current_user
+
+.wide_show
+  .ui.pointing.menu
+    = link_to :back, class: 'item' do
+      %i.angle.left.icon
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"} もどる
+
+  .profile_content
+    .ui.one.item.menu
+      %p.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} ユーザ一覧
+
+    .account_wide
+      - @users.each do |user|
+        .ui.segment
+          .ui.middle.aligned.list
+            .item
+              = image_tag user.avatar_image, class: 'ui avatar image'
+              .content
+                .header
+                  %font{:style => "vertical-align: inherit;"}
+                    %font{:style => "vertical-align: inherit;"}= user.display_name
+              = link_to account_path(user) do
+                %button.ui.right.labeled.icon.button.right.floated
+                  %i.right.arrow.icon
+                  %font{:style => "vertical-align: inherit;"}
+                    %font{:style => "vertical-align: inherit;"}
+                      詳細
