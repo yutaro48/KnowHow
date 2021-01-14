@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resource :bookmark, only: [:show, :create, :destroy]
   end
 
-  resources :draft, only: [:index]
+  resources :drafts, only: [:index]
 
   resource :profile, only: [:show, :edit, :update]
   resources :outputs, only: [:index]
