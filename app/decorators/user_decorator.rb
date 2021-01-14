@@ -29,4 +29,8 @@ module UserDecorator
   def follower_count
     followers.count
   end
+
+  def draft_count
+    posts.draft.count
+  end
 end
