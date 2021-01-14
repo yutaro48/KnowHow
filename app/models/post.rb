@@ -24,6 +24,8 @@ class Post < ApplicationRecord
   validates :title, length: { minimum: 2, maximum: 30 }
   validates :content, presence: true
 
+  enum status: { draft: 0, published: 1 }
+
   scope :search, -> (search_param = nil) {
     return if search_param.blank?
     joins("INNER JOIN action_text_rich_texts ON action_text_rich_texts.record_id = posts.id AND action_text_rich_texts.record_type = 'Post'")
