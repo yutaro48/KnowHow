@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :bookmarked_posts, only: [:index]
   resource :timeline, only: [:show]
 
-  resources :accounts, only: [:show] do
+  resources :accounts, only: [:index, :show] do
     resources :follows, only: [:create, :index]
     resources :unfollows, only: [:create, :index]
     resources :followers, only: [:index]

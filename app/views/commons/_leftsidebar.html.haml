@@ -19,6 +19,8 @@
   = link_to drafts_path, class: 'item' do
     .ui.small.blue.label= current_user.draft_count
     %p.small 下書き
+  = link_to accounts_path, class: 'item' do
+    %p.small ユーザーリスト
   - if user_signed_in?
     = link_to edit_user_registration_path, class: 'item' do
       %p.small アカウント編集
