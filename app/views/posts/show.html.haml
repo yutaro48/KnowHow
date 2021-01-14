@@ -30,17 +30,18 @@
           .sub.header
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
-      .div
-        .ui.primary.button.opacity.hidden.active-book
-          %i.bookmark.icon
-          %font{:style => "vertical-align: inherit;"}
+      - if @post.has_published?
+        .div
+          .ui.primary.button.opacity.hidden.active-book
+            %i.bookmark.icon
             %font{:style => "vertical-align: inherit;"}
-              ブックマーク済
-        .ui.primary.button.hidden.inactive-book
-          %i.bookmark.icon
-          %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                ブックマーク済
+          .ui.primary.button.hidden.inactive-book
+            %i.bookmark.icon
             %font{:style => "vertical-align: inherit;"}
-              ブックマーク
+              %font{:style => "vertical-align: inherit;"}
+                ブックマーク
       %br/
       %p 
         = @post.content
