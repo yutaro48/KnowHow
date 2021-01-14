@@ -19,7 +19,7 @@ module UserDecorator
   end
 
   def has_bookmarked_posts_count
-    bookmarked_posts.count
+    bookmarked_posts.published.count
   end
 
   def following_count
