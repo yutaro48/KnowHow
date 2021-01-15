@@ -1,0 +1,16 @@
+.ui.vertical.menu
+  .item
+    .ui.action.input.small
+      = form_tag posts_path, method: :get, class: 'ui action input' do
+        = text_field_tag :q
+        = button_tag :class => 'ui icon blue button' do
+          %i.search.icon
+  = link_to posts_path, class: 'item' do
+    %i.book.icon.nofloat
+    %span ノウハウリスト
+  = link_to timeline_path, class: 'item' do
+    %i.time.icon.nofloat
+    %span タイムライン
+  = link_to accounts_path, class: 'item' do
+    %i.users.icon.nofloat
+    %span ユーザリスト
