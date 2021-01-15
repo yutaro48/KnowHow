@@ -1,33 +1,35 @@
-.ui.menu
-  = link_to posts_path, class: 'item' do
-    %i.home.icon
-    %span ホーム
-  .ui.simple.dropdown.link.item
-    %i.user.icon
-    %span.text= user.display_name
-    %i.dropdown.icon
-    .menu
-      .header ユーザー
-      = link_to profile_path, class: 'item' do
-        %i.address.card.icon
-        %span プロフィール
-      = link_to edit_user_registration_path, class: 'item' do
-        %i.cog.icon
-        %span アカウント編集
-      = link_to destroy_user_session_path, method: :delete, class: 'item' do
-        %i.sign.out.alternate.icon
-        %span ログアウト
-      .divider
-      .header ノウハウ
-      = link_to outputs_path, class: 'item' do
-        %i.book.icon
-        %span マイノウハウ
-      = link_to bookmarked_posts_path, class: 'item' do
-        %i.bookmark.icon
-        %span ブックマーク
-      = link_to drafts_path, class: 'item' do
-        %i.edit.outline.icon
-        %span 下書き
-  = link_to new_post_path, class: 'item right' do
-    %i.pencil.icon
-    %span アウトプットする
+.ui.borderless.menu
+  .container
+    = link_to posts_path, class: 'item header_height' do
+      %i.home.icon
+      %span ホーム
+    .ui.simple.dropdown.link.item.header_height
+      %i.user.icon
+      %span.text= user.display_name
+      %i.dropdown.icon
+      .menu
+        .header ノウハウ
+        = link_to outputs_path, class: 'item' do
+          %i.book.icon
+          %span マイノウハウ
+        = link_to bookmarked_posts_path, class: 'item' do
+          %i.bookmark.icon
+          %span ブックマーク
+        = link_to drafts_path, class: 'item' do
+          %i.edit.outline.icon
+          %span 下書き
+        .divider
+        .header ユーザー
+        = link_to profile_path, class: 'item' do
+          %i.address.card.icon
+          %span プロフィール
+        = link_to edit_user_registration_path, class: 'item' do
+          %i.cog.icon
+          %span アカウント編集
+        = link_to destroy_user_session_path, method: :delete, class: 'item' do
+          %i.sign.out.alternate.icon
+          %span ログアウト
+    .right.menu
+      = link_to new_post_path, class: 'item header_height' do
+        %i.pencil.icon
+        %span アウトプットする
