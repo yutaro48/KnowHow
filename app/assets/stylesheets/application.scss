@@ -22,6 +22,7 @@
 @import "actiontext";
 @import "profile";
 @import "account";
+@import "header";
 
 .mw-md {
     max-width: 576px;
@@ -47,4 +48,16 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+.nofloat {
+  float: none !important;
+}
+
+.text {
+  font-size: 14px !important;
+}
+
+.nomargin {
+  margin: 0px !important;
 }

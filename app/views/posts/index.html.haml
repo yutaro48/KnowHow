@@ -1,37 +1,88 @@
-= render 'commons/leftsidebar', user: current_user
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
 
-.wide_show
-  .ui.pointing.menu
-    .right.menu
-      .ui.transparent.icon.input
-        = form_tag posts_path, method: :get, class: 'ui action input' do
-          = text_field_tag :q
-          = button_tag :class => 'ui icon blue button' do
-            %i.search.icon
+  .ui.three.column.grid
+    .column
+      .ui.segment.blue
+        %p.tac 社内ノウハウ
+        - @posts.each do |post|
+          .ui.segment
+            .ui.relaxed.divided.list        
+              = link_to post_path(id: post.id), class: 'item' do
+                %i.large.book.middle.aligned.icon.blue
+                .content
+                  .header
+                    %font{:style => "vertical-align: inherit;"}
+                      %font{:style => "vertical-align: inherit;"} 
+                        = post.title
+                  .description
+                    %font{:style => "vertical-align: inherit;"}
+                      %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
+        .pagination
+          = paginate @posts
 
-  .wide_show_content
-    = render 'layouts/flash_messages'
-    .ui.two.item.menu
-      = link_to posts_path, class: 'item active' do
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} ノウハウ一覧
-      = link_to timeline_path, class: 'item' do
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} タイムライン
+    .column
+      .ui.segment.green
+        %p.tac 共有事項
+        - @posts.each do |post|
+          .ui.segment
+            .ui.relaxed.divided.list        
+              = link_to post_path(id: post.id), class: 'item' do
+                %i.large.share.alternate.middle.aligned.icon.green
+                .content
+                  .header
+                    %font{:style => "vertical-align: inherit;"}
+                      %font{:style => "vertical-align: inherit;"} 
+                        = post.title
+                  .description
+                    %font{:style => "vertical-align: inherit;"}
+                      %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
+        .pagination
+          = paginate @posts
+    .column
+      .ui.segment.pink
+        %p.tac ニュースまとめ
+        - @posts.each do |post|
+          .ui.segment
+            .ui.relaxed.divided.list        
+              = link_to post_path(id: post.id), class: 'item' do
+                %i.large.newspaper.middle.aligned.icon.pink
+                .content
+                  .header
+                    %font{:style => "vertical-align: inherit;"}
+                      %font{:style => "vertical-align: inherit;"} 
+                        = post.title
+                  .description
+                    %font{:style => "vertical-align: inherit;"}
+                      %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
+        .pagination
+          = paginate @posts
 
-    - @posts.each do |post|
-      .ui.segment
-        %p.ui.ribbon.blue.label= post.user.display_name
-        .ui.relaxed.divided.list        
-          = link_to post_path(id: post.id), class: 'item' do
-            %i.large.book.middle.aligned.icon
-            .content
-              .header
-                %font{:style => "vertical-align: inherit;"}
-                  %font{:style => "vertical-align: inherit;"} 
-                    = post.title
-              .description
-                %font{:style => "vertical-align: inherit;"}
-                  %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
-    .pagination
-      = paginate @posts
+  -# .wide_show
+  -#   .wide_show_content
+  -#     = render 'layouts/flash_messages'
+  -#     .ui.two.item.menu
+  -#       = link_to posts_path, class: 'item active' do
+  -#         %font{:style => "vertical-align: inherit;"}
+  -#           %font{:style => "vertical-align: inherit;"} ノウハウ一覧
+  -#       = link_to timeline_path, class: 'item' do
+  -#         %font{:style => "vertical-align: inherit;"}
+  -#           %font{:style => "vertical-align: inherit;"} タイムライン
+
+  -#     - @posts.each do |post|
+  -#       .ui.segment
+  -#         %p.ui.ribbon.blue.label= post.user.display_name
+  -#         .ui.relaxed.divided.list        
+  -#           = link_to post_path(id: post.id), class: 'item' do
+  -#             %i.large.book.middle.aligned.icon
+  -#             .content
+  -#               .header
+  -#                 %font{:style => "vertical-align: inherit;"}
+  -#                   %font{:style => "vertical-align: inherit;"} 
+  -#                     = post.title
+  -#               .description
+  -#                 %font{:style => "vertical-align: inherit;"}
+  -#                   %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
+  -#     .pagination
+  -#       = paginate @posts

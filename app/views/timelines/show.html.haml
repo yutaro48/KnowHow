@@ -1,5 +1,7 @@
-= render 'commons/leftsidebar', user: current_user
-
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
+  
 .wide_show
   .ui.pointing.menu
     = link_to :back, class: 'item' do

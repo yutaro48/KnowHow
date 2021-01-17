@@ -64,3 +64,106 @@
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"}
             編集する
+
+
+    .ui.compact.menu
+      .ui.simple.dropdown.item
+        メニュー
+        %i.dropdown.icon
+        .menu
+          .header
+            %i.tags.icon
+              友達
+          = link_to posts_path, class: 'item'  do
+            %p Choice 1
+          .item Choice 2
+          .item Choice 3
+
+    .ui.icon.buttons
+      .ui.top.left.simple.dropdown.button
+        %i.user.icon
+        .menu
+          = link_to posts_path, class: 'item' do
+            %i.edit.icon>
+            %span ユーザ編集
+          .item
+            %i.delete.icon>
+            ユーザ削除
+          .item
+            %i.hide.icon>
+            ログアウト
+      .ui.top.left.simple.dropdown.button
+        %i.users.icon
+        .menu
+          .item
+            %i.edit.icon>
+            フォロー
+          .item
+            %i.delete.icon>
+            フォロワー
+          .item
+            %i.hide.icon>
+            Hide from Group
+      .ui.top.left.simple.dropdown.button
+        %i.settings.icon
+        .menu
+          .item
+            %i.edit.icon
+            Edit
+          .item
+            %i.delete.icon
+            Remove
+          .item
+            %i.hide.icon
+            Hide
+
+    .ui.top.attached.menu
+      .ui.simple.dropdown.icon.item
+        %i.wrench.icon
+        .menu
+          = link_to posts_path, class: 'item' do
+            %i.dropdown.icon
+            %span.text New
+            .menu
+              .item Document
+              .item Image
+          .item
+            編集
+          .item
+            削除
+      .right.menu
+        .ui.right.aligned.category.search.item
+          .ui.action.input.transparent
+            %input{:placeholder => "検索する", :type => "text"}/
+            %button.ui.icon.button
+              %i.search.icon
+          .results
+    .ui.bottom.attached.segment
+      %p
+
+    .ui.secondary.pointing.menu
+      %a.active.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"}
+            ノウハウリスト
+      %a.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"}
+            タイムライン
+      %a.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"}
+            ユーザリスト
+      .right.menu
+        %a.ui.item
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"}
+              ログアウト
+    .ui.segment.blue
+      %p 社内ノウハウ
+
+    .ui.segment.green
+      %p 共有事項
+  
+    .ui.segment.pink
+      %p ニュースまとめ
