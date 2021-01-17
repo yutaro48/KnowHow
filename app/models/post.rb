@@ -3,7 +3,8 @@
 # Table name: posts
 #
 #  id         :bigint           not null, primary key
-#  status     :integer          default(0), not null
+#  category   :integer          default(0), not null
+#  status     :integer          default("draft"), not null
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
