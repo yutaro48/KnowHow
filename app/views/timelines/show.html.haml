@@ -1,35 +1,19 @@
 = render 'commons/header', user: current_user
 .container
   = render 'commons/tab'
-  
-.wide_show
-  .ui.pointing.menu
-    = link_to :back, class: 'item' do
-      %i.angle.left.icon
-      %font{:style => "vertical-align: inherit;"}
-        %font{:style => "vertical-align: inherit;"} もどる
-    -# .right.menu
-    -#   .item
-    -#     .ui.transparent.icon.input
-    -#       %input{:placeholder => "検索", :type => "text"}/
-    -#       %i.search.link.icon
 
-  .wide_show_content
-    = render 'layouts/flash_messages'
-    .ui.two.item.menu
-      = link_to posts_path, class: 'item' do
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} ノウハウ一覧
-      = link_to timeline_path, class: 'item active' do
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} タイムライン
-
+  .ui.segment
+    %p.tac タイムライン
     - @posts.each do |post|
       .ui.segment
-        %p.ui.ribbon.blue.label= post.user.display_name
         .ui.relaxed.divided.list        
           = link_to post_path(id: post.id), class: 'item' do
-            %i.large.book.middle.aligned.icon
+            - if post.about_knowhow?
+              %i.large.book.middle.aligned.icon.blue
+            - elsif post.about_share?
+              %i.large.share.alternate.middle.aligned.icon.green
+            - else post.about_news?
+              %i.large.newspaper.middle.aligned.icon.pink
             .content
               .header
                 %font{:style => "vertical-align: inherit;"}
@@ -38,6 +22,5 @@
               .description
                 %font{:style => "vertical-align: inherit;"}
                   %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
-
     .pagination
       = paginate @posts

@@ -8,3 +8,7 @@ ja:
     statuses:
       draft: '下書き'
       published: '公開'
+    categories:
+      knowhow: '社内ノウハウ'
+      share: '共有事項'
+      news: 'ニュースまとめ'
