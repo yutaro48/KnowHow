@@ -26,6 +26,7 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   enum status: { draft: 0, published: 1 }
+  enum category: { knowhow: 0, share: 1, news: 2 }
 
   scope :search, -> (search_param = nil) {
     return if search_param.blank?
