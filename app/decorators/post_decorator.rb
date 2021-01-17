@@ -19,4 +19,8 @@ module PostDecorator
   def about_share?
     category == "share"
   end
+
+  def about_news?
+    category == "news"
+  end
 end

@@ -12,7 +12,7 @@
               %i.large.book.middle.aligned.icon.blue
             - elsif post.about_share?
               %i.large.share.alternate.middle.aligned.icon.green
-            - else post.category == "news"
+            - else post.about_news?
               %i.large.newspaper.middle.aligned.icon.pink
             .content
               .header
