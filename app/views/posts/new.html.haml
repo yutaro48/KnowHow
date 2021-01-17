@@ -16,6 +16,8 @@
       .ui.raised.segment.column.padding_setting
         = form_with(model: @post, local: 'true') do |f|
           %div
+            = f.select :category, Post.categories.map { |k, v| [ I18n.t("enum.categories.#{k}"), k ] }, {}, { class: '' }
+          %div
             = f.text_field :title, placeholder: 'タイトルを入力', class: 'text'
           %hr/
           %div
