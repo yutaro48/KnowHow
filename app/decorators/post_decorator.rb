@@ -15,4 +15,8 @@ module PostDecorator
   def about_knowhow?
     category == "knowhow"
   end
+
+  def about_share?
+    category == "share"
+  end
 end

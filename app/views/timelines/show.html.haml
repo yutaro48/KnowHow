@@ -10,7 +10,7 @@
           = link_to post_path(id: post.id), class: 'item' do
             - if post.about_knowhow?
               %i.large.book.middle.aligned.icon.blue
-            - elsif post.category == "share"
+            - elsif post.about_share?
               %i.large.share.alternate.middle.aligned.icon.green
             - else post.category == "news"
               %i.large.newspaper.middle.aligned.icon.pink
