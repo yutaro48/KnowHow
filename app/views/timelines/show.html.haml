@@ -8,7 +8,7 @@
       .ui.segment
         .ui.relaxed.divided.list        
           = link_to post_path(id: post.id), class: 'item' do
-            - if post.category == "knowhow"
+            - if post.about_knowhow?
               %i.large.book.middle.aligned.icon.blue
             - elsif post.category == "share"
               %i.large.share.alternate.middle.aligned.icon.green

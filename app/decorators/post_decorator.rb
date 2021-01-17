@@ -11,4 +11,8 @@ module PostDecorator
   def has_published?
     status == 'published'
   end
+
+  def about_knowhow?
+    category == "knowhow"
+  end
 end
