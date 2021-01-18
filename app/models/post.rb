@@ -20,6 +20,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :histories, dependent: :destroy
 
   validates :title, presence: true
   validates :title, length: { minimum: 2, maximum: 30 }

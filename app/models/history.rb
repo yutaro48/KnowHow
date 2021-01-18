@@ -14,4 +14,6 @@
 #  index_histories_on_user_id  (user_id)
 #
 class History < ApplicationRecord
+  belongs_to :user
+  belongs_to :post
 end
