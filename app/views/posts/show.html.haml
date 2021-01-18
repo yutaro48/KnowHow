@@ -1,81 +1,78 @@
-= render 'commons/leftsidebar', user: current_user
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
 
-.wide_show
-  .ui.menu
-    = link_to :back, class: 'item' do
-      %i.angle.left.icon
-      %font{:style => "vertical-align: inherit;"}
-        %font{:style => "vertical-align: inherit;"} もどる
-    - if user_signed_in? && current_user.has_outputted?(@post)
-      .right.menu
-        = link_to edit_post_path(@post), class: 'item' do
-          %i.edit.icon
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"} 編集
-        = link_to post_path(@post), data: { method: 'delete', confirm: '本当に削除してもいいですか？' }, class: 'item' do
-          %i.eraser.icon
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"} 削除
-  .wide_show_content
-    = render 'layouts/flash_messages'
-    .ui.raised.segment#post-show{data: {post_id: @post.id}}
-      = link_to account_path(@post.user) do
-        %p.ui.ribbon.blue.label= @post.user.display_name
-      %h2.ui.header
-        %i.book.icon
-        .content
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"}
-              = @post.title
-          .sub.header
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
-      - if @post.has_published?
-        .div
-          .ui.primary.button.opacity.hidden.active-book
-            %i.bookmark.icon
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_first', user: current_user
+
+    .eight.wide.column
+      = render 'layouts/flash_messages'
+      .ui.raised.segment#post-show{data: {post_id: @post.id}}
+        = link_to account_path(@post.user) do
+          %p.ui.ribbon.blue.label= @post.user.display_name
+        %h2.ui.header
+          %i.book.icon
+          .content
             %font{:style => "vertical-align: inherit;"}
               %font{:style => "vertical-align: inherit;"}
-                ブックマーク済
-          .ui.primary.button.hidden.inactive-book
-            %i.bookmark.icon
-            %font{:style => "vertical-align: inherit;"}
+                = @post.title
+            .sub.header
               %font{:style => "vertical-align: inherit;"}
-                ブックマーク
-      %br/
-      %p 
-        = @post.content
-
-    %br/
-    .container
-      - if @comments.present?
-        .ui.minimal.comments
-          %h3.ui.dividing.header.tac
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"} コメント
-          - @comments.each do |comment|
-            .ui.segment
-              .comment
-                %a.ui.avatar.image
-                  = image_tag comment.user.avatar_image
-                .content
-                  %a.author
-                    %font{:style => "vertical-align: inherit;"}
-                      %font{:style => "vertical-align: inherit;"}= comment.user.display_name
-                  .metadata
-                    %span.date
-                      %font{:style => "vertical-align: inherit;"}
-                        %font{:style => "vertical-align: inherit;"}  #{comment.display_created_at}に更新
-                  .text
-                    %font{:style => "vertical-align: inherit;"}
-                      %font{:style => "vertical-align: inherit;"}
-                        = comment.content
-      - if @post.has_published?
-        %br/
-        %form.ui.reply.form
-          = link_to new_post_comment_path(@post) do
-            .ui.blue.labeled.submit.icon.button.right.floated
-              %i.icon.edit
+                %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
+        - if @post.has_published?
+          .div
+            .ui.primary.button.opacity.hidden.active-book
+              %i.bookmark.icon
               %font{:style => "vertical-align: inherit;"}
                 %font{:style => "vertical-align: inherit;"}
-                  コメントする
+                  ブックマーク済
+            .ui.primary.button.hidden.inactive-book
+              %i.bookmark.icon
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"}
+                  ブックマーク
+        %br/
+        %p 
+          = @post.content
+
+      %br/
+      .container
+        - if @comments.present?
+          .ui.minimal.comments
+            %h3.ui.dividing.header.tac
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"} コメント
+            - @comments.each do |comment|
+              .ui.segment
+                .comment
+                  %a.ui.avatar.image
+                    = image_tag comment.user.avatar_image
+                  .content
+                    %a.author
+                      %font{:style => "vertical-align: inherit;"}
+                        %font{:style => "vertical-align: inherit;"}= comment.user.display_name
+                    .metadata
+                      %span.date
+                        %font{:style => "vertical-align: inherit;"}
+                          %font{:style => "vertical-align: inherit;"}  #{comment.display_created_at}に更新
+                    .text
+                      %font{:style => "vertical-align: inherit;"}
+                        %font{:style => "vertical-align: inherit;"}
+                          = comment.content
+        - if @post.has_published?
+          %br/
+          %form.ui.reply.form
+            = link_to new_post_comment_path(@post) do
+              .ui.blue.labeled.submit.icon.button.right.floated
+                %i.icon.edit
+                %font{:style => "vertical-align: inherit;"}
+                  %font{:style => "vertical-align: inherit;"}
+                    コメントする
+      
+    .four.wide.column
+      .ui.segment
+        .ui.top.attached.label.tac
+          %i.eye.icon
+          %span 最近見たノウハウ
+        %p
