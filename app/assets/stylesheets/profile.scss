@@ -16,14 +16,18 @@
 
 
     &_image {
-        height: 262px !important;
-        width: 262px !important;
+        height: 222px !important;
+        width: 222px !important;
         margin-top: 14px !important;
     }
 
     &_image_content {
-        height: 262px !important;
-        width: 262px !important;
+        height: 222px !important;
+        width: 222px !important;
         margin: 26px 14px !important;
+    }
+
+    &_wide {
+        width: 250px !important;
     }
 }
