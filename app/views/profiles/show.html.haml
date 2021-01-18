@@ -121,12 +121,6 @@
       .ui.simple.dropdown.icon.item
         %i.wrench.icon
         .menu
-          = link_to posts_path, class: 'item' do
-            %i.dropdown.icon
-            %span.text New
-            .menu
-              .item Document
-              .item Image
           .item
             編集
           .item
@@ -139,31 +133,88 @@
               %i.search.icon
           .results
     .ui.bottom.attached.segment
-      %p
-
-    .ui.secondary.pointing.menu
-      %a.active.item
+      .header
+        %i.large.book.icon.blue
         %font{:style => "vertical-align: inherit;"}
           %font{:style => "vertical-align: inherit;"}
-            ノウハウリスト
-      %a.item
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"}
-            タイムライン
-      %a.item
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"}
-            ユーザリスト
-      .right.menu
-        %a.ui.item
+            タイトル
+      .description
+        内容
+        
+    .ui.cards
+      .card
+        .ui.top.attached.label.tac
+          %i.user.icon
+          %span= current_user.display_name
+        .profile_image_content
+          = image_tag current_user.avatar_image, class: 'profile_image'
+        .content
+          .description
+            .div
+              %i.birthday.icon
+              %span #{current_user.birthday} (#{current_user.age || '?歳'})
+            .div
+              %i.venus.mars.icon
+              %span= I18n.t("enum.genders.#{current_user.gender || 'unknown'}")
+            .div
+              %i.building.icon
+              %span= current_user.join_age
+            .div
+              %i.phone.icon
+              %span= current_user.phone
+            .div
+              %i.mail.icon
+              %span= current_user.mail
+        .ui.bottom.attached.button
           %font{:style => "vertical-align: inherit;"}
             %font{:style => "vertical-align: inherit;"}
-              ログアウト
-    .ui.segment.blue
-      %p 社内ノウハウ
+              ユーザーページへ
+          %i.arrow.right.icon
 
-    .ui.segment.green
-      %p 共有事項
+      .card
+        .ui.top.attached.label.tac
+          %i.user.icon
+          %span= current_user.display_name
+        .profile_image_content
+          = image_tag current_user.avatar_image, class: 'profile_image'
+        .content
+          .description
+            .div
+              %i.birthday.icon
+              %span #{current_user.birthday} (#{current_user.age || '?歳'})
+            .div
+              %i.venus.mars.icon
+              %span= I18n.t("enum.genders.#{current_user.gender || 'unknown'}")
+            .div
+              %i.building.icon
+              %span= current_user.join_age
+            .div
+              %i.phone.icon
+              %span= current_user.phone
+            .div
+              %i.mail.icon
+              %span= current_user.mail
+        .ui.icon.buttons.bottom.attached
+          .ui.top.left.button
+            %i.user.icon
+            %span フォロー
+          .ui.top.left.button
+            %i.user.icon
+            %span フォロワー
   
-    .ui.segment.pink
-      %p ニュースまとめ
+    .ui.segment.blue
+      .item.ui.grid
+        .image
+          = image_tag 'default-avatar.png', class: 'post_image'
+        .content
+          %i.book.icon.blue
+          %span カテゴリー
+          .description
+            %p ここにタイトルを表示30文字
+          .extra
+            %p.opacity ゲストユーザが２０分前に作成
+
+
+
+
+
