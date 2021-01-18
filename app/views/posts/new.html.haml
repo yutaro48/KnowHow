@@ -1,3 +1,37 @@
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
+
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_first', user: current_user
+
+    .eight.wide.column
+      %ul
+        - @post.errors.full_messages.each do |message|
+          %li= message
+
+      .ui.raised.segment
+        = form_with(model: @post, local: 'true') do |f|
+          %div
+            = f.select :category, Post.categories.map { |k, v| [ I18n.t("enum.categories.#{k}"), k ] }, {}, { class: '' }
+          %div
+            = f.text_field :title, placeholder: 'タイトルを入力', class: 'text'
+          %hr/
+          %div
+            = f.rich_text_area :content, placeholder: '内容を入力', class: 'text text_height'
+          %div.right
+            %div
+              = f.select :status, Post.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: '' }
+            = f.submit 'アウトプットする', class: 'ui primary button'
+      
+    .four.wide.column
+      .ui.segment
+        .ui.top.attached.label.tac
+          %i.eye.icon
+          %span 最近見たノウハウ
+        %p
+
 .form_container
   %ul
     - @post.errors.full_messages.each do |message|
@@ -11,9 +45,7 @@
           %font{:style => "vertical-align: inherit;"}
             もどる
 
-  .ui.equal.width.center.aligned.padded.grid
-    .row.form_height
-      .ui.raised.segment.column.padding_setting
+      .ui.raised.segment
         = form_with(model: @post, local: 'true') do |f|
           %div
             = f.select :category, Post.categories.map { |k, v| [ I18n.t("enum.categories.#{k}"), k ] }, {}, { class: '' }
@@ -26,8 +58,4 @@
             %div
               = f.select :status, Post.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: '' }
             = f.submit 'アウトプットする', class: 'ui primary button'
-      .ui.raised.segment.column
-        %p
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"} MarkDownを適用してここにリアルタイムプレビュー機能を実装したい
 

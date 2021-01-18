@@ -1,0 +1,29 @@
+.ui.cards
+  .card.profile_wide
+    .ui.top.attached.label.tac
+      %i.user.icon
+      %span= user.display_name
+    .profile_image_content
+      = image_tag user.avatar_image, class: 'profile_image'
+    .content
+      .description
+        .div
+          %i.birthday.icon
+          %span #{user.birthday} (#{user.age || '?歳'})
+        .div
+          %i.venus.mars.icon
+          %span= I18n.t("enum.genders.#{user.gender || 'unknown'}")
+        .div
+          %i.building.icon
+          %span= user.join_age
+        .div
+          %i.phone.icon
+          %span= user.phone
+        .div
+          %i.mail.icon
+          %span= user.mail
+    .ui.bottom.attached.button
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"}
+          ユーザーページへ
+      %i.arrow.right.icon

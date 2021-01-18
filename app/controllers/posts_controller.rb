@@ -4,15 +4,19 @@ class PostsController < ApplicationController
   # , only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @knowhows = Post.published.knowhow.order(created_at: :desc)
+    # @knowhows = Post.published.knowhow.order(created_at: :desc)
     # @posts = Post.published.search(params["q"]).order(created_at: :desc)
-    @knowhows = @knowhows.page(params[:page]).per(6).order(created_at: :desc)
+    # @knowhows = @knowhows.page(params[:page]).per(6).order(created_at: :desc)
 
-    @shares = Post.published.share.order(created_at: :desc)
-    @shares = @shares.page(params[:page]).per(6).order(created_at: :desc)
+    # @shares = Post.published.share.order(created_at: :desc)
+    # @shares = @shares.page(params[:page]).per(6).order(created_at: :desc)
 
-    @news = Post.published.news.order(created_at: :desc)
-    @news = @news.page(params[:page]).per(6).order(created_at: :desc)
+    # @news = Post.published.news.order(created_at: :desc)
+    # @news = @news.page(params[:page]).per(6).order(created_at: :desc)
+
+    @posts = Post.published.order(created_at: :desc)
+    @posts = Post.published.search(params["q"]).order(created_at: :desc)
+    @posts = @posts.page(params[:page]).per(6).order(created_at: :desc)
   end
 
   def show

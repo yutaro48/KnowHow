@@ -1,19 +1,12 @@
-= render 'commons/leftsidebar', user: current_user
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
 
-.wide_show
-  .ui.pointing.menu
-    = link_to :back, class: 'item' do
-      %i.angle.left.icon
-      %font{:style => "vertical-align: inherit;"}
-        %font{:style => "vertical-align: inherit;"} もどる
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_first', user: current_user
 
-  .profile_content
-    .ui.one.item.menu
-      %p.item
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} ユーザーリスト
-
-    .account_wide
+    .eight.wide.column
       - @users.each do |user|
         .ui.segment
           .ui.middle.aligned.list
@@ -29,3 +22,11 @@
                   %font{:style => "vertical-align: inherit;"}
                     %font{:style => "vertical-align: inherit;"}
                       詳細
+
+    .four.wide.column
+      .ui.segment
+        .ui.top.attached.label.tac
+          %i.eye.icon
+          %span 最近見たノウハウ
+        %p
+

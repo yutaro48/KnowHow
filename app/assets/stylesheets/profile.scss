@@ -12,4 +12,22 @@
             padding: 20px !important;
         }
     }
+
+
+
+    &_image {
+        height: 222px !important;
+        width: 222px !important;
+        margin-top: 14px !important;
+    }
+
+    &_image_content {
+        height: 222px !important;
+        width: 222px !important;
+        margin: 26px 14px !important;
+    }
+
+    &_wide {
+        width: 250px !important;
+    }
 }
