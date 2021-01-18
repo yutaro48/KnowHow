@@ -6,26 +6,12 @@
     .four.wide.column
       = render 'commons/profile_first', user: current_user
 
-    .twelve.wide.column
+    .eight.wide.column
+      = render 'posts/posts', posts: @posts
+      
+    .four.wide.column
       .ui.segment
-        %p.tac タイムライン
-        - @posts.each do |post|
-          .ui.segment
-            .ui.relaxed.divided.list        
-              = link_to post_path(id: post.id), class: 'item' do
-                - if post.about_knowhow?
-                  %i.large.book.middle.aligned.icon.blue
-                - elsif post.about_share?
-                  %i.large.share.alternate.middle.aligned.icon.green
-                - else post.about_news?
-                  %i.large.newspaper.middle.aligned.icon.pink
-                .content
-                  .header
-                    %font{:style => "vertical-align: inherit;"}
-                      %font{:style => "vertical-align: inherit;"} 
-                        = post.title
-                  .description
-                    %font{:style => "vertical-align: inherit;"}
-                      %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
-        .pagination
-          = paginate @posts
+        .ui.top.attached.label.tac
+          %i.eye.icon
+          %span 最近見たノウハウ
+        %p
