@@ -13,6 +13,9 @@ class PostsController < ApplicationController
 
     @news = Post.published.news.order(created_at: :desc)
     @news = @news.page(params[:page]).per(6).order(created_at: :desc)
+
+    @posts = Post.published.order(created_at: :desc)
+    @posts = @posts.page(params[:page]).per(6).order(created_at: :desc)
   end
 
   def show

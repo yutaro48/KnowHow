@@ -2,25 +2,58 @@
 .container
   = render 'commons/tab'
 
-  .ui.segment
-    %p.tac タイムライン
-    - @posts.each do |post|
+  .ui.grid
+    .five.wide.column
+      .ui.cards
+        .card
+          .ui.top.attached.label.tac
+            %i.user.icon
+            %span= current_user.display_name
+          .profile_image_content
+            = image_tag current_user.avatar_image, class: 'profile_image'
+          .content
+            .description
+              .div
+                %i.birthday.icon
+                %span #{current_user.birthday} (#{current_user.age || '?歳'})
+              .div
+                %i.venus.mars.icon
+                %span= I18n.t("enum.genders.#{current_user.gender || 'unknown'}")
+              .div
+                %i.building.icon
+                %span= current_user.join_age
+              .div
+                %i.phone.icon
+                %span= current_user.phone
+              .div
+                %i.mail.icon
+                %span= current_user.mail
+          .ui.bottom.attached.button
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                ユーザーページへ
+            %i.arrow.right.icon
+
+    .eleven.wide.column
       .ui.segment
-        .ui.relaxed.divided.list        
-          = link_to post_path(id: post.id), class: 'item' do
-            - if post.about_knowhow?
-              %i.large.book.middle.aligned.icon.blue
-            - elsif post.about_share?
-              %i.large.share.alternate.middle.aligned.icon.green
-            - else post.about_news?
-              %i.large.newspaper.middle.aligned.icon.pink
-            .content
-              .header
-                %font{:style => "vertical-align: inherit;"}
-                  %font{:style => "vertical-align: inherit;"} 
-                    = post.title
-              .description
-                %font{:style => "vertical-align: inherit;"}
-                  %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
-    .pagination
-      = paginate @posts
+        %p.tac タイムライン
+        - @posts.each do |post|
+          .ui.segment
+            .ui.relaxed.divided.list        
+              = link_to post_path(id: post.id), class: 'item' do
+                - if post.about_knowhow?
+                  %i.large.book.middle.aligned.icon.blue
+                - elsif post.about_share?
+                  %i.large.share.alternate.middle.aligned.icon.green
+                - else post.about_news?
+                  %i.large.newspaper.middle.aligned.icon.pink
+                .content
+                  .header
+                    %font{:style => "vertical-align: inherit;"}
+                      %font{:style => "vertical-align: inherit;"} 
+                        = post.title
+                  .description
+                    %font{:style => "vertical-align: inherit;"}
+                      %font{:style => "vertical-align: inherit;"} #{time_ago_in_words(post.created_at)}前にアウトプット
+        .pagination
+          = paginate @posts
