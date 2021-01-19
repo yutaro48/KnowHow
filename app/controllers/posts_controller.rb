@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @posts = Post.published.search(params["q"]).order(created_at: :desc)
     @posts = @posts.page(params[:page]).per(6).order(created_at: :desc)
 
-    @histories = current_user.histories.order(created_at: :desc)
+    @histories = current_user.histories
   end
 
   def show
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     if histories.count > histories_stock_limit
       histories[0].destroy
     end
-    @histories = current_user.histories.order(created_at: :desc)
+    @histories = current_user.histories
   end
 
   def new

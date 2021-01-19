@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
   def index
     @users = User.all
 
-    @histories = current_user.histories.order(created_at: :desc)
+    @histories = current_user.histories
   end
 
   def show
