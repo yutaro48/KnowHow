@@ -8,33 +8,75 @@
 
     .eight.wide.column
       = render 'layouts/flash_messages'
-      .ui.raised.segment#post-show{data: {post_id: @post.id}}
-        = link_to account_path(@post.user) do
-          %p.ui.ribbon.blue.label= @post.user.display_name
-        %h2.ui.header
-          %i.book.icon
-          .content
-            %font{:style => "vertical-align: inherit;"}
-              %font{:style => "vertical-align: inherit;"}
-                = @post.title
-            .sub.header
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
-        - if @post.has_published?
-          .div
-            .ui.primary.button.opacity.hidden.active-book
-              %i.bookmark.icon
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  ブックマーク済
-            .ui.primary.button.hidden.inactive-book
-              %i.bookmark.icon
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  ブックマーク
+      .ui.top.attached.menu
+        = link_to :back, class: 'item' do
+          %i.angle.left.icon
+          %font{:style => "vertical-align: inherit;"}
+            %font{:style => "vertical-align: inherit;"} もどる
+        .right.menu
+          .ui.simple.dropdown.icon.item
+            %i.wrench.icon
+            .menu
+              .item
+                編集
+              .item
+                削除
+      .ui.middle.attached.segment#post-show{data: {post_id: @post.id}}
+        .item.ui.grid.post_contents
+          .image.post_padding
+            = link_to account_path(@post.user) do
+              = image_tag @post.user.avatar_image, class: 'post_image_mini'
+          .content.post_padding
+            %i.book.icon.blue
+            %span 社内ノウハウ
+            %p.opacity #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
+        .title
+          %p= @post.title
         %br/
-        %p 
-          = @post.content
+        .description
+          %p= @post.content
+      -# .ui.bottom.attached.menu
+      -#   .item.right
+      -#     .ui.button ブックマーク
+      - if @post.has_published?
+        .ui.icon.buttons.bottom.attached
+          .ui.top.left.button.opacity.hidden.active-book
+            %i.bookmark.icon
+            %span ブックマーク済み
+          .ui.top.left.button.hidden.inactive-book
+            %i.bookmark.icon
+            %span ブックマーク
+          = link_to new_post_comment_path(@post) do
+            .ui.top.left.button
+              %i.comment.icon
+              %span コメントする
+      -# .ui.raised.segment#post-show{data: {post_id: @post.id}}
+      -#   = link_to account_path(@post.user) do
+      -#     %p.ui.ribbon.blue.label= @post.user.display_name
+      -#   %h2.ui.header
+      -#     %i.book.icon
+      -#     .content
+      -#       %font{:style => "vertical-align: inherit;"}
+      -#         %font{:style => "vertical-align: inherit;"}
+      -#           = @post.title
+      -#       .sub.header
+      -#         %font{:style => "vertical-align: inherit;"}
+      -#           %font{:style => "vertical-align: inherit;"} #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
+      -#   - if @post.has_published?
+      -#     .div
+      -#       .ui.primary.button.opacity.hidden.active-book
+      -#         %i.bookmark.icon
+      -#         %font{:style => "vertical-align: inherit;"}
+      -#           %font{:style => "vertical-align: inherit;"}
+      -#             ブックマーク済
+      -#       .ui.primary.button.hidden.inactive-book
+      -#         %i.bookmark.icon
+      -#         %font{:style => "vertical-align: inherit;"}
+      -#           %font{:style => "vertical-align: inherit;"}
+      -#             ブックマーク
+      -#   %br/
+      -#   %p 
+      -#     = @post.content
 
       %br/
       .container

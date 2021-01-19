@@ -116,30 +116,6 @@
           .item
             %i.hide.icon
             Hide
-
-    .ui.top.attached.menu
-      .ui.simple.dropdown.icon.item
-        %i.wrench.icon
-        .menu
-          .item
-            編集
-          .item
-            削除
-      .right.menu
-        .ui.right.aligned.category.search.item
-          .ui.action.input.transparent
-            %input{:placeholder => "検索する", :type => "text"}/
-            %button.ui.icon.button
-              %i.search.icon
-          .results
-    .ui.bottom.attached.segment
-      .header
-        %i.large.book.icon.blue
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"}
-            タイトル
-      .description
-        内容
         
     .ui.cards
       .card
@@ -201,18 +177,45 @@
           .ui.top.left.button
             %i.user.icon
             %span フォロワー
-  
-    .ui.segment.blue
-      .item.ui.grid
-        .image
-          = image_tag 'default-avatar.png', class: 'post_image'
-        .content
+
+    .ui.top.attached.menu
+      = link_to :back, class: 'item' do
+        %i.angle.left.icon
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} もどる
+      .right.menu
+        .ui.simple.dropdown.icon.item
+          %i.wrench.icon
+          .menu
+            .item
+              編集
+            .item
+              削除
+    .ui.middle.attached.segment
+      .item.ui.grid.post_contents
+        .image.post_padding
+          = image_tag current_user.avatar_image, class: 'post_image_mini'
+        .content.post_padding
           %i.book.icon.blue
-          %span カテゴリー
-          .description
-            %p ここにタイトルを表示30文字
-          .extra
-            %p.opacity ゲストユーザが２０分前に作成
+          %span 社内ノウハウ
+          %p.opacity ゲストユーザが2020/1/19 22:32に作成
+      .title
+        %p ここにタイトルを表示
+      .description
+        %p 内容をここに表示
+    -# .ui.bottom.attached.menu
+    -#   .item.right
+    -#     .ui.button ブックマーク
+    .ui.icon.buttons.bottom.attached
+      .ui.top.left.button
+        %i.bookmark.icon
+        %span ブックマーク
+      .ui.top.left.button
+        %i.comment.icon
+        %span コメントする
+
+
+  
 
 
 
