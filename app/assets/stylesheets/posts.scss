@@ -25,6 +25,11 @@ a {
 .post_image {
     height: 60px !important;
     width: 60px !important;
+
+    &_mini {
+        height: 40px !important;
+        width: 40px !important;
+    }
 }
 
 .post_contents {
