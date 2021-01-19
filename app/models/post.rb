@@ -3,7 +3,7 @@
 # Table name: posts
 #
 #  id         :bigint           not null, primary key
-#  category   :integer          default(0), not null
+#  category   :integer          default("knowhow"), not null
 #  status     :integer          default("draft"), not null
 #  title      :string           not null
 #  created_at :datetime         not null
@@ -20,6 +20,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :histories, dependent: :destroy
 
   validates :title, presence: true
   validates :title, length: { minimum: 2, maximum: 30 }

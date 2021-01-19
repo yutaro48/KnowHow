@@ -71,8 +71,4 @@
                     コメントする
       
     .four.wide.column
-      .ui.segment
-        .ui.top.attached.label.tac
-          %i.eye.icon
-          %span 最近見たノウハウ
-        %p
+      = render 'commons/history', histories: @histories

@@ -1,47 +1,23 @@
 .ui.segment
   %p.tac 表示を変更したい
   - posts.each do |post|
-    - if post.about_knowhow?
-      .ui.relaxed.divided.list
-        = link_to post_path(id: post.id), class: 'black' do
-          .ui.segment.post_padding
-            .item.ui.grid.post_contents
-              .image.post_padding
-                = image_tag post.user.avatar_image, class: 'post_image'
-              .content.post_padding
+    .ui.relaxed.divided.list
+      = link_to post_path(id: post.id), class: 'black' do
+        .ui.segment.post_padding
+          .item.ui.grid.post_contents
+            .image.post_padding
+              = image_tag post.user.avatar_image, class: 'post_image'
+            .content.post_padding
+              - if post.about_knowhow? 
                 %i.book.icon.blue
-                %span= post.category
-                .description
-                  %p= post.title
-                .extra
-                  %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
-    - elsif post.about_share?
-      .ui.relaxed.divided.list
-        = link_to post_path(id: post.id), class: 'black' do
-          .ui.segment.post_padding
-            .item.ui.grid.post_contents
-              .image.post_padding
-                = image_tag post.user.avatar_image, class: 'post_image'
-              .content.post_padding
+              - elsif post.about_share?
                 %i.share.alternate.icon.green
-                %span= post.category
-                .description
-                  %p= post.title
-                .extra
-                  %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
-    - else post.about_news?
-      .ui.relaxed.divided.list
-        = link_to post_path(id: post.id), class: 'black' do
-          .ui.segment.post_padding
-            .item.ui.grid.post_contents
-              .image.post_padding
-                = image_tag post.user.avatar_image, class: 'post_image'
-              .content.post_padding
+              - else post.about_news?
                 %i.newspaper.icon.pink
-                %span= post.category
-                .description
-                  %p= post.title
-                .extra
-                  %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
+              %span= post.category
+              .description
+                %p= post.title
+              .extra
+                %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
   .pagination
     = paginate posts

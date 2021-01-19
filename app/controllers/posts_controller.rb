@@ -1,26 +1,33 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show]
   before_action :authenticate_user!
-  # , only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    # @knowhows = Post.published.knowhow.order(created_at: :desc)
-    # @posts = Post.published.search(params["q"]).order(created_at: :desc)
-    # @knowhows = @knowhows.page(params[:page]).per(6).order(created_at: :desc)
-
-    # @shares = Post.published.share.order(created_at: :desc)
-    # @shares = @shares.page(params[:page]).per(6).order(created_at: :desc)
-
-    # @news = Post.published.news.order(created_at: :desc)
-    # @news = @news.page(params[:page]).per(6).order(created_at: :desc)
-
     @posts = Post.published.order(created_at: :desc)
     @posts = Post.published.search(params["q"]).order(created_at: :desc)
     @posts = @posts.page(params[:page]).per(6).order(created_at: :desc)
+
+    @histories = current_user.histories
   end
 
   def show
     @comments = @post.comments.order(created_at: :desc)
+
+    post = Post.find(params[:id])
+    new_history = post.histories.new
+    new_history.user_id = current_user.id
+    if current_user.histories.exists?(post_id: "#{params[:id]}")
+      old_history = current_user.histories.find_by(post_id: "#{params[:id]}")
+      old_history.destroy
+    end
+    new_history.save
+
+    histories_stock_limit = 5
+    histories = current_user.histories.all
+    if histories.count > histories_stock_limit
+      histories[0].destroy
+    end
+    @histories = current_user.histories.all
   end
 
   def new

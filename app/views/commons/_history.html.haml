@@ -1,0 +1,19 @@
+.ui.segment
+  .ui.top.attached.label.tac
+    %i.eye.icon
+    %span 最近見たノウハウ
+  %p
+    - if histories.present?
+      - histories.each do |history|
+        .ui.segment
+          = link_to post_path(id: history.post_id) do
+            - if history.post.about_knowhow?
+              %i.book.icon
+            - elsif history.post.about_share?
+              %i.share.alternate.icon
+            - else history.post.about_news?
+              %i.newspaper.icon
+            %span= history.post.category
+            %p= history.post.title
+    - else
+      %h6.tac 最近見たノウハウはありません
