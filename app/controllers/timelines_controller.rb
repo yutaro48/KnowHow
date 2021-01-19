@@ -6,6 +6,6 @@ class TimelinesController < ApplicationController
     @posts = Post.where(user_id: user_ids).published.order(created_at: :desc)
     @posts = @posts.page(params[:page]).per(5).order(created_at: :desc)
 
-    @histories = current_user.histories
+    @histories = current_user.histories.order(created_at: :desc)
   end
 end
