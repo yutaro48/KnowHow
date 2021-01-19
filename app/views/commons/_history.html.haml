@@ -9,11 +9,13 @@
           = link_to post_path(id: history.post_id) do
             - if history.post.about_knowhow?
               %i.book.icon
+              %span.posts_subtitle 社内ノウハウ
             - elsif history.post.about_share?
               %i.share.alternate.icon
+              %span.posts_subtitle 共有事項
             - else history.post.about_news?
               %i.newspaper.icon
-            %span= history.post.category
-            %p= history.post.title
+              %span.posts_subtitle ニュース
+            %p.posts_subtitle= history.post.title
     - else
       %h6.tac 最近見たノウハウはありません
