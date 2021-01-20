@@ -24,14 +24,14 @@
               = f.label :title, 'タイトル（３０文字以内で入力）'
               = f.text_field :title, placeholder: 'タイトルを入力', class: ''
             - if @post.errors.include?(:title)
-              %p.ui.pointing.red.basic.label
+              %p.ui.negative.message.form_message
                 %i.attention.circle.icon
                 = @post.errors.full_messages_for(:title).first
             .div.required.field
               = f.label :content, '内容'
               = f.rich_text_area :content, placeholder: '内容を入力', class: 'form_height ui segment'
             - if @post.errors.include?(:content)
-              %p.ui.pointing.red.basic.label
+              %p.ui.negative.message.form_message
                 %i.attention.circle.icon
                 = @post.errors.full_messages_for(:content).first
             .ui.grid.field
