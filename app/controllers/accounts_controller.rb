@@ -2,6 +2,7 @@ class AccountsController < ApplicationController
 
   def index
     @users = User.all
+    @users = @users.page(params[:page]).per(6).order(created_at: :desc)
 
     @histories = current_user.histories
   end
