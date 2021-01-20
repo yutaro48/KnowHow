@@ -1,24 +1,28 @@
-.form_container
-  .padding_tb
-    = link_to :back do
-      %button.ui.basic.button
-        %i.angle.left.icon
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"}
-            もどる
-  %ul
-    - @comment.errors.full_messages.each do |message|
-      %li= message
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
 
-  .ui.equal.width.center.aligned.padded.grid
-    .row.form_height
-      .ui.raised.segment.column.padding_setting
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_first', user: current_user
+
+    .eight.wide.column
+      .ui.minimal.comments
+        %p.ui.horizontal.divider
+          %i.comments.icon
+          コメント
+        %br/
         = form_with(model: @comment, url: post_comments_path(@comment.post), local: 'true') do |f|
-          %div
-            = f.rich_text_area :content, placeholder: '内容を入力', class: 'text text_height_comment'
-          %div.right
-            = f.submit 'アウトプットする', class: 'ui primary button'
-      .ui.raised.segment.column
-        %p
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"} MarkDownを適用してここにリアルタイムプレビュー機能を実装したい
+          .ui.form
+            .div.required.field
+              = f.label :content, 'コメントを書く'
+              = f.rich_text_area :content, placeholder: '内容を入力', class: 'form_height ui segment'
+            - if @comment.errors.include?(:content)
+              %p.ui.negative.message.form_message
+                %i.attention.circle.icon
+                = @comment.errors.full_messages_for(:content).first
+            .ui.field
+              = f.submit '保存', class: 'ui primary button'
+      
+    .four.wide.column
+      = render 'commons/history', histories: @histories
