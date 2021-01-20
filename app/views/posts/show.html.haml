@@ -108,38 +108,24 @@
       -#     = @post.content
 
       %br/
-      .container
-        - if @comments.present?
-          .ui.minimal.comments
-            %h3.ui.dividing.header.tac
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"} コメント
-            - @comments.each do |comment|
-              .ui.segment
-                .comment
-                  %a.ui.avatar.image
-                    = image_tag comment.user.avatar_image
-                  .content
-                    %a.author
-                      %font{:style => "vertical-align: inherit;"}
-                        %font{:style => "vertical-align: inherit;"}= comment.user.display_name
-                    .metadata
-                      %span.date
-                        %font{:style => "vertical-align: inherit;"}
-                          %font{:style => "vertical-align: inherit;"}  #{comment.display_created_at}に更新
-                    .text
-                      %font{:style => "vertical-align: inherit;"}
-                        %font{:style => "vertical-align: inherit;"}
-                          = comment.content
-        -# - if @post.has_published?
-        -#   %br/
-        -#   %form.ui.reply.form
-        -#     = link_to new_post_comment_path(@post) do
-        -#       .ui.blue.labeled.submit.icon.button.right.floated
-        -#         %i.icon.edit
-        -#         %font{:style => "vertical-align: inherit;"}
-        -#           %font{:style => "vertical-align: inherit;"}
-        -#             コメントする
+      - if @comments.present?
+        .ui.minimal.comments
+          %p.ui.horizontal.divider
+            %i.comments.icon
+            コメント
+          %br/
+          - @comments.each do |comment|
+            .ui.segment
+              .item.ui.grid.post_contents
+                .image.post_padding
+                  = link_to account_path(comment.user) do
+                    = image_tag comment.user.avatar_image, class: 'post_image_mini'
+                .content.post_padding
+                  %span= comment.user.display_name
+                  %p.opacity #{comment.display_created_at}に作成
+              .description
+                %p
+                  = comment.content
       
     .four.wide.column
       = render 'commons/history', histories: @histories
