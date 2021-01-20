@@ -8,58 +8,8 @@
 
     .eight.wide.column
       = render 'layouts/flash_messages'
-      .ui.top.attached.menu
-        = link_to :back, class: 'item' do
-          %i.angle.left.icon
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"} もどる
-        - if user_signed_in? && current_user.has_outputted?(@post)
-          .right.menu
-            .ui.simple.dropdown.icon.item
-              %i.wrench.icon
-              .menu
-                = link_to edit_post_path(@post), class: 'item' do
-                  編集
-                = link_to post_path(@post), data: { method: 'delete', confirm: '本当に削除してもいいですか？' }, class: 'item' do
-                  削除
-      .ui.middle.attached.segment#post-show{data: {post_id: @post.id}}
-        .item.ui.grid.post_contents
-          .image.post_padding
-            = link_to account_path(@post.user) do
-              = image_tag @post.user.avatar_image, class: 'post_image_mini'
-          .content.post_padding
-            - if @post.about_knowhow? 
-              %i.book.icon.blue
-              %span.posts_subtitle 社内ノウハウ
-            - elsif @post.about_share?
-              %i.share.alternate.icon.green
-              %span.posts_subtitle 共有事項
-            - else @post.about_news?
-              %i.newspaper.icon.pink
-              %span.posts_subtitle ニュース
-            %p.opacity #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
-        %br/
-        .title
-          %h4= @post.title
-        %br/
-        .description
-          %p
-            = @post.content
-        %br/
-        - if @post.has_published?
-          .ui.two.column.grid
-            .column.tac
-              .hidden.active-book.post_action_btn
-                %i.bookmark.icon.bookmark_color
-                %span.bookmark_color ブックマーク
-              .hidden.inactive-book.post_action_btn
-                %i.bookmark.icon.grey
-                %span.opacity ブックマーク
-            .column.tac
-              .post_action_btn
-                = link_to new_post_comment_path(@post), class: 'black' do
-                  %i.comment.icon.grey
-                  %span.opacity コメントする
+      = render 'posts/post', post: @post
+
       %br/
       - if @comments.present?
         .ui.minimal.comments
