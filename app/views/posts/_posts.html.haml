@@ -1,5 +1,11 @@
 .ui.segment
-  %p.tac 表示を変更したい
+  .ui.top.attached.label.tac
+    - if current_page?(posts_path)
+      %i.list.icon
+      %span ノウハウリスト
+    - else current_page?(timeline_path)
+      %i.time.icon
+      %span タイムライン
   - posts.each do |post|
     .ui.relaxed.divided.list
       = link_to post_path(id: post.id), class: 'black' do
