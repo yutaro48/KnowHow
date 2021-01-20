@@ -28,8 +28,15 @@
             = link_to account_path(@post.user) do
               = image_tag @post.user.avatar_image, class: 'post_image_mini'
           .content.post_padding
-            %i.book.icon.blue
-            %span 社内ノウハウ
+            - if @post.about_knowhow? 
+              %i.book.icon.blue
+              %span.posts_subtitle 社内ノウハウ
+            - elsif @post.about_share?
+              %i.share.alternate.icon.green
+              %span.posts_subtitle 共有事項
+            - else @post.about_news?
+              %i.newspaper.icon.pink
+              %span.posts_subtitle ニュース
             %p.opacity #{@post.user.display_name}が#{@post.display_created_at}にアウトプット
         %br/
         .title
