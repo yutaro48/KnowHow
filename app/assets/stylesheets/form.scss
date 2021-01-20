@@ -1,39 +1,14 @@
-.padding_tb {
-    padding: 10px 0 !important;
-}
-
-.right {
-    text-align: right;
-}
-
 .form {
-    &_height {
-        height: 90vh !important;
-    }
+    &_select {
+        width: 140px !important;
 
-    &_container {
-        margin: 0 40px;
-    }
-}
-
-.text {
-    width: 100%;
-    border: none;
-    font-size: 16px;
-    padding: 5px 5px;
-
-    &_height {
-        height: 520px;
-        text-align: left;
-
-        &_comment {
-            height: 580px;
-            text-align: left;
+        &_mini {
+            width: 90px !important;
+            margin-right: 10px;
         }
     }
-}
 
-.padding_setting {
-    padding-top: 14px !important;
-    padding-bottom: 14px !important;
+    &_height {
+        height: 350px;
+    }
 }
