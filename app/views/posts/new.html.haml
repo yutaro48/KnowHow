@@ -6,56 +6,34 @@
     .four.wide.column
       = render 'commons/profile_first', user: current_user
 
-    .eight.wide.column
-      %ul
-        - @post.errors.full_messages.each do |message|
-          %li= message
-
-      .ui.raised.segment
-        = form_with(model: @post, local: 'true') do |f|
-          %div
-            = f.select :category, Post.categories.map { |k, v| [ I18n.t("enum.categories.#{k}"), k ] }, {}, { class: '' }
-          %div
-            = f.text_field :title, placeholder: 'タイトルを入力', class: 'text'
-          %hr/
-          %div
-            = f.rich_text_area :content, placeholder: '内容を入力', class: 'text text_height'
-          %div.right
-            %div
-              = f.select :status, Post.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: '' }
-            = f.submit 'アウトプットする', class: 'ui primary button'
-      
-    .four.wide.column
+    .twelve.wide.column
+      -# = link_to :back do
+      -#   %button.ui.basic.button
+      -#     %i.angle.left.icon
+      -#     %span もどる
       .ui.segment
-        .ui.top.attached.label.tac
-          %i.eye.icon
-          %span 最近見たノウハウ
-        %p
-
-.form_container
-  %ul
-    - @post.errors.full_messages.each do |message|
-      %li= message
-
-  .padding_tb
-    = link_to :back do
-      %button.ui.basic.button
-        %i.angle.left.icon
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"}
-            もどる
-
-      .ui.raised.segment
+        .ui.top.attached.label
+          %p.tac アウトプットフォーム
         = form_with(model: @post, local: 'true') do |f|
-          %div
-            = f.select :category, Post.categories.map { |k, v| [ I18n.t("enum.categories.#{k}"), k ] }, {}, { class: '' }
-          %div
-            = f.text_field :title, placeholder: 'タイトルを入力', class: 'text'
-          %hr/
-          %div
-            = f.rich_text_area :content, placeholder: '内容を入力', class: 'text text_height'
-          %div.right
-            %div
-              = f.select :status, Post.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: '' }
-            = f.submit 'アウトプットする', class: 'ui primary button'
+          .ui.form
+            .div.field
+              = f.label :category, 'カテゴリー'
+              = f.select :category, Post.categories.map { |k, v| [ I18n.t("enum.categories.#{k}"), k ] }, {}, { class: 'form_select' }
 
+            .div.required.field
+              = f.label :title, 'タイトル（３０文字以内で入力）'
+              = f.text_field :title, placeholder: 'タイトルを入力', class: ''
+            - if @post.errors.include?(:title)
+              %p.ui.pointing.red.basic.label
+                %i.attention.circle.icon
+                = @post.errors.full_messages_for(:title).first
+            .div.required.field
+              = f.label :content, '内容'
+              = f.rich_text_area :content, placeholder: '内容を入力', class: 'form_height ui segment'
+            - if @post.errors.include?(:content)
+              %p.ui.pointing.red.basic.label
+                %i.attention.circle.icon
+                = @post.errors.full_messages_for(:content).first
+            .ui.grid.field
+              = f.select :status, Post.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: 'form_select_mini' }
+              = f.submit '保存', class: 'ui primary button'
