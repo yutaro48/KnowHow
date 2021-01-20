@@ -26,9 +26,10 @@
                         %font{:style => "vertical-align: inherit;"}
                           ユーザーページへ
                       %i.arrow.right.icon
+        .margin_top
+        .pagination
+          = paginate @users
 
     .four.wide.column
       = render 'commons/history', histories: @histories
-  -# .pagination
-  -#   = paginate posts
 
