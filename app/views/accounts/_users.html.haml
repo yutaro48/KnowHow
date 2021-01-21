@@ -4,10 +4,10 @@
       %i.users.icon
       %span ユーザーリスト
     - elsif current_page?(account_follows_path)
-      %i.users.icon
+      %i.address.book.outline.icon
       %span フォローしているユーザー
     - else current_page?(account_followers_path)
-      %i.users.icon
+      %i.address.book.icon
       %span フォローされているユーザー
   .ui.three.column.grid
     - users.each do |user|
