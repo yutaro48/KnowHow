@@ -1,0 +1,27 @@
+.ui.segment
+  .ui.top.attached.label
+    %p.tac プロフィール編集
+  = form_with(model: profile, url: profile_path, method: 'put', local: 'true') do |f|
+    .ui.form
+      %div.field
+        = f.label :avatar, '写真'
+        = f.file_field :avatar
+      %div.field
+        = f.label :name, '名前'
+        = f.text_field :name
+      %div.field
+        = f.label :birthday, '生年月日'
+        = f.date_field :birthday
+      %div.field
+        = f.label :gender, '性別'
+        = f.select :gender, Profile.genders.map { |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, {}, { class: '' }
+      %div.field
+        = f.label :join, '入社年月日'
+        = f.date_field :join, class: 'form_select_medium'
+      %div.field
+        = f.label :phone, '電話番号'
+        = f.text_field :phone
+      %div.field
+        = f.label :mail, 'メールアドレス'
+        = f.text_field :mail
+      = f.submit '更新する', class: 'ui primary button'

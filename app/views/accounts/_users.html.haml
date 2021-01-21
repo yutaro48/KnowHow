@@ -1,0 +1,32 @@
+.ui.segment
+  .ui.top.attached.label.tac
+    - if current_page?(accounts_path)
+      %i.users.icon
+      %span ユーザーリスト
+    - elsif current_page?(account_follows_path)
+      %i.address.book.outline.icon
+      %span フォローしているユーザー(#{@user.following_count})
+    - else current_page?(account_followers_path)
+      %i.address.book.icon
+      %span フォローされているユーザー(#{@user.follower_count})
+  - if users.present?
+    .ui.three.column.grid
+      - users.each do |user|
+        .column
+          .ui.cards
+            .card.profile_wide_mini
+              .ui.top.attached.label.tac
+                %span= user.display_name
+              .profile_image_content_mini
+                = image_tag user.avatar_image, class: 'profile_image_mini'
+              = link_to account_path(user) do
+                .ui.bottom.attached.button.profile_text
+                  %font{:style => "vertical-align: inherit;"}
+                    %font{:style => "vertical-align: inherit;"}
+                      ユーザーページへ
+                  %i.arrow.right.icon
+    .margin_top
+    .pagination
+      = paginate users
+  - else
+    %p.tac ユーザーがいません。

@@ -2,10 +2,16 @@
   .ui.top.attached.label.tac
     - if current_page?(outputs_path)
       %i.list.icon
-      %span マイノウハウ
-    - else current_page?(accounts_path)
+      %span マイノウハウ(#{user.posts_count})
+    - elsif current_page?(bookmarked_posts_path)
+      %i.bookmark.icon
+      %span ブックマークしたノウハウ(#{user.has_bookmarked_posts_count})
+    - elsif current_page?(drafts_path)
+      %i.edit.icon
+      %span 下書き(#{user.draft_count})
+    - else current_page?(account_path)
       %i.list.icon
-      %span #{user.display_name}のノウハウ
+      %span #{user.display_name}のノウハウ(#{user.posts_count})
   - if posts.present?
     - posts.each do |post|
       .ui.relaxed.divided.list
@@ -24,12 +30,22 @@
                 - else post.about_news?
                   %i.newspaper.icon.pink
                   %span.posts_subtitle ニュース
-                -# %span= post.category
                 .description
                   %p= post.title
-                .extra
-                  %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
-    -# .pagination
-    -#   = paginate posts
+                - if post.has_published?
+                  .extra
+                    %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
+                - else
+                  .extra
+                    %p.opacity.posts_subtitle 下書きとして保存
+    .pagination
+      = paginate posts
   - else
-    %p.tac まだアウトプットしていません。 
+    - if current_page?(outputs_path)
+      %p.tac まだアウトプットしていません。
+    - elsif current_page?(bookmarked_posts_path)
+      %p.tac ブックマークしたノウハウはありません。
+    - elsif current_page?(drafts_path)
+      %p.tac 下書きしたノウハウはありません。
+    - else current_page?(account_path)
+      %p.tac まだアウトプットしていません。

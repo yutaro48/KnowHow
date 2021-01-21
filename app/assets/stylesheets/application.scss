@@ -98,6 +98,10 @@ body {
 .wide {
   &_three_column {
     width: 33% !important;
+
+    &_right {
+      width: 34% !important;
+    }
   }
 
   &_two_column {

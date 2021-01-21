@@ -1,39 +1,15 @@
-= render 'commons/leftsidebar', user: current_user
+= render 'commons/header', user: current_user
+.container
+  - if @user == current_user
+    = render 'commons/user_tab'
+  - else
+    = render 'commons/tab'
 
-.wide_show
-  .ui.pointing.menu
-    = link_to :back, class: 'item' do
-      %i.angle.left.icon
-      %font{:style => "vertical-align: inherit;"}
-        %font{:style => "vertical-align: inherit;"} もどる
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_second', user: @user
 
-  .profile_content
-    .ui.three.item.menu
-      = link_to account_path(@user), class: 'item' do
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} プロフィール 
-      %a.item.active
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} フォロー
-        .ui.small.blue.label= @user.following_count
-      = link_to account_followers_path(@user), class: 'item' do
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} フォロワー
-        .ui.small.blue.label= @user.follower_count
+    .eight.wide.column
+      = render 'accounts/users', users: @followings
 
-    .account_wide
-      - @followings.each do |following|
-        .ui.segment
-          .ui.middle.aligned.list
-            .item
-              = image_tag following.avatar_image, class: 'ui avatar image'
-              .content
-                .header
-                  %font{:style => "vertical-align: inherit;"}
-                    %font{:style => "vertical-align: inherit;"}= following.display_name
-              = link_to account_path(following) do
-                %button.ui.right.labeled.icon.button.right.floated
-                  %i.right.arrow.icon
-                  %font{:style => "vertical-align: inherit;"}
-                    %font{:style => "vertical-align: inherit;"}
-                      詳細
+    .four.wide.column
