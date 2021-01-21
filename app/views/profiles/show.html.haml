@@ -141,11 +141,19 @@
             .div
               %i.mail.icon
               %span= current_user.mail
-        .ui.bottom.attached.button
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"}
-              ユーザーページへ
-          %i.arrow.right.icon
+          .div.tac.margin_top_mini
+            %button.ui.basic.button
+              %i.icon.user.plus
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"}
+                  フォローする
+        .ui.icon.buttons.bottom.attached
+          .ui.top.left.button.wide_two_column
+            %i.user.icon
+            %p フォロー
+          .ui.top.left.button.wide_two_column
+            %i.user.icon
+            %p フォロワー
 
       .card.profile_wide
         .ui.top.attached.label.tac
@@ -170,17 +178,13 @@
             .div
               %i.mail.icon
               %span= current_user.mail
-          .div.tac
-            %button.ui.basic.button
-              %i.icon.user.plus
-              %font{:style => "vertical-align: inherit;"}
-                %font{:style => "vertical-align: inherit;"}
-                  フォローする
-
         .ui.icon.buttons.bottom.attached
-          .ui.top.left.button
+          .ui.top.left.button.wide_three_column
+            %i.cog.icon
+            %p 編集
+          .ui.top.left.button.wide_three_column
             %i.user.icon
-            %span フォロー
-          .ui.top.left.button
+            %p フォロー
+          .ui.top.left.button.wide_three_column
             %i.user.icon
-            %span フォロワー
+            %p フォロワー
