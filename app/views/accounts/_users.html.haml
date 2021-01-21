@@ -9,21 +9,24 @@
     - else current_page?(account_followers_path)
       %i.address.book.icon
       %span フォローされているユーザー
-  .ui.three.column.grid
-    - users.each do |user|
-      .column
-        .ui.cards
-          .card.profile_wide_mini
-            .ui.top.attached.label.tac
-              %span= user.display_name
-            .profile_image_content_mini
-              = image_tag user.avatar_image, class: 'profile_image_mini'
-            = link_to account_path(user) do
-              .ui.bottom.attached.button.profile_text
-                %font{:style => "vertical-align: inherit;"}
+  - if users.present?
+    .ui.three.column.grid
+      - users.each do |user|
+        .column
+          .ui.cards
+            .card.profile_wide_mini
+              .ui.top.attached.label.tac
+                %span= user.display_name
+              .profile_image_content_mini
+                = image_tag user.avatar_image, class: 'profile_image_mini'
+              = link_to account_path(user) do
+                .ui.bottom.attached.button.profile_text
                   %font{:style => "vertical-align: inherit;"}
-                    ユーザーページへ
-                %i.arrow.right.icon
-  -# .margin_top
-  -# .pagination
-  -#   = paginate users
+                    %font{:style => "vertical-align: inherit;"}
+                      ユーザーページへ
+                  %i.arrow.right.icon
+    -# .margin_top
+    -# .pagination
+    -#   = paginate users
+  - else
+    %p.tac ユーザーがいません。
