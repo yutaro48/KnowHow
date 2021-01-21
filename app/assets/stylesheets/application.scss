@@ -64,6 +64,10 @@ body {
 
 .margin_top {
   margin-top: 25px !important;
+
+  &_mini {
+    margin-top: 10px !important;
+  }
 }
 
 .margin_left {

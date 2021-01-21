@@ -118,7 +118,7 @@
             Hide
         
     .ui.cards
-      .card
+      .card.profile_wide
         .ui.top.attached.label.tac
           %i.user.icon
           %span= current_user.display_name
@@ -147,7 +147,7 @@
               ユーザーページへ
           %i.arrow.right.icon
 
-      .card
+      .card.profile_wide
         .ui.top.attached.label.tac
           %i.user.icon
           %span= current_user.display_name
@@ -170,6 +170,13 @@
             .div
               %i.mail.icon
               %span= current_user.mail
+          .div.tac
+            %button.ui.basic.button
+              %i.icon.user.plus
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"}
+                  フォローする
+
         .ui.icon.buttons.bottom.attached
           .ui.top.left.button
             %i.user.icon
