@@ -37,7 +37,11 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to post_path(@post), notice: 'アウトプットしました。'
+      if @post.has_published?
+        redirect_to post_path(@post), notice: 'アウトプットしました。'
+      else
+        redirect_to drafts_path, notice: '下書きに保存しました。'
+      end
     else
       flash.now[:error] = 'アウトプットできませんでした。'
       render :new
