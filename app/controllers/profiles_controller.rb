@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
     @profile = current_user.prepare_profile
     @profile.assign_attributes(profile_params)
     if @profile.save
-      redirect_to profile_path, notice: '更新しました。'
+      redirect_to outputs_path, notice: '更新しました。'
     else
       flash.now[:error] = '更新できませんでした。'
       render :edit
