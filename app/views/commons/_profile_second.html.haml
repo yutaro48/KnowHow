@@ -10,19 +10,19 @@
         .description
           .div
             %i.birthday.icon
-            %span #{user.birthday} (#{user.age || '?歳'})
+            %span #{user.birthday} (#{user.age || '年齢未入力'})
           .div
             %i.venus.mars.icon
             %span= I18n.t("enum.genders.#{user.gender || 'unknown'}")
           .div
             %i.building.icon
-            %span= user.join_age
+            %span= user.join_age || '在籍年数未入力'
           .div
             %i.phone.icon
-            %span= user.phone
+            %span= user.phone || '電話番号未入力'
           .div
             %i.mail.icon
-            %span= user.mail
+            %span= user.mail || 'アドレス未入力'
       .ui.icon.buttons.bottom.attached.block
         = link_to edit_profile_path do
           .ui.top.left.button.wide_three_column
@@ -48,19 +48,19 @@
         .description
           .div
             %i.birthday.icon
-            %span #{user.birthday} (#{user.age || '?歳'})
+            %span #{user.birthday} (#{user.age || '年齢未入力'})
           .div
             %i.venus.mars.icon
             %span= I18n.t("enum.genders.#{user.gender || 'unknown'}")
           .div
             %i.building.icon
-            %span= user.join_age
+            %span= user.join_age || '在籍年数未入力'
           .div
             %i.phone.icon
-            %span= user.phone
+            %span= user.phone || '電話番号未入力'
           .div
             %i.mail.icon
-            %span= user.mail
+            %span= user.mail || 'アドレス未入力'
         .div.tac.margin_top_mini
           -if current_user&.has_followed?(user)
             = link_to account_unfollows_path(user), data: { method: 'post' } do
