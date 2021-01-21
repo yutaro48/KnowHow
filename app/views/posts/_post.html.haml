@@ -27,7 +27,10 @@
       - else post.about_news?
         %i.newspaper.icon.pink
         %span.posts_subtitle ニュース
-      %p.opacity #{post.user.display_name}が#{post.display_created_at}にアウトプット
+      - if post.has_published?
+        %p.opacity #{post.user.display_name}が#{post.display_created_at}にアウトプット
+      - else
+        %p.opacity 下書きとして保存
   %br/
   .title
     %h4= post.title
