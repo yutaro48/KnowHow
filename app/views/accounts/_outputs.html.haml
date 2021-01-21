@@ -2,16 +2,16 @@
   .ui.top.attached.label.tac
     - if current_page?(outputs_path)
       %i.list.icon
-      %span マイノウハウ
+      %span マイノウハウ(#{user.posts_count})
     - elsif current_page?(bookmarked_posts_path)
       %i.bookmark.icon
-      %span ブックマークしたノウハウ
+      %span ブックマークしたノウハウ(#{user.has_bookmarked_posts_count})
     - elsif current_page?(drafts_path)
       %i.edit.icon
-      %span 下書き
+      %span 下書き(#{user.draft_count})
     - else current_page?(account_path)
       %i.list.icon
-      %span #{user.display_name}のノウハウ
+      %span #{user.display_name}のノウハウ(#{user.posts_count})
   - if posts.present?
     - posts.each do |post|
       .ui.relaxed.divided.list
