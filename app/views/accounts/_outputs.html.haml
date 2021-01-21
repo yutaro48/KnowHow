@@ -3,15 +3,15 @@
     - if current_page?(outputs_path)
       %i.list.icon
       %span マイノウハウ
-    - elsif current_page?(account_path)
-      %i.list.icon
-      %span #{user.display_name}のノウハウ
     - elsif current_page?(bookmarked_posts_path)
       %i.bookmark.icon
       %span ブックマークしたノウハウ
-    - else current_page?(drafts_path)
+    - elsif current_page?(drafts_path)
       %i.edit.icon
       %span 下書き
+    - else current_page?(account_path)
+      %i.list.icon
+      %span #{user.display_name}のノウハウ
   - if posts.present?
     - posts.each do |post|
       .ui.relaxed.divided.list
