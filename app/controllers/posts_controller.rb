@@ -55,7 +55,11 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: '更新しました。'
+      if @post.has_published?
+        redirect_to post_path(@post), notice: '更新しました。'
+      else
+        redirect_to drafts_path, notice: '下書きに保存しました。'
+      end
     else
       flash.now[:error] = '更新できませんでした。'
       render :edit
