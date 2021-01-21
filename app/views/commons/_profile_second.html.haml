@@ -1,0 +1,73 @@
+- if user == current_user
+  .ui.cards
+    .card.profile_wide
+      .ui.top.attached.label.tac
+        %i.user.icon
+        %span= current_user.display_name
+      .profile_image_content
+        = image_tag current_user.avatar_image, class: 'profile_image'
+      .content
+        .description
+          .div
+            %i.birthday.icon
+            %span #{current_user.birthday} (#{current_user.age || '?歳'})
+          .div
+            %i.venus.mars.icon
+            %span= I18n.t("enum.genders.#{current_user.gender || 'unknown'}")
+          .div
+            %i.building.icon
+            %span= current_user.join_age
+          .div
+            %i.phone.icon
+            %span= current_user.phone
+          .div
+            %i.mail.icon
+            %span= current_user.mail
+      .ui.icon.buttons.bottom.attached
+        .ui.top.left.button.wide_three_column
+          %i.cog.icon
+          %p 編集
+        .ui.top.left.button.wide_three_column
+          %i.user.icon
+          %p フォロー
+        .ui.top.left.button.wide_three_column
+          %i.user.icon
+          %p フォロワー
+- else
+  .ui.cards
+    .card.profile_wide
+      .ui.top.attached.label.tac
+        %i.user.icon
+        %span= user.display_name
+      .profile_image_content
+        = image_tag user.avatar_image, class: 'profile_image'
+      .content
+        .description
+          .div
+            %i.birthday.icon
+            %span #{user.birthday} (#{user.age || '?歳'})
+          .div
+            %i.venus.mars.icon
+            %span= I18n.t("enum.genders.#{user.gender || 'unknown'}")
+          .div
+            %i.building.icon
+            %span= user.join_age
+          .div
+            %i.phone.icon
+            %span= user.phone
+          .div
+            %i.mail.icon
+            %span= user.mail
+        .div.tac.margin_top_mini
+          %button.ui.basic.button
+            %i.icon.user.plus
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                フォローする
+      .ui.icon.buttons.bottom.attached
+        .ui.top.left.button.wide_two_column
+          %i.user.icon
+          %p フォロー
+        .ui.top.left.button.wide_two_column
+          %i.user.icon
+          %p フォロワー
