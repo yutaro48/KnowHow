@@ -1,0 +1,16 @@
+.ui.secondary.pointing.menu
+  = link_to outputs_path do
+    .item{class: "#{'active' if current_page?(outputs_path)}"}
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"}
+          マイノウハウ
+  = link_to bookmarked_posts_path do
+    .item{class: "#{'active' if current_page?(bookmarked_posts_path)}"}
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"}
+          ブックマーク
+  = link_to drafts_path do
+    .item{class: "#{'active' if current_page?(drafts_path)}"}
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"}
+          下書き
