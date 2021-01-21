@@ -69,7 +69,7 @@ class PostsController < ApplicationController
   def destroy
     post = current_user.posts.find(params[:id])
     post.destroy!
-    redirect_to root_path, notice: 'ノウハウを削除しました。'
+    redirect_to posts_path, notice: 'ノウハウを削除しました。'
   end
 
   private
