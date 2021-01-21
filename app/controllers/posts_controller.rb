@@ -22,12 +22,12 @@ class PostsController < ApplicationController
     end
     new_history.save
 
-    histories_stock_limit = 5
+    histories_stock_limit = 6
     histories = current_user.histories.all
     if histories.count > histories_stock_limit
       histories[0].destroy
     end
-    @histories = current_user.histories.all
+    @histories = current_user.histories
   end
 
   def new

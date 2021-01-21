@@ -1,35 +1,22 @@
--# .ui.vertical.borderless.menu.left.floated
--#   .item
--#     .ui.action.input.small
--#       = form_tag posts_path, method: :get, class: 'ui action input' do
--#         = text_field_tag :q
--#         = button_tag :class => 'ui icon blue button' do
--#           %i.search.icon
--#   = link_to posts_path, class: 'item' do
--#     %i.book.icon.nofloat
--#     %span ノウハウリスト
--#   = link_to timeline_path, class: 'item' do
--#     %i.time.icon.nofloat
--#     %span タイムライン
--#   = link_to accounts_path, class: 'item' do
--#     %i.users.icon.nofloat
--#     %span ユーザリスト
-
 .ui.secondary.pointing.menu
-  = link_to posts_path, class: 'item active' do
-    %font{:style => "vertical-align: inherit;"}
-      %font{:style => "vertical-align: inherit;"}
-        ノウハウリスト
-  = link_to timeline_path, class: 'item' do
-    %font{:style => "vertical-align: inherit;"}
-      %font{:style => "vertical-align: inherit;"}
-        タイムライン
-  = link_to accounts_path, class: 'item' do
-    %font{:style => "vertical-align: inherit;"}
-      %font{:style => "vertical-align: inherit;"}
-        ユーザリスト
-  .right.menu
-    %a.ui.item
+  = link_to posts_path do
+    .item{class: "#{'active' if current_page?(posts_path)}"}
       %font{:style => "vertical-align: inherit;"}
         %font{:style => "vertical-align: inherit;"}
-          検索機能
+          ノウハウリスト
+  = link_to timeline_path do
+    .item{class: "#{'active' if current_page?(timeline_path)}"}
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"}
+          タイムライン
+  = link_to accounts_path do
+    .item{class: "#{'active' if current_page?(accounts_path)}"}
+      %font{:style => "vertical-align: inherit;"}
+        %font{:style => "vertical-align: inherit;"}
+          ユーザリスト
+  - if current_page?(posts_path)
+    .right.menu
+      = form_tag posts_path, method: :get, class: 'ui action input' do
+        = text_field_tag :q
+        = button_tag :class => 'ui icon grey button' do
+          %i.search.icon

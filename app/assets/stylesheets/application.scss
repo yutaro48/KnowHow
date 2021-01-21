@@ -62,6 +62,35 @@ body {
   margin: 0px !important;
 }
 
+.margin_top {
+  margin-top: 25px !important;
+
+  &_mini {
+    margin-top: 10px !important;
+  }
+}
+
+.margin_left {
+  margin-left: 5px !important;
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
 .black {
   color: black !important;
+}
+
+.bookmark_color {
+  color: rgb(34, 92, 191);
+}
+
+.post_action_btn {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  &:hover {
+    text-shadow: 0px 0px 20px rgb(34, 92, 191);
+  }
 }

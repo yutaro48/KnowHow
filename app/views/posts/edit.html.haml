@@ -1,32 +1,10 @@
-.form_container
-  %ul
-    - @post.errors.full_messages.each do |message|
-      %li= message
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
 
-  .padding_tb
-    = link_to :back do
-      %button.ui.basic.button
-        %i.angle.left.icon
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"}
-            もどる
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_first', user: current_user
 
-  .ui.equal.width.center.aligned.padded.grid
-    .row.form_height
-      .ui.raised.segment.column.padding_setting
-        = form_with(model: @post, local: 'true') do |f|
-          %div
-            = f.select :category, Post.categories.map { |k, v| [ I18n.t("enum.categories.#{k}"), k ] }, {}, { class: '' }
-          %div
-            = f.text_field :title, placeholder: 'タイトルを入力', class: 'text'
-          %hr/
-          %div
-            = f.rich_text_area :content, placeholder: '内容を入力', class: 'text text_height'
-          %div.right
-            %div
-              = f.select :status, Post.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: '' }
-            = f.submit '更新する', class: 'ui primary button'
-      .ui.raised.segment.column
-        %p
-          %font{:style => "vertical-align: inherit;"}
-            %font{:style => "vertical-align: inherit;"} MarkDownを適用してここにリアルタイムプレビュー機能を実装したい
+    .twelve.wide.column
+      = render 'posts/form', post: @post

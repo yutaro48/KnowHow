@@ -1,0 +1,26 @@
+.ui.segment
+  .ui.top.attached.label
+    %p.tac アウトプットフォーム
+  = form_with(model: post, local: 'true') do |f|
+    .ui.form
+      .div.field
+        = f.label :category, 'カテゴリー'
+        = f.select :category, Post.categories.map { |k, v| [ I18n.t("enum.categories.#{k}"), k ] }, {}, { class: 'form_select' }
+
+      .div.required.field
+        = f.label :title, 'タイトル（３０文字以内で入力）'
+        = f.text_field :title, placeholder: 'タイトルを入力', class: ''
+      - if post.errors.include?(:title)
+        %p.ui.negative.message.form_message
+          %i.attention.circle.icon
+          = post.errors.full_messages_for(:title).first
+      .div.required.field
+        = f.label :content, '内容'
+        = f.rich_text_area :content, placeholder: '内容を入力', class: 'form_height ui segment'
+      - if post.errors.include?(:content)
+        %p.ui.negative.message.form_message
+          %i.attention.circle.icon
+          = post.errors.full_messages_for(:content).first
+      .ui.grid.field
+        = f.select :status, Post.statuses.map { |k, v| [ I18n.t("enum.statuses.#{k}"), k ] }, {}, { class: 'form_select_mini' }
+        = f.submit '保存', class: 'ui primary button'

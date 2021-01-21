@@ -116,33 +116,9 @@
           .item
             %i.hide.icon
             Hide
-
-    .ui.top.attached.menu
-      .ui.simple.dropdown.icon.item
-        %i.wrench.icon
-        .menu
-          .item
-            編集
-          .item
-            削除
-      .right.menu
-        .ui.right.aligned.category.search.item
-          .ui.action.input.transparent
-            %input{:placeholder => "検索する", :type => "text"}/
-            %button.ui.icon.button
-              %i.search.icon
-          .results
-    .ui.bottom.attached.segment
-      .header
-        %i.large.book.icon.blue
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"}
-            タイトル
-      .description
-        内容
         
     .ui.cards
-      .card
+      .card.profile_wide
         .ui.top.attached.label.tac
           %i.user.icon
           %span= current_user.display_name
@@ -171,7 +147,7 @@
               ユーザーページへ
           %i.arrow.right.icon
 
-      .card
+      .card.profile_wide
         .ui.top.attached.label.tac
           %i.user.icon
           %span= current_user.display_name
@@ -194,6 +170,13 @@
             .div
               %i.mail.icon
               %span= current_user.mail
+          .div.tac
+            %button.ui.basic.button
+              %i.icon.user.plus
+              %font{:style => "vertical-align: inherit;"}
+                %font{:style => "vertical-align: inherit;"}
+                  フォローする
+
         .ui.icon.buttons.bottom.attached
           .ui.top.left.button
             %i.user.icon
@@ -201,20 +184,3 @@
           .ui.top.left.button
             %i.user.icon
             %span フォロワー
-  
-    .ui.segment.blue
-      .item.ui.grid
-        .image
-          = image_tag 'default-avatar.png', class: 'post_image'
-        .content
-          %i.book.icon.blue
-          %span カテゴリー
-          .description
-            %p ここにタイトルを表示30文字
-          .extra
-            %p.opacity ゲストユーザが２０分前に作成
-
-
-
-
-

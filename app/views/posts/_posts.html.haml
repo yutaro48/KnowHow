@@ -1,5 +1,11 @@
 .ui.segment
-  %p.tac 表示を変更したい
+  .ui.top.attached.label.tac
+    - if current_page?(posts_path)
+      %i.list.icon
+      %span ノウハウリスト
+    - else current_page?(timeline_path)
+      %i.time.icon
+      %span タイムライン
   - posts.each do |post|
     .ui.relaxed.divided.list
       = link_to post_path(id: post.id), class: 'black' do
@@ -10,11 +16,14 @@
             .content.post_padding
               - if post.about_knowhow? 
                 %i.book.icon.blue
+                %span.posts_subtitle 社内ノウハウ
               - elsif post.about_share?
                 %i.share.alternate.icon.green
+                %span.posts_subtitle 共有事項
               - else post.about_news?
                 %i.newspaper.icon.pink
-              %span= post.category
+                %span.posts_subtitle ニュース
+              -# %span= post.category
               .description
                 %p= post.title
               .extra
