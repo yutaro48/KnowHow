@@ -7,6 +7,7 @@
       = render 'commons/profile_first', user: current_user
 
     .eight.wide.column
+      = render 'layouts/flash_messages'
       = render 'accounts/users', users: @users
 
     .four.wide.column
