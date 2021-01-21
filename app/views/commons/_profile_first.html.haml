@@ -22,8 +22,9 @@
         .div
           %i.mail.icon
           %span= user.mail
-    .ui.bottom.attached.button
-      %font{:style => "vertical-align: inherit;"}
+    = link_to outputs_path do
+      .ui.bottom.attached.button
         %font{:style => "vertical-align: inherit;"}
-          ユーザーページへ
-      %i.arrow.right.icon
+          %font{:style => "vertical-align: inherit;"}
+            ユーザーページへ
+        %i.arrow.right.icon
