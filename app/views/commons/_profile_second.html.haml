@@ -30,11 +30,11 @@
             %p 編集
         = link_to account_follows_path(user) do
           .ui.top.left.button.wide_three_column
-            %i.user.icon
+            %i.address.book.outline.icon
             %p フォロー
         = link_to account_followers_path(user) do
           .ui.top.left.button.wide_three_column_right
-            %i.user.icon
+            %i.address.book.icon
             %p フォロワー
 - else
   .ui.cards
@@ -79,9 +79,9 @@
       .ui.icon.buttons.bottom.attached.block
         = link_to account_follows_path(user) do
           .ui.top.left.button.wide_two_column
-            %i.user.icon
+            %i.address.book.outline.icon
             %p フォロー
         = link_to account_followers_path(user) do
           .ui.top.left.button.wide_two_column
-            %i.user.icon
+            %i.address.book.icon
             %p フォロワー
