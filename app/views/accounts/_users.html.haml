@@ -1,7 +1,14 @@
 .ui.segment
   .ui.top.attached.label.tac
-    %i.users.icon
-    %span ユーザーリスト
+    - if current_page?(accounts_path)
+      %i.users.icon
+      %span ユーザーリスト
+    - elsif current_page?(account_follows_path)
+      %i.users.icon
+      %span フォローしているユーザー
+    - else current_page?(account_followers_path)
+      %i.users.icon
+      %span フォローされているユーザー
   .ui.three.column.grid
     - users.each do |user|
       .column
