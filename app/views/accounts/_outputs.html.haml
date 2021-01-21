@@ -30,13 +30,12 @@
                 - else post.about_news?
                   %i.newspaper.icon.pink
                   %span.posts_subtitle ニュース
-                -# %span= post.category
                 .description
                   %p= post.title
                 .extra
                   %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
-    -# .pagination
-    -#   = paginate posts
+    .pagination
+      = paginate posts
   - else
     - if current_page?(outputs_path)
       %p.tac まだアウトプットしていません。
