@@ -3,26 +3,26 @@
     .card.profile_wide
       .ui.top.attached.label.tac
         %i.user.icon
-        %span= current_user.display_name
+        %span= user.display_name
       .profile_image_content
-        = image_tag current_user.avatar_image, class: 'profile_image'
+        = image_tag user.avatar_image, class: 'profile_image'
       .content
         .description
           .div
             %i.birthday.icon
-            %span #{current_user.birthday} (#{current_user.age || '?歳'})
+            %span #{user.birthday} (#{user.age || '?歳'})
           .div
             %i.venus.mars.icon
-            %span= I18n.t("enum.genders.#{current_user.gender || 'unknown'}")
+            %span= I18n.t("enum.genders.#{user.gender || 'unknown'}")
           .div
             %i.building.icon
-            %span= current_user.join_age
+            %span= user.join_age
           .div
             %i.phone.icon
-            %span= current_user.phone
+            %span= user.phone
           .div
             %i.mail.icon
-            %span= current_user.mail
+            %span= user.mail
       .ui.icon.buttons.bottom.attached
         .ui.top.left.button.wide_three_column
           %i.cog.icon
