@@ -8,6 +8,7 @@ class FollowsController < ApplicationController
     # end
 
     @followings = @user.followings
+    @followings = @followings.page(params[:page]).per(6).order(created_at: :desc)
   end
   
   def create
