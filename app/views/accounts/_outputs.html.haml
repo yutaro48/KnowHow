@@ -1,0 +1,35 @@
+.ui.segment
+  .ui.top.attached.label.tac
+    - if current_page?(outputs_path)
+      %i.list.icon
+      %span マイノウハウ
+    - else current_page?(accounts_path)
+      %i.list.icon
+      %span #{user.display_name}のノウハウ
+  - if posts.present?
+    - posts.each do |post|
+      .ui.relaxed.divided.list
+        = link_to post_path(id: post.id), class: 'black' do
+          .ui.segment.post_padding
+            .item.ui.grid.post_contents
+              .image.post_padding
+                = image_tag post.user.avatar_image, class: 'post_image'
+              .content.post_padding
+                - if post.about_knowhow? 
+                  %i.book.icon.blue
+                  %span.posts_subtitle 社内ノウハウ
+                - elsif post.about_share?
+                  %i.share.alternate.icon.green
+                  %span.posts_subtitle 共有事項
+                - else post.about_news?
+                  %i.newspaper.icon.pink
+                  %span.posts_subtitle ニュース
+                -# %span= post.category
+                .description
+                  %p= post.title
+                .extra
+                  %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
+    -# .pagination
+    -#   = paginate posts
+  - else
+    %p.tac まだアウトプットしていません。 
