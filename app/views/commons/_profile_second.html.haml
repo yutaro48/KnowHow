@@ -24,9 +24,10 @@
             %i.mail.icon
             %span= user.mail
       .ui.icon.buttons.bottom.attached.block
-        .ui.top.left.button.wide_three_column
-          %i.cog.icon
-          %p 編集
+        = link_to edit_profile_path do
+          .ui.top.left.button.wide_three_column
+            %i.cog.icon
+            %p 編集
         = link_to account_follows_path(user) do
           .ui.top.left.button.wide_three_column
             %i.user.icon
