@@ -1,46 +1,85 @@
-= render 'commons/leftsidebar', user: current_user
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/user_tab'
 
-.wide_show
-  .ui.pointing.menu
-    = link_to :back, class: 'item' do
-      %i.angle.left.icon
-      %font{:style => "vertical-align: inherit;"}
-        %font{:style => "vertical-align: inherit;"} もどる
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_second', user: current_user
 
-  .ui.raised.segment
-    %ul
-      - @profile.errors.full_messages.each do |message|
-        %li= message
+    .eight.wide.column
+      .ui.segment
+        .ui.top.attached.label
+          %p.tac プロフィール編集
+        = form_with(model: @profile, url: profile_path, method: 'put', local: 'true') do |f|
+          .ui.form
+            %div.field
+              = f.label :avatar, '写真'
+              = f.file_field :avatar
+            %div.field
+              = f.label :name, '名前'
+              = f.text_field :name
+            %div.field
+              = f.label :birthday, '生年月日'
+              = f.date_field :birthday
+            %div.field
+              = f.label :gender, '性別'
+              = f.select :gender, Profile.genders.map { |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, {}, { class: '' }
+            %div.field
+              = f.label :join, '入社年月日'
+              = f.date_field :join, class: 'form_select_medium'
+            %div.field
+              = f.label :phone, '電話番号'
+              = f.text_field :phone
+            %div.field
+              = f.label :mail, 'メールアドレス'
+              = f.text_field :mail
+            = f.submit '更新する', class: 'ui primary button'
 
-    = form_with(model: @profile, url: profile_path, method: 'put', local: 'true') do |f|
-      %div
-        = f.label :avatar, '写真'
-      %div
-        = f.file_field :avatar
-      %div
-        = f.label :name, '名前'
-      %div
-        = f.text_field :name
-      %div
-        = f.label :birthday, '生年月日'
-      %div
-        = f.date_field :birthday
-      %div
-        = f.label :gender, '性別'
-      %div
-        = f.select :gender, Profile.genders.map { |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, {}, { class: '' }
-      %div
-        = f.label :join, '入社年月日'
-      %div
-        = f.date_field :join
-      %div
-        = f.label :phone, '電話番号'
-      %div
-        = f.text_field :phone
-      %div
-        = f.label :mail, 'メールアドレス'
-      %div
-        = f.text_field :mail
-      = f.submit '更新する', class: 'ui primary button'
+    .four.wide.column
+
+-# = render 'commons/leftsidebar', user: current_user
+
+-# .wide_show
+-#   .ui.pointing.menu
+-#     = link_to :back, class: 'item' do
+-#       %i.angle.left.icon
+-#       %font{:style => "vertical-align: inherit;"}
+-#         %font{:style => "vertical-align: inherit;"} もどる
+
+-#   .ui.raised.segment
+-#     %ul
+-#       - @profile.errors.full_messages.each do |message|
+-#         %li= message
+
+-#     = form_with(model: @profile, url: profile_path, method: 'put', local: 'true') do |f|
+-#       %div
+-#         = f.label :avatar, '写真'
+-#       %div
+-#         = f.file_field :avatar
+-#       %div
+-#         = f.label :name, '名前'
+-#       %div
+-#         = f.text_field :name
+-#       %div
+-#         = f.label :birthday, '生年月日'
+-#       %div
+-#         = f.date_field :birthday
+-#       %div
+-#         = f.label :gender, '性別'
+-#       %div
+-#         = f.select :gender, Profile.genders.map { |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, {}, { class: '' }
+-#       %div
+-#         = f.label :join, '入社年月日'
+-#       %div
+-#         = f.date_field :join
+-#       %div
+-#         = f.label :phone, '電話番号'
+-#       %div
+-#         = f.text_field :phone
+-#       %div
+-#         = f.label :mail, 'メールアドレス'
+-#       %div
+-#         = f.text_field :mail
+-#       = f.submit '更新する', class: 'ui primary button'
 
     
