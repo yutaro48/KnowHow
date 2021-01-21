@@ -32,8 +32,12 @@
                   %span.posts_subtitle ニュース
                 .description
                   %p= post.title
-                .extra
-                  %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
+                - if post.has_published?
+                  .extra
+                    %p.opacity.posts_subtitle #{post.user.display_name}が#{time_ago_in_words(post.created_at)}前に作成
+                - else
+                  .extra
+                    %p.opacity.posts_subtitle 下書きとして保存
     .pagination
       = paginate posts
   - else
