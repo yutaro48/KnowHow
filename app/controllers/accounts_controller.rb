@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.published.order(created_at: :desc)
+    @posts = @posts.page(params[:page]).per(6).order(created_at: :desc)
 
     if @user == current_user
       redirect_to outputs_path
