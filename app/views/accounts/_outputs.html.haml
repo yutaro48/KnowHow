@@ -38,4 +38,11 @@
     -# .pagination
     -#   = paginate posts
   - else
-    %p.tac まだアウトプットしていません。 
+    - if current_page?(outputs_path)
+      %p.tac まだアウトプットしていません。
+    - elsif current_page?(bookmarked_posts_path)
+      %p.tac ブックマークしたノウハウはありません。
+    - elsif current_page?(drafts_path)
+      %p.tac 下書きしたノウハウはありません。
+    - else current_page?(account_path)
+      %p.tac まだアウトプットしていません。
