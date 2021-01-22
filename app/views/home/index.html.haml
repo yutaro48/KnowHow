@@ -1,1 +1,33 @@
-= link_to 'ノウハウリスト', posts_path
+-# ヘッダー
+%header
+  .ui.borderless.menu
+    .container
+      %span.item
+        %font{:style => "vertical-align: inherit;"}
+          %font{:style => "vertical-align: inherit;"} KnowHow
+      .right.menu
+        = link_to new_user_registration_path do
+          %button.ui.basic.button.home_button
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                新規登録
+        = link_to new_user_session_path do
+          %button.ui.basic.button.home_button
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                ログイン
+        = link_to users_guest_sign_in_path, method: :post do
+          %button.ui.basic.button.home_button
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                ゲストログイン
+
+-# 内容
+
+.content
+  .container
+
+-# フッター
+
+%footer
+  .container
