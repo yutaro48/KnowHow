@@ -1,0 +1,140 @@
+.home {
+    &_button {
+        padding: 5px 15px !important;
+        height: 30px !important;
+        margin-left: 10px !important;
+        margin-top: 15px !important;
+    }
+
+    &_image {
+        width: 440px;
+        height: 254px;
+        mix-blend-mode: multiply;
+    }
+
+    &_step {
+        width: 80px;
+        height: 80px;
+        mix-blend-mode: multiply;
+        margin-left: 80px;
+        margin-bottom: 20px;
+    }
+
+    &_header {
+        height: 60px;
+    }
+}
+
+section {
+    height: 400px;
+}
+
+.first {
+    background-image: url(top-image.jpg);
+    background-size: cover;
+    height: 500px;
+    // opacity: 0.5;
+
+    &_home_container {
+        padding-top: 100px;
+    }
+
+    &_title {
+        font-size: 60px;
+        font-weight: bold;
+        opacity: 1;
+
+        &_sub {
+            font-size: 20px;
+        }
+    }
+}
+
+.second {
+
+    &_home_container {
+        padding: 70px 100px 0px;
+    }
+
+    &_title {
+        font-size: 40px;
+        font-weight: bold;
+        opacity: 1;
+
+        &_sub {
+            font-size: 18px;
+        }
+    }
+
+    &_padding {
+        padding-left: 90px !important;
+    }
+}
+
+.third {
+    background-color: #F6FAFE;
+
+    &_home_container {
+        padding: 70px 100px 0px;
+    }
+
+    &_title {
+        font-size: 20px;
+        font-weight: bold;
+        opacity: 1;
+
+        &_sub {
+            font-size: 14px;
+        }
+    }
+
+    &_padding {
+        padding-left: 100px !important;
+    }
+}
+
+.fourth {
+    &_home_container {
+        padding: 70px 100px 0px;
+    }
+
+    &_title {
+        font-size: 20px;
+        font-weight: bold;
+        opacity: 1;
+
+        &_sub {
+            font-size: 14px;
+        }
+    }
+
+    &_padding {
+        padding-left: 70px !important;
+
+        &_right {
+            padding-left: 200px !important;
+        }
+    }
+}
+
+.fifth {
+    background-color: #F6FAFE;
+
+    &_home_container {
+        padding: 70px 100px 0px;
+    }
+
+    &_title {
+        font-size: 20px;
+        font-weight: bold;
+        opacity: 1;
+
+        &_sub {
+            font-size: 14px;
+        }
+    }
+
+    &_padding {
+        padding-left: 100px !important;
+    }
+}

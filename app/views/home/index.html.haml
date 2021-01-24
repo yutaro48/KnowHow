@@ -1,1 +1,88 @@
-= link_to 'ノウハウリスト', posts_path
+-# ヘッダー
+= render 'home/header'
+
+-# 内容
+
+.content
+  %section.first
+    .container
+      .first_home_container
+        %p.tac.first_title
+          情報共有が
+          %br 組織を強くする
+        %p.tac.first_title_sub
+          ビジネスをリモートで機能させるには
+          %br 
+            情報共有が大切である。KnowHowは
+            %br 
+              属人的だったノウハウを情報資産として
+              %br 共有するサービスです。
+  %section.second
+    .container
+      .second_home_container
+        .ui.grid.two.column
+          .column.second_padding
+            %p.second_title
+              情報資産共有ツール
+              %br KnowHowとは
+            %p.second_title_sub
+              「情報資産の共有」を目的
+              %br 
+                としたサービスです。
+                %br 社内SNSとしても利用できます。
+          .column
+            = image_tag 'info5.jpg', class: 'home_image'
+
+  %section.third
+    .container
+      .third_home_container
+        .ui.grid.two.column
+          .column.third_padding
+            = image_tag 'step1.jpg', class: 'home_step'
+            %p.third_title ノウハウをアウトプットする
+            %p.third_title_sub
+              誰でも簡単にアウトプットできます。
+              %br 
+                Markdownにも対応。
+                %br 下書きとして一時保存することも可能です。
+          .column
+            = image_tag 'macbook_third.jpg', class: 'home_image'
+
+  %section.fourth
+    .container
+      .fourth_home_container
+        .ui.grid.two.column
+          .column.fourth_padding
+            = image_tag 'macbook_third.jpg', class: 'home_image'
+          .column.fourth_padding_right
+            = image_tag 'step2.jpg', class: 'home_step'
+            %p.fourth_title ノウハウを検索する
+            %p.fourth_title_sub 
+              自分が求めるノウハウを検索
+              %br 
+                することができます。
+                %br 
+                  ブックマークをして他の人のノウハウ
+                  %br を自分のものにできます。
+
+  %section.fifth
+    .container
+      .fifth_home_container
+        .ui.grid.two.column
+          .column.fifth_padding
+            = image_tag 'step3.jpg', class: 'home_step'
+            %p.fifth_title 気になる人をフォローする
+            %p.fifth_title_sub 
+              気になる人をフォローすること
+              %br
+                もできます。
+                %br 
+                  フォローした人のノウハウは
+                  %br タイムラインに表示されます。
+          .column
+            = image_tag 'macbook_third.jpg', class: 'home_image'
+
+-# フッター
+
+%footer
+  .container
