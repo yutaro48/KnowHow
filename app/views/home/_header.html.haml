@@ -1,9 +1,10 @@
 %header
   .ui.borderless.menu.top.fixed.home_header
     .container
-      %span.item
-        %font{:style => "vertical-align: inherit;"}
-          %font{:style => "vertical-align: inherit;"} KnowHow(ロゴ作成中)
+      %span.item.nopadding
+        = image_tag 'logo.jpg', class: 'home_header_logo'
+        -# %font{:style => "vertical-align: inherit;"}
+        -#   %font{:style => "vertical-align: inherit;"} KnowHow(ロゴ作成中)
       .right.menu
         = link_to new_user_registration_path do
           %button.ui.basic.button.home_button.blue
