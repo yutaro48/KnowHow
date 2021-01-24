@@ -16,7 +16,7 @@
         width: 80px;
         height: 80px;
         mix-blend-mode: multiply;
-        margin-left: 80px;
+        margin-left: 100px;
         margin-bottom: 20px;
     }
 
@@ -40,10 +40,11 @@ section {
     background-image: url(info3.jpg);
     background-size: cover;
     height: 700px;
+    color: white;
     // opacity: 0.5;
 
     &_home_container {
-        padding-top: 100px;
+        padding-top: 200px;
     }
 
     &_title {
@@ -60,7 +61,7 @@ section {
 .second {
 
     &_home_container {
-        padding: 70px 100px 0px;
+        padding: 88px 0px;
     }
 
     &_title {
@@ -74,7 +75,7 @@ section {
     }
 
     &_padding {
-        padding-left: 90px !important;
+        padding-left: 150px !important;
     }
 }
 
@@ -82,7 +83,7 @@ section {
     background-color: #F6FAFE;
 
     &_home_container {
-        padding: 70px 50px 0px;
+        padding: 88px 0px;
     }
 
     &_title {
@@ -102,24 +103,24 @@ section {
 
 .fourth {
     &_home_container {
-        padding: 70px 100px 0px;
+        padding: 88px 0px;
     }
 
     &_title {
-        font-size: 20px;
+        font-size: 25px;
         font-weight: bold;
         opacity: 1;
 
         &_sub {
-            font-size: 14px;
+            font-size: 18px;
         }
     }
 
     &_padding {
-        padding-left: 70px !important;
+        padding-left: 100px !important;
 
         &_right {
-            padding-left: 200px !important;
+            padding-left: 150px !important;
         }
     }
 }
@@ -128,16 +129,16 @@ section {
     background-color: #F6FAFE;
 
     &_home_container {
-        padding: 70px 100px 0px;
+        padding: 88px 0px;
     }
 
     &_title {
-        font-size: 20px;
+        font-size: 25px;
         font-weight: bold;
         opacity: 1;
 
         &_sub {
-            font-size: 14px;
+            font-size: 18px;
         }
     }
 
