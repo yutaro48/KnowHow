@@ -52,8 +52,8 @@
     .container
       .fourth_home_container
         .ui.grid.two.column
-          .column
-            = image_tag 'macbook_third.jpg', class: 'home_image'
+          .column.fourth_padding
+            = image_tag 'fourth-image.jpg', class: 'home_image'
           .column.fourth_padding_right
             = image_tag 'step2.jpg', class: 'home_step'
             %p.fourth_title ノウハウを検索する
@@ -80,9 +80,11 @@
                   フォローした人のノウハウは
                   %br タイムラインに表示されます。
           .column
-            = image_tag 'macbook_third.jpg', class: 'home_image'
+            = image_tag 'fifth-image.jpg', class: 'home_image'
 
 -# フッター
 
 %footer
   .container
+    .home_footer
+      %p ©️2021 KnowHow.inc
