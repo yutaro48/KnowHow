@@ -22,10 +22,12 @@
 
     &_header {
         height: 60px;
+        background-color: #F6FAFE !important;
 
         &_logo {
             height: 50px;
             width: 150px !important;
+            mix-blend-mode: multiply;
         }
     }
 }
