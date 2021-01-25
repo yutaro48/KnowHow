@@ -41,7 +41,7 @@
 }
 
 footer {
-    background-color: #1e2f40;
+    background-color: #103c67;
     color: white;
     height: 50px;
     font-size: 16px;
@@ -52,113 +52,50 @@ section {
 }
 
 .first {
-    background-image: url(info3.jpg);
-    background-size: cover;
     height: 700px;
-    color: yellow;
-    opacity: 0.8;
+    color: #103c67;
+    background-color: #F6FAFE;
 
     &_home_container {
-        padding-top: 150px;
+        padding-top: 140px;
+    }
+
+    &_home_image {
+        width: 710px;
+        mix-blend-mode: multiply;
     }
 
     &_title {
-        font-size: 80px;
+        font-size: 50px;
         font-weight: bold;
-        opacity: 1;
 
         &_sub {
-            font-size: 25px;
-            opacity: 1;
+            font-size: 18px;
         }
+    }
+
+    &_left {
+        padding-top: 80px !important;
+        padding-left: 50px !important;
     }
 }
 
 .second {
-
-    &_home_container {
-        padding: 88px 0px;
-    }
-
-    &_title {
-        font-size: 45px;
-        font-weight: bold;
-        opacity: 1;
-
-        &_sub {
-            font-size: 25px;
-        }
-    }
-
-    &_padding {
-        padding-left: 150px !important;
-    }
-}
-
-.third {
     background-color: #F6FAFE;
+    color: #103c67;
 
-    &_home_container {
-        padding: 88px 0px;
+    &_image {
+        width: 323px;
+        height: 235px;
     }
 
     &_title {
-        font-size: 25px;
+        font-size: 20px;
         font-weight: bold;
-        opacity: 1;
 
         &_sub {
-            font-size: 18px;
+            font-size: 14px;
+            padding: 0 10px;
         }
-    }
-
-    &_padding {
-        padding-left: 150px !important;
-    }
-}
-
-.fourth {
-    &_home_container {
-        padding: 88px 0px;
-    }
-
-    &_title {
-        font-size: 25px;
-        font-weight: bold;
-        opacity: 1;
-
-        &_sub {
-            font-size: 18px;
-        }
-    }
-
-    &_padding {
-        padding-left: 100px !important;
-
-        &_right {
-            padding-left: 150px !important;
-        }
-    }
-}
-
-.fifth {
-    background-color: #F6FAFE;
-
-    &_home_container {
-        padding: 88px 0px;
-    }
-
-    &_title {
-        font-size: 25px;
-        font-weight: bold;
-        opacity: 1;
-
-        &_sub {
-            font-size: 18px;
-        }
-    }
-
-    &_padding {
-        padding-left: 150px !important;
     }
 }

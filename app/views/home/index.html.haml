@@ -7,80 +7,47 @@
   %section.first
     .container
       .first_home_container
-        %p.tac.first_title
-          情報共有が
-          %br 組織を強くする
-        %p.tac.first_title_sub
-          ビジネスをリモートで機能させるには
-          %br 
-            情報共有が大切である。KnowHowは
-            %br 
-              属人的だったノウハウを情報資産として
-              %br 共有するサービスです。
+        .ui.grid
+          .six.wide.column.first_left
+            %p.first_title
+              情報共有が
+              %br 組織を強くする
+            %p.first_title_sub
+              ビジネスをリモートで機能させるには
+              %br 
+                情報共有が大切である。KnowHowは
+                %br 
+                  属人的だったノウハウを情報資産として
+                  %br 共有するサービスです。
+            = link_to users_guest_sign_in_path, method: :post do
+              %button.ui.basic.button.blue
+                %i.icon.hand.point.right
+                %font{:style => "vertical-align: inherit;"}
+                  %font{:style => "vertical-align: inherit;"}
+                    アカウント登録せずに機能を試す
+
+          .ten.wide.column
+            = image_tag 'first-image.jpg', class: 'first_home_image'
+
   %section.second
     .container
       .second_home_container
-        .ui.grid.two.column
-          .column.second_padding
-            %p.second_title
-              情報資産共有ツール
-              %br KnowHowとは
-            %p.second_title_sub
-              「情報資産の共有」を目的
-              %br 
-                としたサービスです。
-                %br 社内SNSとしても利用できます。
+        .ui.grid.three.column
           .column
-            = image_tag 'info5.jpg', class: 'home_image'
-
-  %section.third
-    .container
-      .third_home_container
-        .ui.grid.two.column
-          .column.third_padding
-            = image_tag 'step1.jpg', class: 'home_step'
-            %p.third_title ノウハウをアウトプットする
-            %p.third_title_sub
-              誰でも簡単にアウトプットできます。
-              %br 
-                Markdownにも対応。
-                %br 下書きとして一時保存することも可能です。
+            .ui.raised.segment
+              = image_tag 'write.jpg', class: 'second_image'
+              %p.tac.second_title ノウハウをアウトプットする
+              %p.second_title_sub 誰でも簡単にアウトプットできます。Markdownにも対応。下書きとして一時保存することもできます。
           .column
-            = image_tag 'third-image.jpg', class: 'home_image'
-
-  %section.fourth
-    .container
-      .fourth_home_container
-        .ui.grid.two.column
-          .column.fourth_padding
-            = image_tag 'fourth-image.jpg', class: 'home_image'
-          .column.fourth_padding_right
-            = image_tag 'step2.jpg', class: 'home_step'
-            %p.fourth_title ノウハウを検索する
-            %p.fourth_title_sub 
-              自分が求めるノウハウを検索
-              %br 
-                することができます。
-                %br 
-                  ブックマークをして他の人のノウハウ
-                  %br を自分のものにできます。
-
-  %section.fifth
-    .container
-      .fifth_home_container
-        .ui.grid.two.column
-          .column.fifth_padding
-            = image_tag 'step3.jpg', class: 'home_step'
-            %p.fifth_title 気になる人をフォローする
-            %p.fifth_title_sub 
-              気になる人をフォローすること
-              %br
-                もできます。
-                %br 
-                  フォローした人のノウハウは
-                  %br タイムラインに表示されます。
+            .ui.raised.segment
+              = image_tag 'find.jpg', class: 'second_image'
+              %p.tac.second_title ノウハウを検索する
+              %p.second_title_sub 自分が求めるノウハウを検索することができます。ブックマークをして他の人のノウハウを自分のものにできます。
           .column
-            = image_tag 'fifth-image.jpg', class: 'home_image'
+            .ui.raised.segment
+              = image_tag 'follow.jpg', class: 'second_image'
+              %p.tac.second_title 気になる人をフォローする
+              %p.second_title_sub 気になる人をフォローすることができます。フォローした人のノウハウはタイムラインに表示されます。
 
 -# フッター
 
