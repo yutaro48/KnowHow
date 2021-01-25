@@ -1,3 +1,5 @@
+= render 'home/header'
+
 .container-fluid.py-4.mw-md
   %h1= t('.forgot_your_password')
   = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
@@ -8,3 +10,5 @@
     .form-group
       = f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-primary'
   = render 'devise/shared/links'
+
+= render 'home/footer'
