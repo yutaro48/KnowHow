@@ -1,7 +1,42 @@
 .devise {
     height: 100%;
     background-color: #F6FAFE;
+    color: white;
 
     &_container {
+        margin: 40px 0;
+
+        &_mini {
+            padding: 50px;
+        }
+    }
+
+    &_image {
+        width: 541px;
+        mix-blend-mode: multiply;
+    }
+
+    &_title {
+        font-size: 20px;
+    }
+
+    &_left {
+        margin-top: 80px;
+    }
+
+    &_right {
+        background-color: #2185D0;
+    }
+
+    &_button {
+        background-color: #c5e2ff;
+
+        &_margin {
+            margin-top: 40px !important;
+        }
+    }
+
+    &_text {
+        color: white !important;
     }
 }
