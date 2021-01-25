@@ -20,7 +20,7 @@
                   属人的だったノウハウを情報資産として
                   %br 共有するサービスです。
             = link_to users_guest_sign_in_path, method: :post do
-              %button.ui.basic.button.blue
+              %button.ui.basic.button.blue.first_button
                 %i.icon.hand.point.right
                 %font{:style => "vertical-align: inherit;"}
                   %font{:style => "vertical-align: inherit;"}
@@ -44,7 +44,7 @@
               %br
                 社内SNSとしても利用できます。 
             = link_to new_user_registration_path do
-              %button.ui.basic.button.blue
+              %button.ui.basic.button.blue.second_button
                 %i.icon.lightbulb
                 %font{:style => "vertical-align: inherit;"}
                   %font{:style => "vertical-align: inherit;"}
