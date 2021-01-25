@@ -2,7 +2,8 @@
   .ui.borderless.secondary.menu.top.fixed.home_header
     .container
       %span.item.nopadding
-        = image_tag 'logo.jpg', class: 'home_header_logo'
+        = link_to root_path do
+          = image_tag 'logo.jpg', class: 'home_header_logo'
       .right.menu
         = link_to new_user_registration_path do
           %button.ui.basic.button.home_button.blue

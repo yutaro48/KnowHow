@@ -32,22 +32,43 @@
   %section.second
     .container
       .second_home_container
+        .ui.grid.two.column
+          .column
+            = image_tag 'knowhow.jpg', class: 'second_image'
+          .column.second_padding
+            %p.second_title
+              情報資産共有ツール
+              %br KnowHowとは
+            %p.second_title_sub 
+              「情報資産の共有」を目的としたサービスです。
+              %br
+                社内SNSとしても利用できます。 
+            = link_to new_user_registration_path do
+              %button.ui.basic.button.blue
+                %i.icon.lightbulb
+                %font{:style => "vertical-align: inherit;"}
+                  %font{:style => "vertical-align: inherit;"}
+                    KnowHowを利用したい
+
+  %section.third
+    .container
+      .third_home_container
         .ui.grid.three.column
           .column
             .ui.raised.segment
-              = image_tag 'write.jpg', class: 'second_image'
-              %p.tac.second_title ノウハウをアウトプットする
-              %p.second_title_sub 誰でも簡単にアウトプットできます。Markdownにも対応。下書きとして一時保存することもできます。
+              = image_tag 'write.jpg', class: 'third_image'
+              %p.tac.third_title ノウハウをアウトプットする
+              %p.third_title_sub 誰でも簡単にアウトプットできます。Markdownにも対応。下書きとして一時保存することもできます。
           .column
             .ui.raised.segment
-              = image_tag 'find.jpg', class: 'second_image'
-              %p.tac.second_title ノウハウを検索する
-              %p.second_title_sub 自分が求めるノウハウを検索することができます。ブックマークをして他の人のノウハウを自分のものにできます。
+              = image_tag 'find.jpg', class: 'third_image'
+              %p.tac.third_title ノウハウを検索する
+              %p.third_title_sub 自分が求めるノウハウを検索することができます。ブックマークをして他の人のノウハウを自分のものにできます。
           .column
             .ui.raised.segment
-              = image_tag 'follow.jpg', class: 'second_image'
-              %p.tac.second_title 気になる人をフォローする
-              %p.second_title_sub 気になる人をフォローすることができます。フォローした人のノウハウはタイムラインに表示されます。
+              = image_tag 'follow.jpg', class: 'third_image'
+              %p.tac.third_title 気になる人をフォローする
+              %p.third_title_sub 気になる人をフォローすることができます。フォローした人のノウハウはタイムラインに表示されます。
 
 -# フッター
 

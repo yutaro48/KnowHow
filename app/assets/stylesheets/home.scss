@@ -41,14 +41,10 @@
 }
 
 footer {
-    background-color: #103c67;
-    color: white;
+    background-color: #F6FAFE;
+    color: #103c67;
     height: 50px;
     font-size: 16px;
-}
-
-section {
-    height: 500px;
 }
 
 .first {
@@ -83,6 +79,35 @@ section {
 .second {
     background-color: #F6FAFE;
     color: #103c67;
+    height: 400px;
+
+    &_home_container {
+        padding: 0 80px;
+    }
+
+    &_image {
+        width: 500px;
+        mix-blend-mode: multiply;
+    }
+
+    &_title {
+        font-size: 35px;
+
+        &_sub {
+            font-size: 18px;
+            padding-bottom: 30px;
+        }
+    }
+
+    &_padding {
+        padding-left: 50px !important;
+    }
+}
+
+.third {
+    background-color: #F6FAFE;
+    color: #103c67;
+    height: 500px;
 
     &_image {
         width: 323px;
