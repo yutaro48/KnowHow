@@ -96,6 +96,7 @@ footer {
 
     &_title {
         font-size: 35px;
+        font-weight: bold;
 
         &_sub {
             font-size: 18px;
@@ -128,7 +129,7 @@ footer {
 
         &_sub {
             font-size: 14px;
-            padding: 0 10px;
+            padding: 0 10px 20px;
         }
     }
 }
