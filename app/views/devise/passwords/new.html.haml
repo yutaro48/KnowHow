@@ -1,14 +1,20 @@
-= render 'home/header'
+.devise
+  = render 'devise/shared/header'
+  .devise_container
+    .container
+      .ui.raised.segment
+        .ui.grid.two.column
+          .column.devise_left
+            = image_tag 'password.jpg', class: 'devise_image'
+          .column.devise_right
+            .devise_container_mini
+              %p.tac.devise_title= t('.forgot_your_password')
+              = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+                = bootstrap_devise_error_messages!
+                .form-group
+                  = f.label :email
+                  = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+                .form-group.devise_button_margin
+                  = f.submit t('.send_me_reset_password_instructions'), class: 'btn devise_button btn-block'
 
-.container-fluid.py-4.mw-md
-  %h1= t('.forgot_your_password')
-  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-    = bootstrap_devise_error_messages!
-    .form-group
-      = f.label :email
-      = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
-    .form-group
-      = f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-primary'
-  = render 'devise/shared/links'
-
-= render 'home/footer'
+  = render 'home/footer'

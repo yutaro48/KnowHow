@@ -1,21 +1,28 @@
-= render 'home/header'
-.container-fluid.py-4.mw-md
-  %h1= t('.sign_up')
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = bootstrap_devise_error_messages!
-    .form-group
-      = f.label :email
-      = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
-    .form-group
-      = f.label :password
-      = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
-      - if @minimum_password_length
-        %small.form-text.text-muted= t('devise.shared.minimum_password_length', count: @minimum_password_length)
-    .form-group
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control'
-    .form-group
-      = f.submit t('.sign_up'), class: 'btn btn-primary btn-block'
-  = render 'devise/shared/links'
+.devise
+  = render 'devise/shared/header'
+  .devise_container
+    .container
+      .ui.raised.segment
+        .ui.grid.two.column
+          .column.devise_left
+            = image_tag 'signup.jpg', class: 'devise_image'
+          .column.devise_right
+            .devise_container_mini
+              %p.tac.devise_title= t('.sign_up')
+              = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                = bootstrap_devise_error_messages!
+                .form-group
+                  = f.label :email
+                  = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+                .form-group
+                  = f.label :password
+                  = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
+                  - if @minimum_password_length
+                    %small.form-text.text-muted.devise_text= t('devise.shared.minimum_password_length', count: @minimum_password_length)
+                .form-group
+                  = f.label :password_confirmation
+                  = f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control'
+                .form-group.devise_button_margin
+                  = f.submit t('.sign_up'), class: 'btn devise_button btn-block'
 
-= render 'home/footer'
+  = render 'home/footer'
