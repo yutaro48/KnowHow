@@ -18,6 +18,7 @@
 
     &_title {
         font-size: 20px;
+        font-weight: bold;
     }
 
     &_left {
@@ -29,7 +30,8 @@
     }
 
     &_button {
-        background-color: #dbdbdb;
+        background-color: rgb(150, 211, 255);
+        color: #103c67;
 
         &_margin {
             margin-top: 40px !important;
