@@ -38,6 +38,10 @@ a {
 
 .post_padding {
     padding: 3px 3px !important;
+
+    &_large {
+        padding: 20px 10px 10px !important;
+    }
 }
 
 .posts_subtitle {
