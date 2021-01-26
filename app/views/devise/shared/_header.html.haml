@@ -1,0 +1,22 @@
+%header
+  .ui.borderless.secondary.menu.home_header
+    .container
+      %span.item.nopadding
+        = link_to root_path do
+          = image_tag 'logo.jpg', class: 'home_header_logo'
+      .right.menu
+        = link_to new_user_registration_path do
+          %button.ui.basic.button.home_button.blue
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                新規登録
+        = link_to new_user_session_path do
+          %button.ui.basic.button.home_button.blue
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                ログイン
+        = link_to users_guest_sign_in_path, method: :post do
+          %button.ui.basic.button.home_button.blue
+            %font{:style => "vertical-align: inherit;"}
+              %font{:style => "vertical-align: inherit;"}
+                ゲストログイン

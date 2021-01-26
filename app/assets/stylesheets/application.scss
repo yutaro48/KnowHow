@@ -24,6 +24,7 @@
 @import "account";
 @import "header";
 @import "home";
+@import "devise";
 
 .mw-md {
     max-width: 576px;
@@ -40,7 +41,7 @@
 
 body {
     font-family: Tsukushi A Round Gothic !important;
-    height: 100vh;
+    // height: 100vh;
 }
 
 .opacity {
@@ -84,7 +85,7 @@ body {
 }
 
 .bookmark_color {
-  color: rgb(34, 92, 191);
+  color: #2185D0;
 }
 
 .post_action_btn {
@@ -112,4 +113,7 @@ body {
 
 .block {
   display: block !important;
+}
+
+.search {
 }

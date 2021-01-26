@@ -14,9 +14,3 @@
       %font{:style => "vertical-align: inherit;"}
         %font{:style => "vertical-align: inherit;"}
           ユーザリスト
-  - if current_page?(posts_path)
-    .right.menu
-      = form_tag posts_path, method: :get, class: 'ui action input' do
-        = text_field_tag :q
-        = button_tag :class => 'ui icon grey button' do
-          %i.search.icon

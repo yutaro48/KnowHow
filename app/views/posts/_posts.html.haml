@@ -6,6 +6,11 @@
     - else current_page?(timeline_path)
       %i.time.icon
       %span タイムライン
+  - if current_page?(posts_path)
+    = form_tag posts_path, method: :get, class: 'ui action input fluid' do
+      = text_field_tag :q, '', placeholder: 'ノウハウをキーワードで検索'
+      = button_tag :class => 'ui icon button' do
+        %i.search.icon
   - if posts.present?
     - posts.each do |post|
       .ui.relaxed.divided.list
@@ -32,4 +37,4 @@
     .pagination
       = paginate posts
   - else
-    %p.tac ノウハウがありません。
+    %p.tac.post_padding_large ノウハウがありません。
