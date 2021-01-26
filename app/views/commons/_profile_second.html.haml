@@ -77,11 +77,15 @@
                   %font{:style => "vertical-align: inherit;"}
                     フォローする
       .ui.icon.buttons.bottom.attached.block
+        = link_to account_path(user) do
+          .ui.top.left.button.wide_three_column
+            %i.book.icon
+            %p ノウハウ
         = link_to account_follows_path(user) do
-          .ui.top.left.button.wide_two_column
+          .ui.top.left.button.wide_three_column
             %i.address.book.outline.icon
             %p フォロー
         = link_to account_followers_path(user) do
-          .ui.top.left.button.wide_two_column
+          .ui.top.left.button.wide_three_column_right
             %i.address.book.icon
             %p フォロワー
