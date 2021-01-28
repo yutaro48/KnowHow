@@ -14,11 +14,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
     resource :bookmark, only: [:show, :create, :destroy]
   end
-
-  # resources :drafts, only: [:index]
-  # resource :profile, only: [:show, :edit, :update]
-  # resources :outputs, only: [:index]
-  # resources :bookmarked_posts, only: [:index]
+  
   resource :timeline, only: [:show]
 
   resources :accounts, only: [:index, :show] do
