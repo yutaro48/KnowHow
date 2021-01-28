@@ -1,4 +1,4 @@
-class TimelinesController < ApplicationController
+class Post::TimelinesController < Post::ApplicationController
   before_action :authenticate_user!
 
   def show

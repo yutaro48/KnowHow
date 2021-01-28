@@ -1,4 +1,4 @@
-class BookmarksController < ApplicationController
+class Post::BookmarksController < Post::ApplicationController
   before_action :authenticate_user!
 
   def show
