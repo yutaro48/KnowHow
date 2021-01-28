@@ -1,7 +1,7 @@
 .ui.segment
   .ui.top.attached.label
     %p.tac プロフィール編集
-  = form_with(model: profile, url: profile_path, method: 'put', local: 'true') do |f|
+  = form_with(model: profile, url: user_profile_path, method: 'put', local: 'true') do |f|
     .ui.form
       %div.field
         = f.label :avatar, '写真'
