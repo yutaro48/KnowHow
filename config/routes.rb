@@ -10,18 +10,35 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :posts do
-    resources :comments, only: [:new, :create]
-    resource :bookmark, only: [:show, :create, :destroy]
-  end
-  
-  resource :timeline, only: [:show]
+  # resources :posts do
+  #   resources :comments, only: [:new, :create]
+  #   resource :bookmark, only: [:show, :create, :destroy]
+  # end
 
-  resources :accounts, only: [:index, :show] do
-    resources :follows, only: [:create, :index]
-    resources :unfollows, only: [:create, :index]
-    resources :followers, only: [:index]
+  scope module: :post do
+    resources :posts do
+      resources :comments, only: [:new, :create]
+      resource :bookmark, only: [:show, :create, :destroy]
+    end
+
+    resource :timeline, only: [:show]
   end
+
+  scope module: :account do
+    resources :accounts, only: [:index, :show] do
+      resources :follows, only: [:create, :index]
+      resources :unfollows, only: [:create, :index]
+      resources :followers, only: [:index]
+    end
+  end
+
+  # resource :timeline, only: [:show]
+
+  # resources :accounts, only: [:index, :show] do
+  #   resources :follows, only: [:create, :index]
+  #   resources :unfollows, only: [:create, :index]
+  #   resources :followers, only: [:index]
+  # end
 
   namespace :user do
     resources :drafts, only: [:index]
