@@ -40,7 +40,7 @@ class PostsController < ApplicationController
       if @post.has_published?
         redirect_to post_path(@post), notice: 'アウトプットしました。'
       else
-        redirect_to drafts_path, notice: '下書きに保存しました。'
+        redirect_to user_drafts_path, notice: '下書きに保存しました。'
       end
     else
       flash.now[:error] = 'アウトプットできませんでした。'
@@ -58,7 +58,7 @@ class PostsController < ApplicationController
       if @post.has_published?
         redirect_to post_path(@post), notice: '更新しました。'
       else
-        redirect_to drafts_path, notice: '下書きに保存しました。'
+        redirect_to user_drafts_path, notice: '下書きに保存しました。'
       end
     else
       flash.now[:error] = '更新できませんでした。'

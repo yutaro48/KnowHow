@@ -10,7 +10,7 @@ class User::ProfilesController < User::ApplicationController
     @profile = current_user.prepare_profile
     @profile.assign_attributes(profile_params)
     if @profile.save
-      redirect_to outputs_path, notice: '更新しました。'
+      redirect_to user_outputs_path, notice: '更新しました。'
     else
       flash.now[:error] = '更新できませんでした。'
       render :edit
@@ -24,7 +24,7 @@ class User::ProfilesController < User::ApplicationController
 
   def check_guest
     if current_user.email == 'guest@example.com'
-      redirect_to outputs_path, alert: 'ゲストユーザの編集はできません。'
+      redirect_to user_outputs_path, alert: 'ゲストユーザの編集はできません。'
     end
   end
 
