@@ -9,13 +9,13 @@
       %i.dropdown.icon.margin_left
       .menu
         .header ノウハウ
-        = link_to outputs_path, class: 'item' do
+        = link_to user_outputs_path, class: 'item' do
           %i.book.icon
           %span マイノウハウ
-        = link_to bookmarked_posts_path, class: 'item' do
+        = link_to user_bookmarked_posts_path, class: 'item' do
           %i.bookmark.icon
           %span ブックマーク
-        = link_to drafts_path, class: 'item' do
+        = link_to user_drafts_path, class: 'item' do
           %i.edit.outline.icon
           %span 下書き
         .divider

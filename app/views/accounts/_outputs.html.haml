@@ -1,12 +1,12 @@
 .ui.segment
   .ui.top.attached.label.tac
-    - if current_page?(outputs_path)
+    - if current_page?(user_outputs_path)
       %i.list.icon
       %span マイノウハウ(#{user.posts_count})
-    - elsif current_page?(bookmarked_posts_path)
+    - elsif current_page?(user_bookmarked_posts_path)
       %i.bookmark.icon
       %span ブックマークしたノウハウ(#{user.has_bookmarked_posts_count})
-    - elsif current_page?(drafts_path)
+    - elsif current_page?(user_drafts_path)
       %i.edit.icon
       %span 下書き(#{user.draft_count})
     - else current_page?(account_path)
