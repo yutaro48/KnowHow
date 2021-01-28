@@ -15,17 +15,23 @@ Rails.application.routes.draw do
     resource :bookmark, only: [:show, :create, :destroy]
   end
 
-  resources :drafts, only: [:index]
-
-  resource :profile, only: [:show, :edit, :update]
-  resources :outputs, only: [:index]
-  resources :bookmarked_posts, only: [:index]
+  # resources :drafts, only: [:index]
+  # resource :profile, only: [:show, :edit, :update]
+  # resources :outputs, only: [:index]
+  # resources :bookmarked_posts, only: [:index]
   resource :timeline, only: [:show]
 
   resources :accounts, only: [:index, :show] do
     resources :follows, only: [:create, :index]
     resources :unfollows, only: [:create, :index]
     resources :followers, only: [:index]
+  end
+
+  namespace :user do
+    resources :drafts, only: [:index]
+    resource :profile, only: [:show, :edit, :update]
+    resources :outputs, only: [:index]
+    resources :bookmarked_posts, only: [:index]
   end
 
 end
