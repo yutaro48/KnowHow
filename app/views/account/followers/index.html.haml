@@ -1,0 +1,15 @@
+= render 'commons/header', user: current_user
+.container
+  - if @user == current_user
+    = render 'commons/user_tab'
+  - else
+    = render 'commons/tab'
+
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_second', user: @user
+
+    .eight.wide.column
+      = render 'account/accounts/users', users: @followers
+
+    .four.wide.column

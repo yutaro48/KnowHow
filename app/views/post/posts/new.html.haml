@@ -1,0 +1,14 @@
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
+
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_first', user: current_user
+
+    .twelve.wide.column
+      -# = link_to :back do
+      -#   %button.ui.basic.button
+      -#     %i.angle.left.icon
+      -#     %span もどる
+      = render 'post/posts/form', post: @post

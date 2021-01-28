@@ -1,0 +1,12 @@
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/user_tab'
+
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_second', user: current_user
+
+    .eight.wide.column
+      = render 'account/accounts/outputs', user: current_user, posts: @posts 
+
+    .four.wide.column
