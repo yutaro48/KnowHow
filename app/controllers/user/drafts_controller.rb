@@ -1,4 +1,4 @@
-class DraftsController < ApplicationController
+class User::DraftsController < User::ApplicationController
   before_action :authenticate_user!
 
   def index

@@ -1,4 +1,4 @@
-class OutputsController < ApplicationController
+class User::OutputsController < User::ApplicationController
   before_action :authenticate_user!
 
   def index
