@@ -28,9 +28,9 @@ class Post::CommentsController < Post::ApplicationController
     post = Post.find(params[:post_id])
     @comment = current_user.comments.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to post_path(post), notice: '更新しました。'
+      redirect_to post_path(post), notice: 'コメントを更新しました。'
     else
-      flash.now[:error] = '更新できませんでした。'
+      flash.now[:error] = 'コメントを更新できませんでした。'
       render :edit
     end
   end
