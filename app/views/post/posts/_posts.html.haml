@@ -10,7 +10,7 @@
           = link_to knowhow_index_path, class: 'item' do
             %i.book.icon.blue
             %span 社内ノウハウ
-          = link_to user_bookmarked_posts_path, class: 'item' do
+          = link_to share_index_path, class: 'item' do
             %i.share.alternate.icon.green
             %span 共有事項
           = link_to user_drafts_path, class: 'item' do
@@ -20,6 +20,22 @@
       .ui.simple.dropdown.link
         %i.book.icon.blue
         %span 社内ノウハウ
+        %i.dropdown.icon.margin_left
+        .menu
+          .header.tac カテゴリー
+          = link_to knowhow_index_path, class: 'item' do
+            %i.book.icon.blue
+            %span 社内ノウハウ
+          = link_to user_bookmarked_posts_path, class: 'item' do
+            %i.share.alternate.icon.green
+            %span 共有事項
+          = link_to user_drafts_path, class: 'item' do
+            %i.newspaper.icon.pink
+            %span ニュース
+    - elsif current_page?(share_index_path)
+      .ui.simple.dropdown.link
+        %i.share.alternate.icon.green
+        %span 共有事項
         %i.dropdown.icon.margin_left
         .menu
           .header.tac カテゴリー
