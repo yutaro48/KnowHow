@@ -19,14 +19,15 @@
           %br/
           - @comments.each do |comment|
             .ui.top.attached.menu
-              .right.menu
-                .ui.simple.dropdown.icon.item
-                  %i.wrench.icon
-                  .menu
-                    = link_to edit_post_comment_path(@post, comment), class: 'item' do
-                      編集
-                    = link_to post_path(@post), data: { method: 'delete', confirm: '本当に削除してもいいですか？' }, class: 'item' do
-                      削除
+              - if user_signed_in? && current_user.has_commented?(comment)
+                .right.menu
+                  .ui.simple.dropdown.icon.item
+                    %i.wrench.icon
+                    .menu
+                      = link_to edit_post_comment_path(@post, comment), class: 'item' do
+                        編集
+                      = link_to post_comment_path(@post, comment), data: { method: 'delete', confirm: '本当に削除してもいいですか？' }, class: 'item' do
+                        削除
             .ui.middle.attached.segment
               .item.ui.grid.post_contents
                 .image.post_padding

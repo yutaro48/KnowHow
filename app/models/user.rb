@@ -47,6 +47,10 @@ class User < ApplicationRecord
     posts.exists?(id: post.id)
   end
 
+  def has_commented?(comment)
+    comments.exists?(id: comment.id)
+  end
+
   def prepare_profile
     profile || build_profile
   end
