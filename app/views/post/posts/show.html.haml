@@ -29,6 +29,7 @@
               .description
                 %p
                   = comment.content
+            = link_to '編集', edit_post_comment_path(@post, comment)
       
     .four.wide.column
       = render 'commons/history', histories: @histories
