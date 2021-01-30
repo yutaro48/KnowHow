@@ -1,0 +1,14 @@
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
+
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_first', user: current_user
+
+    .eight.wide.column
+      = render 'layouts/flash_messages'
+      = render 'post/posts/posts', posts: @posts
+      
+    .four.wide.column
+      = render 'commons/history', histories: @histories
