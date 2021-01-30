@@ -1,6 +1,6 @@
 .ui.secondary.pointing.menu
   = link_to posts_path do
-    .item{class: "#{'active' if current_page?(posts_path)}"}
+    .item{class: "#{'active' if current_page?(posts_path) || current_page?(knowhow_index_path) || current_page?(share_index_path) || current_page?(news_index_path) }"}
       %font{:style => "vertical-align: inherit;"}
         %font{:style => "vertical-align: inherit;"}
           ノウハウリスト

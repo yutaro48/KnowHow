@@ -1,8 +1,69 @@
 .ui.segment
   .ui.top.attached.label.tac
     - if current_page?(posts_path)
-      %i.list.icon
-      %span ノウハウリスト
+      .ui.simple.dropdown.link
+        %i.list.icon
+        %span ノウハウリスト
+        %i.dropdown.icon.margin_left
+        .menu
+          .header.tac カテゴリー
+          = link_to knowhow_index_path, class: 'item' do
+            %i.book.icon.blue
+            %span 社内ノウハウ
+          = link_to share_index_path, class: 'item' do
+            %i.share.alternate.icon.green
+            %span 共有事項
+          = link_to news_index_path, class: 'item' do
+            %i.newspaper.icon.pink
+            %span ニュース
+    - elsif current_page?(knowhow_index_path)
+      .ui.simple.dropdown.link
+        %i.book.icon.blue
+        %span 社内ノウハウ
+        %i.dropdown.icon.margin_left
+        .menu
+          .header.tac カテゴリー
+          = link_to knowhow_index_path, class: 'item' do
+            %i.book.icon.blue
+            %span 社内ノウハウ
+          = link_to share_index_path, class: 'item' do
+            %i.share.alternate.icon.green
+            %span 共有事項
+          = link_to news_index_path, class: 'item' do
+            %i.newspaper.icon.pink
+            %span ニュース
+    - elsif current_page?(share_index_path)
+      .ui.simple.dropdown.link
+        %i.share.alternate.icon.green
+        %span 共有事項
+        %i.dropdown.icon.margin_left
+        .menu
+          .header.tac カテゴリー
+          = link_to knowhow_index_path, class: 'item' do
+            %i.book.icon.blue
+            %span 社内ノウハウ
+          = link_to share_index_path, class: 'item' do
+            %i.share.alternate.icon.green
+            %span 共有事項
+          = link_to news_index_path, class: 'item' do
+            %i.newspaper.icon.pink
+            %span ニュース
+    - elsif current_page?(news_index_path)
+      .ui.simple.dropdown.link
+        %i.newspaper.icon.pink
+        %span ニュース
+        %i.dropdown.icon.margin_left
+        .menu
+          .header.tac カテゴリー
+          = link_to knowhow_index_path, class: 'item' do
+            %i.book.icon.blue
+            %span 社内ノウハウ
+          = link_to share_index_path, class: 'item' do
+            %i.share.alternate.icon.green
+            %span 共有事項
+          = link_to news_index_path, class: 'item' do
+            %i.newspaper.icon.pink
+            %span ニュース
     - else current_page?(timeline_path)
       %i.time.icon
       %span タイムライン
@@ -29,7 +90,6 @@
                 - else post.about_news?
                   %i.newspaper.icon.pink
                   %span.posts_subtitle ニュース
-                -# %span= post.category
                 .description
                   %p= post.title
                 .extra

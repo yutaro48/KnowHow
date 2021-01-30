@@ -16,6 +16,9 @@ Rails.application.routes.draw do
       resource :bookmark, only: [:show, :create, :destroy]
     end
 
+    resources :knowhow, only: [:index]
+    resources :share, only: [:index]
+    resources :news, only: [:index]
     resource :timeline, only: [:show]
   end
 
