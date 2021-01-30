@@ -1,8 +1,21 @@
 .ui.segment
   .ui.top.attached.label.tac
     - if current_page?(posts_path)
-      %i.list.icon
-      %span ノウハウリスト
+      .ui.simple.dropdown.link
+        %i.list.icon
+        %span ノウハウリスト
+        %i.dropdown.icon.margin_left
+        .menu
+          .header.tac カテゴリー
+          = link_to user_outputs_path, class: 'item' do
+            %i.book.icon.blue
+            %span 社内ノウハウ
+          = link_to user_bookmarked_posts_path, class: 'item' do
+            %i.share.alternate.icon.green
+            %span 共有事項
+          = link_to user_drafts_path, class: 'item' do
+            %i.newspaper.icon.pink
+            %span ニュース
     - else current_page?(timeline_path)
       %i.time.icon
       %span タイムライン
