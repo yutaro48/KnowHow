@@ -47,7 +47,7 @@ class User < ApplicationRecord
     posts.exists?(id: post.id)
   end
 
-  def has_outputted?(comment)
+  def has_commented?(comment)
     comments.exists?(id: comment.id)
   end
 

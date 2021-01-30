@@ -19,7 +19,7 @@
           %br/
           - @comments.each do |comment|
             .ui.top.attached.menu
-              - if user_signed_in? && current_user.has_outputted?(comment)
+              - if user_signed_in? && current_user.has_commented?(comment)
                 .right.menu
                   .ui.simple.dropdown.icon.item
                     %i.wrench.icon
