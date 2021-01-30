@@ -42,10 +42,10 @@
       = paginate posts
   - else
     - if current_page?(user_outputs_path)
-      %p.tac まだアウトプットしていません。
+      %p.tac.post_padding_large まだアウトプットしていません。
     - elsif current_page?(user_bookmarked_posts_path)
-      %p.tac ブックマークしたノウハウはありません。
+      %p.tac.post_padding_large ブックマークしたノウハウはありません。
     - elsif current_page?(user_drafts_path)
-      %p.tac 下書きしたノウハウはありません。
+      %p.tac.post_padding_large 下書きしたノウハウはありません。
     - else current_page?(account_path)
-      %p.tac まだアウトプットしていません。
+      %p.tac.post_padding_large まだアウトプットしていません。
