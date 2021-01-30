@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   scope module: :post do
     resources :posts do
-      resources :comments, only: [:new, :create]
+      resources :comments, only: [:new, :create, :edit, :update, :destroy]
       resource :bookmark, only: [:show, :create, :destroy]
     end
 

@@ -17,6 +17,27 @@ class Post::CommentsController < Post::ApplicationController
     end
   end
 
+  def edit
+    post = Post.find(params[:post_id])
+    @comment = current_user.comments.find(params[:id])
+
+    @histories = current_user.histories
+  end
+
+  def update
+    post = Post.find(params[:post_id])
+    @comment = current_user.comments.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to post_path(post), notice: 'コメントを更新しました。'
+    else
+      flash.now[:error] = 'コメントを更新できませんでした。'
+      render :edit
+    end
+  end
+
+  def destroy
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:content).merge(user_id: current_user.id)

@@ -1,0 +1,28 @@
+= render 'commons/header', user: current_user
+.container
+  = render 'commons/tab'
+
+  .ui.grid
+    .four.wide.column
+      = render 'commons/profile_first', user: current_user
+
+    .eight.wide.column
+      .ui.minimal.comments
+        %p.ui.horizontal.divider
+          %i.comments.icon
+          コメント
+        %br/
+        = form_with(model: @comment, url: post_comment_path(post_id: @comment.post, id: @comment), local: 'true') do |f|
+          .ui.form
+            .div.required.field
+              = f.label :content, 'コメントを書く'
+              = f.rich_text_area :content, placeholder: '内容を入力', class: 'form_height ui segment'
+            - if @comment.errors.include?(:content)
+              %p.ui.negative.message.form_message
+                %i.attention.circle.icon
+                = @comment.errors.full_messages_for(:content).first
+            .ui.field
+              = f.submit '保存', class: 'ui primary button'
+      
+    .four.wide.column
+      = render 'commons/history', histories: @histories
