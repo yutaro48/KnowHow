@@ -20,6 +20,8 @@ class Post::CommentsController < Post::ApplicationController
   def edit
     post = Post.find(params[:post_id])
     @comment = current_user.comments.find(params[:id])
+
+    @histories = current_user.histories
   end
 
   def update
