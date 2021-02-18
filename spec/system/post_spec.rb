@@ -12,7 +12,7 @@ RSpec.describe 'Post', type: :system do
     it 'ノウハウ一覧が表示される' do
       visit posts_path
       posts.each do |post|
-        expect(page).to have_content(post.title)
+        expect(page).to have_css('.description', text: post.title)
       end
     end
   end
