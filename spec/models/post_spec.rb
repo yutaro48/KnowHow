@@ -2,12 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   context 'タイトルと内容が入力されている場合' do
-    before do
-      user = User.create!({
+    let!(:user) do
+      User.create!({
         email: 'test@example.com',
         password: 'password'
       })
-      @post = user.posts.build({
+    end
+
+    let!(:post) do
+      user.posts.build({
         title: Faker::Lorem.characters(number: 10),
         content: Faker::Lorem.characters(number: 100)
       })
