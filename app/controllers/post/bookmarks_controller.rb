@@ -1,6 +1,4 @@
 class Post::BookmarksController < Post::ApplicationController
-  before_action :authenticate_user!
-
   def show
     post = Post.find(params[:post_id])
     bookmark_status = current_user.has_bookmarked?(post)
