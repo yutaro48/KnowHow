@@ -17,13 +17,13 @@ RSpec.describe "Posts", type: :request do
     end
   end
 
-  describe 'POST /articles' do
+  describe 'POST /posts' do
     context 'ログインしている場合' do
       before do
         sign_in user
       end
 
-      it '記事が保存される' do
+      it 'ノウハウが保存される' do
         post_params = attributes_for(:post)
         post posts_path(post: post_params)
         expect(response).to have_http_status(302)
