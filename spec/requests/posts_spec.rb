@@ -16,4 +16,20 @@ RSpec.describe "Posts", type: :request do
       end
     end
   end
+
+  describe 'POST /articles' do
+    context 'ログインしている場合' do
+      before do
+        sign_in user
+      end
+
+      it '記事が保存される' do
+        post_params = attributes_for(:post)
+        post posts_path(post: post_params)
+        expect(response).to have_http_status(302)
+        expect(Post.last.title).to eq(post_params[:title])
+        expect(Post.last.content.body.to_plain_text).to eq(post_params[:content])
+      end
+    end
+  end
 end
