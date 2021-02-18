@@ -4,12 +4,7 @@ RSpec.describe Post, type: :model do
   let!(:user) { create(:user) }
 
   context 'タイトルと内容が入力されている場合' do
-    let!(:post) do
-      user.posts.build({
-        title: Faker::Lorem.characters(number: 10),
-        content: Faker::Lorem.characters(number: 100)
-      })
-    end
+    let!(:post) { build(:post, user: user) }
 
     it 'ノウハウを保存できる' do
       expect(post).to be_valid
@@ -17,11 +12,10 @@ RSpec.describe Post, type: :model do
   end
 
   context 'タイトルの文字が1文字の場合' do
-    let!(:post) do
-      user.posts.create({
-        title: Faker::Lorem.characters(number: 1),
-        content: Faker::Lorem.characters(number: 100)
-      })
+    let!(:post) { build(:post, title: Faker::Lorem.characters(number: 1), user: user) }
+
+    before do
+      post.save
     end
 
     it 'ノウハウを保存できない' do
@@ -30,11 +24,10 @@ RSpec.describe Post, type: :model do
   end
 
   context 'タイトルの文字が30文字以上の場合' do
-    let!(:post) do
-      user.posts.create({
-        title: Faker::Lorem.characters(number: 40),
-        content: Faker::Lorem.characters(number: 100)
-      })
+    let!(:post) { build(:post, title: Faker::Lorem.characters(number: 40), user: user) }
+
+    before do
+      post.save
     end
 
     it 'ノウハウを保存できない' do
