@@ -16,4 +16,18 @@ RSpec.describe 'Post', type: :system do
       end
     end
   end
+
+  context 'ログインしている場合' do
+    before do
+      sign_in user
+    end
+
+    it 'ノウハウの詳細を表示できる' do
+      visit posts_path
+      post = posts.first
+      click_on post.title
+      expect(page).to have_css('.title', text: post.title)
+      expect(page).to have_css('.description', text: post.content.to_plain_text)
+    end
+  end
 end
