@@ -33,4 +33,17 @@ RSpec.describe Post, type: :model do
       expect(post.errors.messages[:title][0]).to eq('は2文字以上で入力してください')
     end
   end
+
+  context 'タイトルの文字が30文字以上の場合' do
+    let!(:post) do
+      user.posts.create({
+        title: Faker::Lorem.characters(number: 40),
+        content: Faker::Lorem.characters(number: 100)
+      })
+    end
+
+    it 'ノウハウを保存できない' do
+      expect(post.errors.messages[:title][0]).to eq('は30文字以内で入力してください')
+    end
+  end
 end
