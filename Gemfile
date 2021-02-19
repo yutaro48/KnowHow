@@ -29,6 +29,7 @@ gem 'semantic-ui-sass'
 gem 'faker'
 gem 'active_decorator'
 gem 'kaminari'
+gem 'aws-sdk-s3', require: false
 
 gem 'redcarpet'
 gem 'coderay' 
