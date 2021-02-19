@@ -30,7 +30,6 @@ gem 'faker'
 gem 'active_decorator'
 gem 'kaminari'
 
-#MarkDown記法を実装するため
 gem 'redcarpet'
 gem 'coderay' 
 
@@ -56,6 +55,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
