@@ -3,8 +3,6 @@
 
 ![top-page.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/864210/a1c07d8d-a520-de76-31ec-305b69eba0e8.gif)
 
-下記ページで公開中です！（現在AWSへのデプロイ挑戦中です！）
-https://knowhow-yutaro.herokuapp.com/
 <br>
 ###### このアプリでできることは以下の３点です
 <br>
