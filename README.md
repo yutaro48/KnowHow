@@ -3,9 +3,9 @@
 
 ![top-page.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/864210/a1c07d8d-a520-de76-31ec-305b69eba0e8.gif)
 
-<br>
-###### このアプリでできることは以下の３点です
-<br>
+
+このアプリでできることは以下の３点です
+
 
 **① ノウハウをアウトプットする**
 
@@ -107,13 +107,16 @@
 ▼開発環境
  * macOS Catalina(10.15.6)
  * Visual Studio Code
+ 
 ▼フロントエンド
  * Haml/Sass/JavaScript(jQuery)
  * Semantic UI
  * Bootstrap
+
 ▼バックエンド
  * ruby 2.6.5p114
  * Rails 6.0.3.4
+
 ▼インフラ
  * PostgreSQL(13.0)
  * Heroku
